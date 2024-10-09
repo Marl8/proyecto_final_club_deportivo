@@ -68,10 +68,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.FromArgb(53, 47, 80);
+            label1.BackColor = Color.DarkSlateBlue;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Snow;
-            label1.Location = new Point(495, 44);
+            label1.Location = new Point(502, 77);
             label1.Name = "label1";
             label1.Size = new Size(255, 32);
             label1.TabIndex = 1;
@@ -82,7 +82,7 @@
             lblUsuario.AutoSize = true;
             lblUsuario.BackColor = Color.FromArgb(53, 47, 80);
             lblUsuario.ForeColor = Color.Snow;
-            lblUsuario.Location = new Point(682, 19);
+            lblUsuario.Location = new Point(682, 9);
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(0, 15);
             lblUsuario.TabIndex = 45;
@@ -342,7 +342,7 @@
             pictureBox8.BackColor = Color.FromArgb(53, 47, 80);
             pictureBox8.Location = new Point(348, 0);
             pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(542, 98);
+            pictureBox8.Size = new Size(542, 52);
             pictureBox8.TabIndex = 70;
             pictureBox8.TabStop = false;
             // 
@@ -382,7 +382,7 @@
             MinimizeBox = false;
             Name = "InscribirNoSocio";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "InscribirNoSocio";
+            Text = "Inscribir No Socio";
             Load += InscribirNoSocio_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();

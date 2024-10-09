@@ -72,10 +72,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.FromArgb(53, 47, 80);
+            label1.BackColor = Color.DarkSlateBlue;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Snow;
-            label1.Location = new Point(515, 40);
+            label1.Location = new Point(515, 71);
             label1.Name = "label1";
             label1.Size = new Size(211, 32);
             label1.TabIndex = 0;
@@ -375,7 +375,7 @@
             pictureBox10.BackColor = Color.FromArgb(53, 47, 80);
             pictureBox10.Location = new Point(333, 0);
             pictureBox10.Name = "pictureBox10";
-            pictureBox10.Size = new Size(549, 95);
+            pictureBox10.Size = new Size(549, 51);
             pictureBox10.TabIndex = 68;
             pictureBox10.TabStop = false;
             // 
@@ -418,7 +418,7 @@
             MinimizeBox = false;
             Name = "InscribirSocio";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "InscribirSocio";
+            Text = "Inscribir Socio";
             Load += RegistrarSocio_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

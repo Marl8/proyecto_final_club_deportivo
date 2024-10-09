@@ -84,6 +84,12 @@ namespace proyecto_final_club_deportivo
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPassword.Clear();
                 txtUsername.Clear();
+                txtUsername.Text = "USUARIO";
+                txtUsername.ForeColor = Color.Gray;
+                txtPassword.Text = "CONTRASEÑA";
+                txtPassword.ForeColor = Color.Gray;
+                txtPassword.UseSystemPasswordChar = false;
+                txtUsername.Focus();
             }
         }
 

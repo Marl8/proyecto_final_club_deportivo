@@ -43,10 +43,10 @@
             // lblPagar
             // 
             lblPagar.AutoSize = true;
-            lblPagar.BackColor = Color.FromArgb(53, 47, 80);
+            lblPagar.BackColor = Color.DarkSlateBlue;
             lblPagar.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblPagar.ForeColor = Color.Snow;
-            lblPagar.Location = new Point(208, 19);
+            lblPagar.Location = new Point(217, 41);
             lblPagar.Name = "lblPagar";
             lblPagar.Size = new Size(96, 40);
             lblPagar.TabIndex = 0;
@@ -117,7 +117,7 @@
             pictureBox10.BackColor = Color.FromArgb(53, 47, 80);
             pictureBox10.Location = new Point(-1, -2);
             pictureBox10.Name = "pictureBox10";
-            pictureBox10.Size = new Size(528, 75);
+            pictureBox10.Size = new Size(528, 40);
             pictureBox10.TabIndex = 70;
             pictureBox10.TabStop = false;
             // 

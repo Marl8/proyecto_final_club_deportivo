@@ -55,10 +55,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.FromArgb(53, 47, 80);
+            label1.BackColor = Color.DarkSlateBlue;
             label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Snow;
-            label1.Location = new Point(421, 34);
+            label1.Location = new Point(442, 65);
             label1.Name = "label1";
             label1.Size = new Size(290, 37);
             label1.TabIndex = 0;
@@ -79,14 +79,14 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(-2, 1);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(337, 453);
+            pictureBox1.Size = new Size(353, 453);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
             // 
             // txtNombreAct
             // 
-            txtNombreAct.Location = new Point(495, 141);
+            txtNombreAct.Location = new Point(516, 142);
             txtNombreAct.Name = "txtNombreAct";
             txtNombreAct.Size = new Size(109, 23);
             txtNombreAct.TabIndex = 10;
@@ -98,7 +98,7 @@
             // 
             label2.AutoSize = true;
             label2.ForeColor = Color.Snow;
-            label2.Location = new Point(382, 144);
+            label2.Location = new Point(403, 145);
             label2.Name = "label2";
             label2.Size = new Size(107, 15);
             label2.TabIndex = 11;
@@ -108,7 +108,7 @@
             // 
             label3.AutoSize = true;
             label3.ForeColor = Color.Snow;
-            label3.Location = new Point(421, 203);
+            label3.Location = new Point(442, 204);
             label3.Name = "label3";
             label3.Size = new Size(68, 15);
             label3.TabIndex = 13;
@@ -116,7 +116,7 @@
             // 
             // txtDniNoSocio
             // 
-            txtDniNoSocio.Location = new Point(495, 200);
+            txtDniNoSocio.Location = new Point(516, 201);
             txtDniNoSocio.Name = "txtDniNoSocio";
             txtDniNoSocio.Size = new Size(109, 23);
             txtDniNoSocio.TabIndex = 12;
@@ -130,7 +130,7 @@
             buscarActividad.ForeColor = Color.Black;
             buscarActividad.Image = (Image)resources.GetObject("buscarActividad.Image");
             buscarActividad.ImageAlign = ContentAlignment.MiddleLeft;
-            buscarActividad.Location = new Point(610, 139);
+            buscarActividad.Location = new Point(631, 140);
             buscarActividad.Name = "buscarActividad";
             buscarActividad.Size = new Size(85, 25);
             buscarActividad.TabIndex = 14;
@@ -145,7 +145,7 @@
             buscarNoSocio.ForeColor = Color.Black;
             buscarNoSocio.Image = (Image)resources.GetObject("buscarNoSocio.Image");
             buscarNoSocio.ImageAlign = ContentAlignment.MiddleLeft;
-            buscarNoSocio.Location = new Point(610, 198);
+            buscarNoSocio.Location = new Point(631, 199);
             buscarNoSocio.Name = "buscarNoSocio";
             buscarNoSocio.Size = new Size(85, 25);
             buscarNoSocio.TabIndex = 15;
@@ -158,7 +158,7 @@
             // 
             label4.AutoSize = true;
             label4.ForeColor = Color.Snow;
-            label4.Location = new Point(416, 273);
+            label4.Location = new Point(423, 273);
             label4.Name = "label4";
             label4.Size = new Size(73, 15);
             label4.TabIndex = 17;
@@ -168,7 +168,7 @@
             // 
             label5.AutoSize = true;
             label5.ForeColor = Color.Snow;
-            label5.Location = new Point(572, 273);
+            label5.Location = new Point(579, 273);
             label5.Name = "label5";
             label5.Size = new Size(68, 15);
             label5.TabIndex = 19;
@@ -178,7 +178,7 @@
             // 
             txtIdNoSocio.BackColor = Color.LightGray;
             txtIdNoSocio.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtIdNoSocio.Location = new Point(646, 268);
+            txtIdNoSocio.Location = new Point(653, 268);
             txtIdNoSocio.Name = "txtIdNoSocio";
             txtIdNoSocio.Size = new Size(60, 28);
             txtIdNoSocio.TabIndex = 18;
@@ -189,7 +189,7 @@
             btnVolver.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnVolver.Image = Properties.Resources.volver;
             btnVolver.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVolver.Location = new Point(658, 379);
+            btnVolver.Location = new Point(675, 379);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(113, 36);
             btnVolver.TabIndex = 30;
@@ -205,7 +205,7 @@
             btnLimpiar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnLimpiar.Image = Properties.Resources.limpiar;
             btnLimpiar.ImageAlign = ContentAlignment.BottomLeft;
-            btnLimpiar.Location = new Point(366, 379);
+            btnLimpiar.Location = new Point(387, 379);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(123, 36);
             btnLimpiar.TabIndex = 32;
@@ -219,7 +219,7 @@
             // btnInscribir
             // 
             btnInscribir.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnInscribir.Location = new Point(512, 379);
+            btnInscribir.Location = new Point(530, 379);
             btnInscribir.Name = "btnInscribir";
             btnInscribir.Size = new Size(117, 36);
             btnInscribir.TabIndex = 33;
@@ -233,7 +233,7 @@
             // 
             txtIdActividad.BackColor = Color.LightGray;
             txtIdActividad.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtIdActividad.Location = new Point(495, 268);
+            txtIdActividad.Location = new Point(502, 268);
             txtIdActividad.Name = "txtIdActividad";
             txtIdActividad.Size = new Size(60, 28);
             txtIdActividad.TabIndex = 34;
@@ -242,18 +242,18 @@
             // pictureBox10
             // 
             pictureBox10.BackColor = Color.FromArgb(53, 47, 80);
-            pictureBox10.Location = new Point(331, 351);
+            pictureBox10.Location = new Point(348, 355);
             pictureBox10.Name = "pictureBox10";
-            pictureBox10.Size = new Size(471, 103);
+            pictureBox10.Size = new Size(474, 99);
             pictureBox10.TabIndex = 70;
             pictureBox10.TabStop = false;
             // 
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.FromArgb(53, 47, 80);
-            pictureBox2.Location = new Point(331, 1);
+            pictureBox2.Location = new Point(348, 1);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(471, 95);
+            pictureBox2.Size = new Size(474, 52);
             pictureBox2.TabIndex = 71;
             pictureBox2.TabStop = false;
             // 
@@ -262,7 +262,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkSlateBlue;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(819, 452);
             Controls.Add(txtIdActividad);
             Controls.Add(btnInscribir);
             Controls.Add(btnLimpiar);
@@ -286,7 +286,7 @@
             MinimizeBox = false;
             Name = "InscribirActividad";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "InscribirActividad";
+            Text = "Inscribir Actividad";
             Load += InscribirActividad_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
