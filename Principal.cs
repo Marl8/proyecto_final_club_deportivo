@@ -65,6 +65,77 @@ namespace proyecto_final_club_deportivo
             inscribirActividad.Show();
             this.Hide();
         }
+
+        private void btnRegistrarSocio_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnRegistrarSocio.BackColor = Color.DarkSlateBlue;
+        }
+
+        private void btnRegistrarSocio_MouseLeave(object sender, EventArgs e)
+        {
+            btnRegistrarSocio.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        private void btnImprimirCarnet_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnImprimirCarnet.BackColor = Color.DarkSlateBlue;
+        }
+
+        private void btnImprimirCarnet_MouseLeave(object sender, EventArgs e)
+        {
+            btnImprimirCarnet.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        private void btnRegistrarNoSocio_MouseMove(object sender, MouseEventArgs e)
+        {
+
+            btnRegistrarNoSocio.BackColor = Color.DarkSlateBlue;
+        }
+
+        private void btnRegistrarNoSocio_MouseLeave(object sender, EventArgs e)
+        {
+            btnRegistrarNoSocio.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        private void btnInscribirActividad_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnInscribirActividad.BackColor = Color.DarkSlateBlue;
+        }
+
+        private void btnInscribirActividad_MouseLeave(object sender, EventArgs e)
+        {
+            btnInscribirActividad.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        private void btnPagarCuota_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnPagarCuota.BackColor = Color.DarkSlateBlue;
+        }
+
+        private void btnPagarCuota_MouseLeave(object sender, EventArgs e)
+        {
+            btnPagarCuota.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        private void btnListarSocios_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnListarSocios.BackColor = Color.DarkSlateBlue;
+        }
+
+        private void btnListarSocios_MouseLeave(object sender, EventArgs e)
+        {
+            btnListarSocios.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        private void btnSalir_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnSalir.BackColor = Color.FromArgb(104, 90, 158);
+        }
+
+        private void btnSalir_MouseLeave(object sender, EventArgs e)
+        {
+            btnSalir.BackColor = Color.FromArgb(192, 192, 255);
+        }
     }
 }
 

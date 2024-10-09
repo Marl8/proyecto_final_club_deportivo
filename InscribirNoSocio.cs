@@ -200,5 +200,35 @@ namespace proyecto_final_club_deportivo
                 txtTelefono.ForeColor = Color.Gray;
             }
         }
+
+        private void btnLimpiar_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnLimpiar.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        private void btnLimpiar_MouseLeave(object sender, EventArgs e)
+        {
+            btnLimpiar.BackColor = Color.White;
+        }
+
+        private void btnInscribir_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnInscribir.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        private void btnInscribir_MouseLeave(object sender, EventArgs e)
+        {
+            btnInscribir.BackColor = Color.White;
+        }
+
+        private void btnVolver_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnVolver.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        private void btnVolver_MouseLeave(object sender, EventArgs e)
+        {
+            btnVolver.BackColor = Color.White;
+        }
     }
 }

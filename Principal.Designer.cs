@@ -57,7 +57,7 @@
             // 
             // btnRegistrarSocio
             // 
-            btnRegistrarSocio.BackColor = Color.FromArgb(128, 128, 255);
+            btnRegistrarSocio.BackColor = Color.FromArgb(192, 192, 255);
             btnRegistrarSocio.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnRegistrarSocio.ForeColor = Color.Black;
             btnRegistrarSocio.Location = new Point(12, 26);
@@ -67,10 +67,12 @@
             btnRegistrarSocio.Text = "INSCRIBIR SOCIO";
             btnRegistrarSocio.UseVisualStyleBackColor = false;
             btnRegistrarSocio.Click += btnRegistrarSocio_Click;
+            btnRegistrarSocio.MouseLeave += btnRegistrarSocio_MouseLeave;
+            btnRegistrarSocio.MouseMove += btnRegistrarSocio_MouseMove;
             // 
             // btnRegistrarNoSocio
             // 
-            btnRegistrarNoSocio.BackColor = Color.FromArgb(128, 128, 255);
+            btnRegistrarNoSocio.BackColor = Color.FromArgb(192, 192, 255);
             btnRegistrarNoSocio.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnRegistrarNoSocio.ForeColor = Color.Black;
             btnRegistrarNoSocio.Location = new Point(12, 162);
@@ -80,6 +82,8 @@
             btnRegistrarNoSocio.Text = "INSCRIBIR NO SOCIO";
             btnRegistrarNoSocio.UseVisualStyleBackColor = false;
             btnRegistrarNoSocio.Click += btnRegistrarNoSocio_Click;
+            btnRegistrarNoSocio.MouseLeave += btnRegistrarNoSocio_MouseLeave;
+            btnRegistrarNoSocio.MouseMove += btnRegistrarNoSocio_MouseMove;
             // 
             // btnImprimirCarnet
             // 
@@ -92,6 +96,8 @@
             btnImprimirCarnet.TabIndex = 3;
             btnImprimirCarnet.Text = "IMPRIMIR CARNET";
             btnImprimirCarnet.UseVisualStyleBackColor = false;
+            btnImprimirCarnet.MouseLeave += btnImprimirCarnet_MouseLeave;
+            btnImprimirCarnet.MouseMove += btnImprimirCarnet_MouseMove;
             // 
             // btnInscribirActividad
             // 
@@ -105,19 +111,23 @@
             btnInscribirActividad.Text = "INSCRIBIR ACTIVIDAD";
             btnInscribirActividad.UseVisualStyleBackColor = false;
             btnInscribirActividad.Click += btnInscribirActividad_Click;
+            btnInscribirActividad.MouseLeave += btnInscribirActividad_MouseLeave;
+            btnInscribirActividad.MouseMove += btnInscribirActividad_MouseMove;
             // 
             // btnPagarCuota
             // 
-            btnPagarCuota.BackColor = Color.FromArgb(128, 128, 255);
+            btnPagarCuota.BackColor = Color.FromArgb(192, 192, 255);
             btnPagarCuota.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnPagarCuota.ForeColor = Color.Black;
-            btnPagarCuota.Location = new Point(12, 301);
+            btnPagarCuota.Location = new Point(12, 303);
             btnPagarCuota.Name = "btnPagarCuota";
             btnPagarCuota.Size = new Size(182, 50);
             btnPagarCuota.TabIndex = 5;
             btnPagarCuota.Text = "PAGAR ";
             btnPagarCuota.UseVisualStyleBackColor = false;
             btnPagarCuota.Click += btnPagarCuota_Click;
+            btnPagarCuota.MouseLeave += btnPagarCuota_MouseLeave;
+            btnPagarCuota.MouseMove += btnPagarCuota_MouseMove;
             // 
             // btnListarSocios
             // 
@@ -130,6 +140,8 @@
             btnListarSocios.TabIndex = 6;
             btnListarSocios.Text = "LISTAR SOCIOS";
             btnListarSocios.UseVisualStyleBackColor = false;
+            btnListarSocios.MouseLeave += btnListarSocios_MouseLeave;
+            btnListarSocios.MouseMove += btnListarSocios_MouseMove;
             // 
             // lblUsuario
             // 
@@ -155,6 +167,8 @@
             btnSalir.TextAlign = ContentAlignment.MiddleRight;
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
+            btnSalir.MouseLeave += btnSalir_MouseLeave;
+            btnSalir.MouseMove += btnSalir_MouseMove;
             // 
             // pictureBox1
             // 

@@ -37,7 +37,7 @@ namespace proyecto_final_club_deportivo
             if (txtNombreAct.Text.Equals("Actividad"))
             {
                 MessageBox.Show("Debe ingresar una actividad", "AVISO DEL SISTEMA",
-                    MessageBoxButtons.OK,MessageBoxIcon.Error);                
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -80,7 +80,8 @@ namespace proyecto_final_club_deportivo
         {
             int idActividad;
             int idCliente;
-            if (txtIdNoSocio.Text != "" && txtIdActividad.Text != "") {
+            if (txtIdNoSocio.Text != "" && txtIdActividad.Text != "")
+            {
                 idActividad = int.Parse(txtIdActividad.Text);
                 idCliente = int.Parse(txtIdNoSocio.Text);
 
@@ -91,7 +92,7 @@ namespace proyecto_final_club_deportivo
                     MessageBox.Show("OCURRIÓ UN ERROR INTENTE NUEVAMENTE", "AVISO DEL SISTEMA",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else if(int.Parse(respuesta) == 1)
+                else if (int.Parse(respuesta) == 1)
                 {
                     MessageBox.Show("Se inscribió con éxito el cliente con Nro. de No socio "
                         + txtIdNoSocio.Text + " en la actividad " + txtNombreAct.Text.ToUpper(),
@@ -165,6 +166,36 @@ namespace proyecto_final_club_deportivo
             txtNombreAct.ForeColor = Color.Gray;
             txtDniNoSocio.ForeColor = Color.Gray; ;
             txtNombreAct.Focus();
+        }
+
+        private void btnLimpiar_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnLimpiar.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        private void btnLimpiar_MouseLeave(object sender, EventArgs e)
+        {
+            btnLimpiar.BackColor = Color.White;
+        }
+
+        private void btnInscribir_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnInscribir.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        private void btnInscribir_MouseLeave(object sender, EventArgs e)
+        {
+            btnInscribir.BackColor = Color.White;
+        }
+
+        private void btnVolver_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnVolver.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        private void btnVolver_MouseLeave(object sender, EventArgs e)
+        {
+            btnVolver.BackColor = Color.White;
         }
     }
 }

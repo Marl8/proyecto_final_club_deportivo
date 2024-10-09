@@ -197,6 +197,8 @@
             btnVolver.TextAlign = ContentAlignment.MiddleRight;
             btnVolver.UseVisualStyleBackColor = true;
             btnVolver.Click += btnVolver_Click;
+            btnVolver.MouseLeave += btnVolver_MouseLeave;
+            btnVolver.MouseMove += btnVolver_MouseMove;
             // 
             // btnLimpiar
             // 
@@ -211,6 +213,8 @@
             btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
             btnLimpiar.UseVisualStyleBackColor = true;
             btnLimpiar.Click += btnLimpiar_Click;
+            btnLimpiar.MouseLeave += btnLimpiar_MouseLeave;
+            btnLimpiar.MouseMove += btnLimpiar_MouseMove;
             // 
             // btnInscribir
             // 
@@ -222,6 +226,8 @@
             btnInscribir.Text = "INSCRIBIR";
             btnInscribir.UseVisualStyleBackColor = true;
             btnInscribir.Click += btnInscribir_Click;
+            btnInscribir.MouseLeave += btnInscribir_MouseLeave;
+            btnInscribir.MouseMove += btnInscribir_MouseMove;
             // 
             // txtIdActividad
             // 

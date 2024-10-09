@@ -83,7 +83,7 @@ namespace proyecto_final_club_deportivo
                 bool convertido = int.TryParse(respuesta, out int codigo);
                 if (convertido)
                 {
-                    if (codigo == 1) 
+                    if (codigo == 1)
                     {
                         MessageBox.Show("SOCIO YA EXISTE", "AVISO DEL SISTEMA",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -203,6 +203,36 @@ namespace proyecto_final_club_deportivo
             cmbEstado.Text = "--select--";
             cmbAptoFisico.Text = "--select--";
             txtNombre.Focus();
+        }
+
+        private void btnLimpiar_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnLimpiar.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        private void btnLimpiar_MouseLeave(object sender, EventArgs e)
+        {
+            btnLimpiar.BackColor = Color.White;
+        }
+
+        private void btnInscribir_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnInscribir.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        private void btnInscribir_MouseLeave(object sender, EventArgs e)
+        {
+            btnInscribir.BackColor = Color.White;
+        }
+
+        private void btnVolver_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnVolver.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        private void btnVolver_MouseLeave(object sender, EventArgs e)
+        {
+            btnVolver.BackColor = Color.White;
         }
     }
 }

@@ -70,12 +70,12 @@ namespace proyecto_final_club_deportivo
                 string dni = tablaLogin.Rows[0][2].ToString();
                 string username = tablaLogin.Rows[0][3].ToString();
                 string rol = tablaLogin.Rows[0][4].ToString();
-                user = new Entities.Usuario(nombre,apellido,dni,username,rol);
+                user = new Entities.Usuario(nombre, apellido, dni, username, rol);
 
                 Principal form = new Principal();
                 form.usuario = username;
                 form.rol = rol;
-                form.Show(); 
+                form.Show();
                 this.Hide();
             }
             else
@@ -85,6 +85,16 @@ namespace proyecto_final_club_deportivo
                 txtPassword.Clear();
                 txtUsername.Clear();
             }
+        }
+
+        private void btnIngresar_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnIngresar.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        private void btnIngresar_MouseLeave(object sender, EventArgs e)
+        {
+            btnIngresar.BackColor = Color.White;
         }
     }
 }
