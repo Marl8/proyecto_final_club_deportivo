@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            btnLimpiar = new Button();
-            btnInscribir = new Button();
-            btnVolver = new Button();
             lblUsuario = new Label();
             pictureBox1 = new PictureBox();
             pictureBox6 = new PictureBox();
@@ -52,6 +49,9 @@
             cmbAptoFisico = new ComboBox();
             label7 = new Label();
             pictureBox7 = new PictureBox();
+            btnVolver = new Button();
+            btnInscribir = new Button();
+            btnLimpiar = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -71,45 +71,6 @@
             label1.Size = new Size(255, 32);
             label1.TabIndex = 1;
             label1.Text = "INSCRIBIR NO SOCIO";
-            // 
-            // btnLimpiar
-            // 
-            btnLimpiar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnLimpiar.Image = Properties.Resources.limpiar;
-            btnLimpiar.ImageAlign = ContentAlignment.BottomLeft;
-            btnLimpiar.Location = new Point(391, 358);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(126, 42);
-            btnLimpiar.TabIndex = 31;
-            btnLimpiar.Text = "LIMPIAR";
-            btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
-            btnLimpiar.UseVisualStyleBackColor = true;
-            btnLimpiar.Click += btnLimpiar_Click;
-            // 
-            // btnInscribir
-            // 
-            btnInscribir.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnInscribir.Location = new Point(552, 358);
-            btnInscribir.Name = "btnInscribir";
-            btnInscribir.Size = new Size(141, 42);
-            btnInscribir.TabIndex = 30;
-            btnInscribir.Text = "INSCRIBIR";
-            btnInscribir.UseVisualStyleBackColor = true;
-            btnInscribir.Click += btnInscribir_Click;
-            // 
-            // btnVolver
-            // 
-            btnVolver.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnVolver.Image = Properties.Resources.volver;
-            btnVolver.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVolver.Location = new Point(726, 358);
-            btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(113, 42);
-            btnVolver.TabIndex = 29;
-            btnVolver.Text = "VOLVER";
-            btnVolver.TextAlign = ContentAlignment.MiddleRight;
-            btnVolver.UseVisualStyleBackColor = true;
-            btnVolver.Click += btnVolver_Click;
             // 
             // lblUsuario
             // 
@@ -316,12 +277,54 @@
             pictureBox7.TabIndex = 63;
             pictureBox7.TabStop = false;
             // 
+            // btnVolver
+            // 
+            btnVolver.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnVolver.Image = Properties.Resources.volver;
+            btnVolver.ImageAlign = ContentAlignment.MiddleLeft;
+            btnVolver.Location = new Point(732, 358);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(113, 42);
+            btnVolver.TabIndex = 64;
+            btnVolver.Text = "VOLVER";
+            btnVolver.TextAlign = ContentAlignment.MiddleRight;
+            btnVolver.UseVisualStyleBackColor = true;
+            btnVolver.Click += btnVolver_Click;
+            // 
+            // btnInscribir
+            // 
+            btnInscribir.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnInscribir.Location = new Point(554, 358);
+            btnInscribir.Name = "btnInscribir";
+            btnInscribir.Size = new Size(141, 42);
+            btnInscribir.TabIndex = 65;
+            btnInscribir.Text = "INSCRIBIR";
+            btnInscribir.UseVisualStyleBackColor = true;
+            btnInscribir.Click += btnInscribir_Click;
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLimpiar.Image = Properties.Resources.limpiar;
+            btnLimpiar.ImageAlign = ContentAlignment.BottomLeft;
+            btnLimpiar.Location = new Point(382, 358);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(126, 42);
+            btnLimpiar.TabIndex = 66;
+            btnLimpiar.Text = "LIMPIAR";
+            btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
+            btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
+            // 
             // InscribirNoSocio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkSlateBlue;
             ClientSize = new Size(889, 452);
+            Controls.Add(btnLimpiar);
+            Controls.Add(btnInscribir);
+            Controls.Add(btnVolver);
             Controls.Add(pictureBox7);
             Controls.Add(label7);
             Controls.Add(cmbAptoFisico);
@@ -341,9 +344,6 @@
             Controls.Add(txtApellido);
             Controls.Add(txtNombre);
             Controls.Add(lblUsuario);
-            Controls.Add(btnLimpiar);
-            Controls.Add(btnInscribir);
-            Controls.Add(btnVolver);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             MaximizeBox = false;
@@ -365,9 +365,6 @@
 
         #endregion
         private Label label1;
-        private Button btnLimpiar;
-        private Button btnInscribir;
-        private Button btnVolver;
         private Label lblUsuario;
         private PictureBox pictureBox1;
         private PictureBox pictureBox6;
@@ -388,5 +385,8 @@
         private ComboBox cmbAptoFisico;
         private Label label7;
         private PictureBox pictureBox7;
+        private Button btnVolver;
+        private Button btnInscribir;
+        private Button btnLimpiar;
     }
 }
