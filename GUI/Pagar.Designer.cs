@@ -32,7 +32,7 @@
             lblPagar = new Label();
             btnPagarCuota = new Button();
             pictureBox1 = new PictureBox();
-            button2 = new Button();
+            btnPagoDiario = new Button();
             lblUsuario = new Label();
             btnVolver = new Button();
             pictureBox10 = new PictureBox();
@@ -61,6 +61,8 @@
             btnPagarCuota.TabIndex = 1;
             btnPagarCuota.Text = "PAGO CUOTA";
             btnPagarCuota.UseVisualStyleBackColor = true;
+            btnPagarCuota.MouseLeave += btnPagarCuota_MouseLeave;
+            btnPagarCuota.MouseMove += btnPagarCuota_MouseMove;
             // 
             // pictureBox1
             // 
@@ -72,15 +74,17 @@
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
-            // button2
+            // btnPagoDiario
             // 
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(293, 186);
-            button2.Name = "button2";
-            button2.Size = new Size(172, 58);
-            button2.TabIndex = 3;
-            button2.Text = "PAGO DIARIO";
-            button2.UseVisualStyleBackColor = true;
+            btnPagoDiario.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnPagoDiario.Location = new Point(293, 186);
+            btnPagoDiario.Name = "btnPagoDiario";
+            btnPagoDiario.Size = new Size(172, 58);
+            btnPagoDiario.TabIndex = 3;
+            btnPagoDiario.Text = "PAGO DIARIO";
+            btnPagoDiario.UseVisualStyleBackColor = true;
+            btnPagoDiario.MouseLeave += btnPagoDiario_MouseLeave;
+            btnPagoDiario.MouseMove += btnPagoDiario_MouseMove;
             // 
             // lblUsuario
             // 
@@ -105,6 +109,8 @@
             btnVolver.TextAlign = ContentAlignment.MiddleRight;
             btnVolver.UseVisualStyleBackColor = true;
             btnVolver.Click += btnVolver_Click;
+            btnVolver.MouseLeave += btnVolver_MouseLeave;
+            btnVolver.MouseMove += btnVolver_MouseMove;
             // 
             // pictureBox10
             // 
@@ -123,7 +129,7 @@
             ClientSize = new Size(528, 366);
             Controls.Add(btnVolver);
             Controls.Add(lblUsuario);
-            Controls.Add(button2);
+            Controls.Add(btnPagoDiario);
             Controls.Add(pictureBox1);
             Controls.Add(btnPagarCuota);
             Controls.Add(lblPagar);
@@ -145,7 +151,7 @@
         private Label lblPagar;
         private Button btnPagarCuota;
         private PictureBox pictureBox1;
-        private Button button2;
+        private Button btnPagoDiario;
         private Label lblUsuario;
         private Button btnVolver;
         private PictureBox pictureBox10;
