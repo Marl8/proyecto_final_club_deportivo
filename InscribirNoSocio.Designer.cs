@@ -52,6 +52,8 @@
             btnVolver = new Button();
             btnInscribir = new Button();
             btnLimpiar = new Button();
+            pictureBox10 = new PictureBox();
+            pictureBox8 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -59,14 +61,17 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.FromArgb(53, 47, 80);
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Snow;
-            label1.Location = new Point(492, 68);
+            label1.Location = new Point(495, 44);
             label1.Name = "label1";
             label1.Size = new Size(255, 32);
             label1.TabIndex = 1;
@@ -75,8 +80,9 @@
             // lblUsuario
             // 
             lblUsuario.AutoSize = true;
+            lblUsuario.BackColor = Color.FromArgb(53, 47, 80);
             lblUsuario.ForeColor = Color.Snow;
-            lblUsuario.Location = new Point(665, 18);
+            lblUsuario.Location = new Point(682, 19);
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(0, 15);
             lblUsuario.TabIndex = 45;
@@ -282,7 +288,7 @@
             btnVolver.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnVolver.Image = Properties.Resources.volver;
             btnVolver.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVolver.Location = new Point(732, 358);
+            btnVolver.Location = new Point(732, 376);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(113, 42);
             btnVolver.TabIndex = 64;
@@ -294,7 +300,7 @@
             // btnInscribir
             // 
             btnInscribir.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnInscribir.Location = new Point(554, 358);
+            btnInscribir.Location = new Point(553, 376);
             btnInscribir.Name = "btnInscribir";
             btnInscribir.Size = new Size(141, 42);
             btnInscribir.TabIndex = 65;
@@ -307,7 +313,7 @@
             btnLimpiar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnLimpiar.Image = Properties.Resources.limpiar;
             btnLimpiar.ImageAlign = ContentAlignment.BottomLeft;
-            btnLimpiar.Location = new Point(382, 358);
+            btnLimpiar.Location = new Point(391, 376);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(126, 42);
             btnLimpiar.TabIndex = 66;
@@ -315,6 +321,24 @@
             btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
             btnLimpiar.UseVisualStyleBackColor = true;
             btnLimpiar.Click += btnLimpiar_Click;
+            // 
+            // pictureBox10
+            // 
+            pictureBox10.BackColor = Color.FromArgb(53, 47, 80);
+            pictureBox10.Location = new Point(348, 354);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(542, 100);
+            pictureBox10.TabIndex = 69;
+            pictureBox10.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.BackColor = Color.FromArgb(53, 47, 80);
+            pictureBox8.Location = new Point(348, 0);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new Size(542, 98);
+            pictureBox8.TabIndex = 70;
+            pictureBox8.TabStop = false;
             // 
             // InscribirNoSocio
             // 
@@ -346,6 +370,8 @@
             Controls.Add(lblUsuario);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
+            Controls.Add(pictureBox10);
+            Controls.Add(pictureBox8);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "InscribirNoSocio";
@@ -359,6 +385,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -388,5 +416,7 @@
         private Button btnVolver;
         private Button btnInscribir;
         private Button btnLimpiar;
+        private PictureBox pictureBox10;
+        private PictureBox pictureBox8;
     }
 }

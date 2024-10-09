@@ -45,15 +45,20 @@
             btnLimpiar = new Button();
             btnInscribir = new Button();
             txtIdActividad = new TextBox();
+            pictureBox10 = new PictureBox();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.FromArgb(53, 47, 80);
             label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Snow;
-            label1.Location = new Point(430, 60);
+            label1.Location = new Point(421, 34);
             label1.Name = "label1";
             label1.Size = new Size(290, 37);
             label1.TabIndex = 0;
@@ -62,8 +67,9 @@
             // lblUsuario
             // 
             lblUsuario.AutoSize = true;
+            lblUsuario.BackColor = Color.FromArgb(53, 47, 80);
             lblUsuario.ForeColor = Color.Snow;
-            lblUsuario.Location = new Point(587, 19);
+            lblUsuario.Location = new Point(604, 9);
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(0, 15);
             lblUsuario.TabIndex = 8;
@@ -183,7 +189,7 @@
             btnVolver.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnVolver.Image = Properties.Resources.volver;
             btnVolver.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVolver.Location = new Point(655, 350);
+            btnVolver.Location = new Point(658, 379);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(113, 36);
             btnVolver.TabIndex = 30;
@@ -197,7 +203,7 @@
             btnLimpiar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnLimpiar.Image = Properties.Resources.limpiar;
             btnLimpiar.ImageAlign = ContentAlignment.BottomLeft;
-            btnLimpiar.Location = new Point(366, 350);
+            btnLimpiar.Location = new Point(366, 379);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(123, 36);
             btnLimpiar.TabIndex = 32;
@@ -209,7 +215,7 @@
             // btnInscribir
             // 
             btnInscribir.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnInscribir.Location = new Point(512, 350);
+            btnInscribir.Location = new Point(512, 379);
             btnInscribir.Name = "btnInscribir";
             btnInscribir.Size = new Size(117, 36);
             btnInscribir.TabIndex = 33;
@@ -226,6 +232,24 @@
             txtIdActividad.Size = new Size(60, 28);
             txtIdActividad.TabIndex = 34;
             txtIdActividad.TextAlign = HorizontalAlignment.Center;
+            // 
+            // pictureBox10
+            // 
+            pictureBox10.BackColor = Color.FromArgb(53, 47, 80);
+            pictureBox10.Location = new Point(331, 351);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(471, 103);
+            pictureBox10.TabIndex = 70;
+            pictureBox10.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.FromArgb(53, 47, 80);
+            pictureBox2.Location = new Point(331, 1);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(471, 95);
+            pictureBox2.TabIndex = 71;
+            pictureBox2.TabStop = false;
             // 
             // InscribirActividad
             // 
@@ -249,6 +273,8 @@
             Controls.Add(pictureBox1);
             Controls.Add(lblUsuario);
             Controls.Add(label1);
+            Controls.Add(pictureBox10);
+            Controls.Add(pictureBox2);
             ForeColor = Color.Black;
             MaximizeBox = false;
             MinimizeBox = false;
@@ -257,6 +283,8 @@
             Text = "InscribirActividad";
             Load += InscribirActividad_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -279,5 +307,7 @@
         private Button btnLimpiar;
         private Button btnInscribir;
         private TextBox txtIdActividad;
+        private PictureBox pictureBox10;
+        private PictureBox pictureBox2;
     }
 }

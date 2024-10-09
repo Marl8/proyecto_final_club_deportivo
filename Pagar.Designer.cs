@@ -35,15 +35,18 @@
             button2 = new Button();
             lblUsuario = new Label();
             btnVolver = new Button();
+            pictureBox10 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             SuspendLayout();
             // 
             // lblPagar
             // 
             lblPagar.AutoSize = true;
+            lblPagar.BackColor = Color.FromArgb(53, 47, 80);
             lblPagar.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblPagar.ForeColor = Color.Snow;
-            lblPagar.Location = new Point(210, 36);
+            lblPagar.Location = new Point(208, 19);
             lblPagar.Name = "lblPagar";
             lblPagar.Size = new Size(96, 40);
             lblPagar.TabIndex = 0;
@@ -82,8 +85,9 @@
             // lblUsuario
             // 
             lblUsuario.AutoSize = true;
+            lblUsuario.BackColor = Color.FromArgb(53, 47, 80);
             lblUsuario.ForeColor = Color.Snow;
-            lblUsuario.Location = new Point(323, 21);
+            lblUsuario.Location = new Point(322, 9);
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(0, 15);
             lblUsuario.TabIndex = 8;
@@ -102,6 +106,15 @@
             btnVolver.UseVisualStyleBackColor = true;
             btnVolver.Click += btnVolver_Click;
             // 
+            // pictureBox10
+            // 
+            pictureBox10.BackColor = Color.FromArgb(53, 47, 80);
+            pictureBox10.Location = new Point(-1, -2);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(528, 75);
+            pictureBox10.TabIndex = 70;
+            pictureBox10.TabStop = false;
+            // 
             // Pagar
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -114,6 +127,7 @@
             Controls.Add(pictureBox1);
             Controls.Add(btnPagarCuota);
             Controls.Add(lblPagar);
+            Controls.Add(pictureBox10);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Pagar";
@@ -121,6 +135,7 @@
             Text = "Pagar";
             Load += Pagar_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -133,5 +148,6 @@
         private Button button2;
         private Label lblUsuario;
         private Button btnVolver;
+        private PictureBox pictureBox10;
     }
 }

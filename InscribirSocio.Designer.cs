@@ -55,6 +55,8 @@
             pictureBox8 = new PictureBox();
             label8 = new Label();
             cmbAptoFisico = new ComboBox();
+            pictureBox9 = new PictureBox();
+            pictureBox10 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -63,14 +65,17 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.FromArgb(53, 47, 80);
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Snow;
-            label1.Location = new Point(511, 68);
+            label1.Location = new Point(515, 40);
             label1.Name = "label1";
             label1.Size = new Size(211, 32);
             label1.TabIndex = 0;
@@ -140,7 +145,7 @@
             btnVolver.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnVolver.Image = Properties.Resources.volver;
             btnVolver.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVolver.Location = new Point(711, 380);
+            btnVolver.Location = new Point(711, 393);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(113, 42);
             btnVolver.TabIndex = 7;
@@ -152,7 +157,7 @@
             // btnInscribir
             // 
             btnInscribir.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnInscribir.Location = new Point(540, 380);
+            btnInscribir.Location = new Point(540, 393);
             btnInscribir.Name = "btnInscribir";
             btnInscribir.Size = new Size(141, 42);
             btnInscribir.TabIndex = 8;
@@ -163,6 +168,7 @@
             // lblUsuario
             // 
             lblUsuario.AutoSize = true;
+            lblUsuario.BackColor = Color.FromArgb(53, 47, 80);
             lblUsuario.ForeColor = Color.Snow;
             lblUsuario.Location = new Point(656, 9);
             lblUsuario.Name = "lblUsuario";
@@ -174,7 +180,7 @@
             btnLimpiar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnLimpiar.Image = Properties.Resources.limpiar;
             btnLimpiar.ImageAlign = ContentAlignment.BottomLeft;
-            btnLimpiar.Location = new Point(385, 380);
+            btnLimpiar.Location = new Point(383, 393);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(126, 42);
             btnLimpiar.TabIndex = 10;
@@ -349,6 +355,24 @@
             cmbAptoFisico.Size = new Size(98, 23);
             cmbAptoFisico.TabIndex = 64;
             // 
+            // pictureBox9
+            // 
+            pictureBox9.BackColor = Color.FromArgb(53, 47, 80);
+            pictureBox9.Location = new Point(333, 371);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new Size(549, 105);
+            pictureBox9.TabIndex = 67;
+            pictureBox9.TabStop = false;
+            // 
+            // pictureBox10
+            // 
+            pictureBox10.BackColor = Color.FromArgb(53, 47, 80);
+            pictureBox10.Location = new Point(333, 0);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(549, 95);
+            pictureBox10.TabIndex = 68;
+            pictureBox10.TabStop = false;
+            // 
             // InscribirSocio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -382,6 +406,8 @@
             Controls.Add(txtApellido);
             Controls.Add(txtNombre);
             Controls.Add(label1);
+            Controls.Add(pictureBox9);
+            Controls.Add(pictureBox10);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "InscribirSocio";
@@ -396,6 +422,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -429,5 +457,7 @@
         private PictureBox pictureBox8;
         private Label label8;
         private ComboBox cmbAptoFisico;
+        private PictureBox pictureBox9;
+        private PictureBox pictureBox10;
     }
 }
