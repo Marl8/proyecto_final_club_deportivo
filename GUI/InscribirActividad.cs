@@ -30,6 +30,9 @@ namespace proyecto_final_club_deportivo
             txtIdNoSocio.Enabled = false;
             txtDniNoSocio.ForeColor = Color.Gray;
             txtNombreAct.ForeColor = Color.Gray;
+            txtDiaHabilitado.Value = DateTime.Now.Date;
+            txtDiaHabilitado.MinDate = DateTime.Now.Date;
+            //txtDiaHabilitado.Enabled = false;
         }
 
         private void buscarActividad_Click(object sender, EventArgs e)
@@ -80,23 +83,15 @@ namespace proyecto_final_club_deportivo
         {
             int idActividad;
             int idCliente;
-            string respuesta = "";
             if (txtIdNoSocio.Text != "" && txtIdActividad.Text != "")
             {
                 idActividad = int.Parse(txtIdActividad.Text);
                 idCliente = int.Parse(txtIdNoSocio.Text);
-                DateTime diaHabilitado = new DateTime();
-                if (txtDiaHabilitado.Value.Date >= DateTime.Now.Date) {
-                    diaHabilitado = txtDiaHabilitado.Value;
-                    respuesta = controller.inscribirActividad(idCliente, idActividad, diaHabilitado);
-                }
+               
+                DateTime diaHabilitado = txtDiaHabilitado.Value;
+                string respuesta = controller.inscribirActividad(idCliente, idActividad, diaHabilitado);
 
-                if (respuesta.Equals(""))
-                {
-                    MessageBox.Show("LA FECHA NO PUEDE SER ANTERIOR A LA ACTUAL", "AVISO DEL SISTEMA",
-                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else if (int.Parse(respuesta) == 0)
+                if (int.Parse(respuesta) == 0)
                 {
                     MessageBox.Show("OCURRIÓ UN ERROR INTENTE NUEVAMENTE", "AVISO DEL SISTEMA",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -119,7 +114,6 @@ namespace proyecto_final_club_deportivo
                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
@@ -173,7 +167,7 @@ namespace proyecto_final_club_deportivo
             txtIdActividad.Text = "";
             txtIdNoSocio.Text = "";
             txtNombreAct.ForeColor = Color.Gray;
-            txtDniNoSocio.ForeColor = Color.Gray; ;
+            txtDniNoSocio.ForeColor = Color.Gray;
             txtNombreAct.Focus();
         }
 

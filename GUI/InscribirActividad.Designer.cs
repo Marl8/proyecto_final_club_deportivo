@@ -261,6 +261,9 @@
             // 
             // txtDiaHabilitado
             // 
+            txtDiaHabilitado.CalendarFont = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            txtDiaHabilitado.CalendarTitleForeColor = SystemColors.ActiveCaption;
+            txtDiaHabilitado.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             txtDiaHabilitado.Format = DateTimePickerFormat.Custom;
             txtDiaHabilitado.Location = new Point(577, 248);
             txtDiaHabilitado.Name = "txtDiaHabilitado";
