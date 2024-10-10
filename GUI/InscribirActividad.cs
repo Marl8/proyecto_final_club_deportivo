@@ -80,14 +80,23 @@ namespace proyecto_final_club_deportivo
         {
             int idActividad;
             int idCliente;
+            string respuesta = "";
             if (txtIdNoSocio.Text != "" && txtIdActividad.Text != "")
             {
                 idActividad = int.Parse(txtIdActividad.Text);
                 idCliente = int.Parse(txtIdNoSocio.Text);
+                DateTime diaHabilitado = new DateTime();
+                if (txtDiaHabilitado.Value.Date >= DateTime.Now.Date) {
+                    diaHabilitado = txtDiaHabilitado.Value;
+                    respuesta = controller.inscribirActividad(idCliente, idActividad, diaHabilitado);
+                }
 
-                string respuesta = controller.inscribirActividad(idCliente, idActividad);
-
-                if (int.Parse(respuesta) == 0)
+                if (respuesta.Equals(""))
+                {
+                    MessageBox.Show("LA FECHA NO PUEDE SER ANTERIOR A LA ACTUAL", "AVISO DEL SISTEMA",
+                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (int.Parse(respuesta) == 0)
                 {
                     MessageBox.Show("OCURRIÓ UN ERROR INTENTE NUEVAMENTE", "AVISO DEL SISTEMA",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);

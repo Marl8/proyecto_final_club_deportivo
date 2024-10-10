@@ -11,9 +11,9 @@ namespace proyecto_final_club_deportivo.Logica
     {
         ActividadRepository actividadRepository = new ActividadRepository();
 
-        public string inscribirActividad(int idNoSocio, int idActividad)
+        public string inscribirActividad(int idNoSocio, int idActividad, DateTime diaHabilitado)
         {
-            return actividadRepository.inscribirActividad(idNoSocio, idActividad);
+            return actividadRepository.inscribirActividad(idNoSocio, idActividad, diaHabilitado);
         }
 
         public string buscarActividad(string nombreAct) 

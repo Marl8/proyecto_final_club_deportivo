@@ -12,7 +12,7 @@ namespace proyecto_final_club_deportivo.Datos
 {
     internal class ActividadRepository
     {
-        public string inscribirActividad(int idNoSocio, int idActividad) {
+        public string inscribirActividad(int idNoSocio, int idActividad, DateTime diaHabilitado) {
             string respuesta;
             MySqlConnection sqlCon = new MySqlConnection();
             try
@@ -23,7 +23,7 @@ namespace proyecto_final_club_deportivo.Datos
 
                 comando.Parameters.Add("idNoSocio", MySqlDbType.Int32).Value = idNoSocio;
                 comando.Parameters.Add("idActividad", MySqlDbType.Int32).Value = idActividad;
-      
+                comando.Parameters.Add("diaHabilitado", MySqlDbType.Date).Value = diaHabilitado.Date;
                 MySqlParameter opRealizada = new MySqlParameter();
                 opRealizada.ParameterName = "respuesta";
                 opRealizada.MySqlDbType = MySqlDbType.Int32;
