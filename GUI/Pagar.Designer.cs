@@ -83,6 +83,7 @@
             btnPagoDiario.TabIndex = 3;
             btnPagoDiario.Text = "PAGO DIARIO";
             btnPagoDiario.UseVisualStyleBackColor = true;
+            btnPagoDiario.Click += btnPagoDiario_Click;
             btnPagoDiario.MouseLeave += btnPagoDiario_MouseLeave;
             btnPagoDiario.MouseMove += btnPagoDiario_MouseMove;
             // 

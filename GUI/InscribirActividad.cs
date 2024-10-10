@@ -44,7 +44,7 @@ namespace proyecto_final_club_deportivo
             }
             else
             {
-                string idAct = controller.buscarActividad(txtNombreAct.Text.ToLower());
+                string idAct = controller.buscarIdActividad(txtNombreAct.Text.ToLower());
                 if (int.Parse(idAct) != 0)
                 {
                     txtIdActividad.Text = idAct;

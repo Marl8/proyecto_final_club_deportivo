@@ -1,4 +1,5 @@
-﻿using System;
+﻿using proyecto_final_club_deportivo.GUI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -62,6 +63,15 @@ namespace proyecto_final_club_deportivo
         private void btnVolver_MouseLeave(object sender, EventArgs e)
         {
             btnVolver.BackColor = Color.White;
+        }
+
+        private void btnPagoDiario_Click(object sender, EventArgs e)
+        {
+            PagoDiario pago = new PagoDiario();
+            pago.usuario = usuario;
+            pago.rol = rol;
+            pago.Show();
+            this.Hide();
         }
     }
 }

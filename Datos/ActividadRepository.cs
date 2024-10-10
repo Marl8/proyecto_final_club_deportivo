@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace proyecto_final_club_deportivo.Datos
 {
@@ -45,14 +46,14 @@ namespace proyecto_final_club_deportivo.Datos
             return respuesta;
         }
 
-        public string buscarActividad(string nombreAct)
+        public string buscarIdActividad(string nombreAct)
         {
             string respuesta;
             MySqlConnection sqlCon = new MySqlConnection();
             try
             {
                 sqlCon = Conexion.getInstancia().CrearConexion();
-                MySqlCommand comando = new MySqlCommand("buscarActividad", sqlCon);
+                MySqlCommand comando = new MySqlCommand("buscarIdActividad", sqlCon);
                 comando.CommandType = CommandType.StoredProcedure;
 
                 comando.Parameters.Add("nombreActividad", MySqlDbType.VarChar).Value = nombreAct;
@@ -98,6 +99,72 @@ namespace proyecto_final_club_deportivo.Datos
                 sqlCon.Open();
                 comando.ExecuteNonQuery();
                 respuesta = Convert.ToString(idNoSocio.Value);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open)
+                { sqlCon.Close(); };
+            }
+            return respuesta;
+        }
+
+        public DataTable buscarActividad(string nombreAct)
+        {
+            MySqlDataReader resultado;
+            DataTable tabla = new DataTable();
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                MySqlCommand comando = new MySqlCommand("buscarActividad", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+
+                comando.Parameters.Add("nombreActividad", MySqlDbType.VarChar).Value = nombreAct;
+                
+                sqlCon.Open();
+                resultado = comando.ExecuteReader();
+                tabla.Load(resultado);
+                return tabla;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open)
+                {
+                    sqlCon.Close();
+                }
+            }
+        }
+
+        public string pagarActividad(int idNoSocio, int idAct, DateTime dia)
+        {
+            string respuesta;
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                MySqlCommand comando = new MySqlCommand("pagoDiario", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+
+                comando.Parameters.Add("idNoSocio", MySqlDbType.Int32).Value = idNoSocio;
+                comando.Parameters.Add("idActividad", MySqlDbType.Int32).Value = idAct;
+                comando.Parameters.Add("diaHabilitado", MySqlDbType.Date).Value = dia.Date;
+
+                MySqlParameter codigo = new MySqlParameter();
+                codigo.ParameterName = "respuesta";
+                codigo.MySqlDbType = MySqlDbType.Int32;
+                codigo.Direction = ParameterDirection.Output;
+                comando.Parameters.Add(codigo);
+                sqlCon.Open();
+                comando.ExecuteNonQuery();
+                respuesta = Convert.ToString(codigo.Value);
             }
             catch (Exception)
             {

@@ -1,6 +1,7 @@
 ﻿using proyecto_final_club_deportivo.Datos;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,12 @@ namespace proyecto_final_club_deportivo.Logica
             return actividadRepository.inscribirActividad(idNoSocio, idActividad, diaHabilitado);
         }
 
-        public string buscarActividad(string nombreAct) 
+        public string buscarIdActividad(string nombreAct) 
+        {
+            return actividadRepository.buscarIdActividad(nombreAct);
+        }
+
+        public DataTable buscarActividad(string nombreAct)
         {
             return actividadRepository.buscarActividad(nombreAct);
         }
@@ -24,6 +30,11 @@ namespace proyecto_final_club_deportivo.Logica
         public string buscarNoSocio(string dniCliente)
         {
             return actividadRepository.buscarNoSocio(dniCliente);
+        }
+
+        public string pagarActividadDiaria(int idNoSocio, int idAct, DateTime dia)
+        {
+            return pagarActividadDiaria(idNoSocio, idAct, dia);
         }
     }
 }
