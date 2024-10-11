@@ -99,10 +99,10 @@
             // txtMonto
             // 
             txtMonto.BackColor = Color.LightGray;
-            txtMonto.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            txtMonto.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             txtMonto.Location = new Point(361, 227);
             txtMonto.Name = "txtMonto";
-            txtMonto.Size = new Size(93, 27);
+            txtMonto.Size = new Size(93, 28);
             txtMonto.TabIndex = 18;
             txtMonto.Text = "0";
             txtMonto.TextAlign = HorizontalAlignment.Center;
@@ -143,6 +143,7 @@
             btnInscribir.TabIndex = 74;
             btnInscribir.Text = "PAGAR";
             btnInscribir.UseVisualStyleBackColor = true;
+            btnInscribir.Click += btnInscribir_Click;
             // 
             // btnLimpiar
             // 
@@ -156,6 +157,7 @@
             btnLimpiar.Text = "LIMPIAR";
             btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // btnVolver
             // 
@@ -182,17 +184,18 @@
             // 
             // buscarNoSocio
             // 
-            buscarNoSocio.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            buscarNoSocio.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             buscarNoSocio.ForeColor = Color.Black;
             buscarNoSocio.Image = (Image)resources.GetObject("buscarNoSocio.Image");
             buscarNoSocio.ImageAlign = ContentAlignment.MiddleLeft;
-            buscarNoSocio.Location = new Point(470, 167);
+            buscarNoSocio.Location = new Point(470, 164);
             buscarNoSocio.Name = "buscarNoSocio";
-            buscarNoSocio.Size = new Size(100, 30);
+            buscarNoSocio.Size = new Size(100, 32);
             buscarNoSocio.TabIndex = 78;
             buscarNoSocio.Text = "BUSCAR";
             buscarNoSocio.TextAlign = ContentAlignment.MiddleRight;
             buscarNoSocio.UseVisualStyleBackColor = true;
+            buscarNoSocio.Click += buscarNoSocio_Click;
             // 
             // label3
             // 
@@ -211,6 +214,8 @@
             txtDniNoSocio.Size = new Size(118, 23);
             txtDniNoSocio.TabIndex = 76;
             txtDniNoSocio.Text = "DNI";
+            txtDniNoSocio.Enter += txtDniNoSocio_Enter;
+            txtDniNoSocio.Leave += txtDniNoSocio_Leave;
             // 
             // label5
             // 

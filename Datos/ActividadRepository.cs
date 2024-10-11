@@ -143,7 +143,7 @@ namespace proyecto_final_club_deportivo.Datos
             }
         }
 
-        public string pagarActividad(int idNoSocio, int idAct, DateTime dia)
+        public string pagarActividad(int idNoSocio, int idAct, DateTime dia, double monto)
         {
             string respuesta;
             MySqlConnection sqlCon = new MySqlConnection();
@@ -156,6 +156,7 @@ namespace proyecto_final_club_deportivo.Datos
                 comando.Parameters.Add("idNoSocio", MySqlDbType.Int32).Value = idNoSocio;
                 comando.Parameters.Add("idActividad", MySqlDbType.Int32).Value = idAct;
                 comando.Parameters.Add("diaHabilitado", MySqlDbType.Date).Value = dia.Date;
+                comando.Parameters.Add("monto", MySqlDbType.Double).Value = monto;
 
                 MySqlParameter codigo = new MySqlParameter();
                 codigo.ParameterName = "respuesta";

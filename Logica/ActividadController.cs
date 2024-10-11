@@ -32,9 +32,9 @@ namespace proyecto_final_club_deportivo.Logica
             return actividadRepository.buscarNoSocio(dniCliente);
         }
 
-        public string pagarActividadDiaria(int idNoSocio, int idAct, DateTime dia)
+        public string pagarActividadDiaria(int idNoSocio, int idAct, DateTime dia, double monto)
         {
-            return pagarActividadDiaria(idNoSocio, idAct, dia);
+            return actividadRepository.pagarActividad(idNoSocio, idAct, dia, monto);
         }
     }
 }

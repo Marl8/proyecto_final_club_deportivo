@@ -39,7 +39,7 @@
             label1 = new Label();
             txtMontoTotal = new TextBox();
             label3 = new Label();
-            btnInscribir = new Button();
+            btnAceptar = new Button();
             btnLimpiar = new Button();
             btnVolver = new Button();
             pictureBox10 = new PictureBox();
@@ -93,6 +93,8 @@
             txtNombreAct.Size = new Size(96, 23);
             txtNombreAct.TabIndex = 18;
             txtNombreAct.Text = "Actividad";
+            txtNombreAct.Enter += txtNombreAct_Enter;
+            txtNombreAct.Leave += txtNombreAct_Leave;
             // 
             // txtIdActividad
             // 
@@ -156,15 +158,16 @@
             label3.TabIndex = 39;
             label3.Text = "Monto Total:";
             // 
-            // btnInscribir
+            // btnAceptar
             // 
-            btnInscribir.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnInscribir.Location = new Point(190, 284);
-            btnInscribir.Name = "btnInscribir";
-            btnInscribir.Size = new Size(117, 36);
-            btnInscribir.TabIndex = 77;
-            btnInscribir.Text = "ACEPTAR";
-            btnInscribir.UseVisualStyleBackColor = true;
+            btnAceptar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAceptar.Location = new Point(190, 284);
+            btnAceptar.Name = "btnAceptar";
+            btnAceptar.Size = new Size(117, 36);
+            btnAceptar.TabIndex = 77;
+            btnAceptar.Text = "ACEPTAR";
+            btnAceptar.UseVisualStyleBackColor = true;
+            btnAceptar.Click += btnAceptar_Click;
             // 
             // btnLimpiar
             // 
@@ -178,6 +181,7 @@
             btnLimpiar.Text = "LIMPIAR";
             btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // btnVolver
             // 
@@ -228,7 +232,7 @@
             BackColor = Color.DarkSlateBlue;
             ClientSize = new Size(487, 344);
             Controls.Add(lblUsuario);
-            Controls.Add(btnInscribir);
+            Controls.Add(btnAceptar);
             Controls.Add(btnLimpiar);
             Controls.Add(btnVolver);
             Controls.Add(txtMontoTotal);
@@ -265,7 +269,7 @@
         private Label label1;
         private TextBox txtMontoTotal;
         private Label label3;
-        private Button btnInscribir;
+        private Button btnAceptar;
         private Button btnLimpiar;
         private Button btnVolver;
         private PictureBox pictureBox10;

@@ -88,6 +88,7 @@ namespace proyecto_final_club_deportivo
                 idActividad = int.Parse(txtIdActividad.Text);
                 idCliente = int.Parse(txtIdNoSocio.Text);
                
+                //Se asigna el dia habilitado para la práctica de la actividad diaria.
                 DateTime diaHabilitado = txtDiaHabilitado.Value;
                 string respuesta = controller.inscribirActividad(idCliente, idActividad, diaHabilitado);
 

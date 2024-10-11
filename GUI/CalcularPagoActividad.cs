@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +19,7 @@ namespace proyecto_final_club_deportivo.GUI
         internal string? usuario;
         internal ActividadController controller = new ActividadController();
         public List<int> ListaIds { get; set; } = new List<int>();
+        public List<double> ListaMontos { get; set; } = new List<double>();
         public double MontoTotal { get; set; }
 
         public CalcularPagoActividad()
@@ -42,11 +44,28 @@ namespace proyecto_final_club_deportivo.GUI
             this.Hide();
         }
 
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            PagoDiario pago = new PagoDiario();
+            pago.usuario = this.usuario;
+            pago.rol = this.rol;
+            pago.montoTotal = this.MontoTotal;
+            pago.ListaIds = this.ListaIds;
+            pago.ListaMontos = this.ListaMontos;
+            pago.Show();
+            this.Hide();
+        }
+
+
+        /**
+         * El siguiente método busca las actividades inscriptas que el NoSocio desea
+         * pagar para su práctica diaria y calcula el monto total a pagar.
+         **/
         private void buscarActividad_Click(object sender, EventArgs e)
         {
             DataTable tablaActividad = new DataTable();
-            Actividad actividad; 
-            if(txtNombreAct.Text != "Actividad" && txtNombreAct.Text != "")
+            Actividad actividad;
+            if (txtNombreAct.Text != "Actividad" && txtNombreAct.Text != "")
             {
                 tablaActividad = controller.buscarActividad(txtNombreAct.Text.ToLower());
                 string id = tablaActividad.Rows[0][0].ToString();
@@ -57,16 +76,46 @@ namespace proyecto_final_club_deportivo.GUI
                 actividad = new Actividad(idActividad, nombre, valorActividad);
 
                 this.ListaIds.Add(actividad.IdActividad);
+                this.ListaMontos.Add(actividad.ValorActividad);
                 this.MontoTotal += actividad.ValorActividad;
                 txtIdActividad.Text = actividad.IdActividad.ToString();
                 txtValorDiario.Text = "$ " + actividad.ValorActividad.ToString() + ".-";
                 txtMontoTotal.Text = "$ " + this.MontoTotal.ToString() + ".-";
+                txtNombreAct.Text = "Actividad";
+                txtNombreAct.ForeColor = Color.Gray;
             }
             else
             {
                 MessageBox.Show("Debe indicarse una actividad", "AVISO DEL SISTEMA",
                   MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtNombreAct_Enter(object sender, EventArgs e)
+        {
+            if (txtNombreAct.Text == "Actividad")
+            {
+                txtNombreAct.Text = "";
+                txtNombreAct.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtNombreAct_Leave(object sender, EventArgs e)
+        {
+            if (txtNombreAct.Text == "")
+            {
+                txtNombreAct.Text = "Actividad";
+                txtNombreAct.ForeColor = Color.Gray;
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtNombreAct.Text = "Actividad";
+            txtNombreAct.ForeColor = Color.Gray;
+            txtIdActividad.Clear();
+            txtMontoTotal.Text = "0";
+            txtValorDiario.Text = "0";
         }
     }
 }
