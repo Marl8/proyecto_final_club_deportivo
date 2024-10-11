@@ -66,7 +66,7 @@
             btnIngresar.TabIndex = 5;
             btnIngresar.Text = "INGRESAR";
             btnIngresar.UseVisualStyleBackColor = true;
-            btnIngresar.Click += button1_Click;
+            btnIngresar.Click += btnIngresar_Click;
             btnIngresar.MouseLeave += btnIngresar_MouseLeave;
             btnIngresar.MouseMove += btnIngresar_MouseMove;
             // 

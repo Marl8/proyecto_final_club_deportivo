@@ -116,7 +116,7 @@
             // pictureBox10
             // 
             pictureBox10.BackColor = Color.FromArgb(53, 47, 80);
-            pictureBox10.Location = new Point(-1, -2);
+            pictureBox10.Location = new Point(-4, -2);
             pictureBox10.Name = "pictureBox10";
             pictureBox10.Size = new Size(533, 40);
             pictureBox10.TabIndex = 70;

@@ -33,7 +33,7 @@
             btnRegistrarSocio = new Button();
             btnRegistrarNoSocio = new Button();
             btnImprimirCarnet = new Button();
-            btnInscribirActividad = new Button();
+            btnGestionarNoSocio = new Button();
             btnPagarCuota = new Button();
             btnListarSocios = new Button();
             lblUsuario = new Label();
@@ -99,20 +99,20 @@
             btnImprimirCarnet.MouseLeave += btnImprimirCarnet_MouseLeave;
             btnImprimirCarnet.MouseMove += btnImprimirCarnet_MouseMove;
             // 
-            // btnInscribirActividad
+            // btnGestionarNoSocio
             // 
-            btnInscribirActividad.BackColor = Color.FromArgb(192, 192, 255);
-            btnInscribirActividad.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnInscribirActividad.ForeColor = Color.Black;
-            btnInscribirActividad.Location = new Point(12, 235);
-            btnInscribirActividad.Name = "btnInscribirActividad";
-            btnInscribirActividad.Size = new Size(182, 47);
-            btnInscribirActividad.TabIndex = 4;
-            btnInscribirActividad.Text = "INSCRIBIR ACTIVIDAD";
-            btnInscribirActividad.UseVisualStyleBackColor = false;
-            btnInscribirActividad.Click += btnInscribirActividad_Click;
-            btnInscribirActividad.MouseLeave += btnInscribirActividad_MouseLeave;
-            btnInscribirActividad.MouseMove += btnInscribirActividad_MouseMove;
+            btnGestionarNoSocio.BackColor = Color.FromArgb(192, 192, 255);
+            btnGestionarNoSocio.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnGestionarNoSocio.ForeColor = Color.Black;
+            btnGestionarNoSocio.Location = new Point(12, 235);
+            btnGestionarNoSocio.Name = "btnGestionarNoSocio";
+            btnGestionarNoSocio.Size = new Size(182, 47);
+            btnGestionarNoSocio.TabIndex = 4;
+            btnGestionarNoSocio.Text = "GESTIONAR NO SOCIO";
+            btnGestionarNoSocio.UseVisualStyleBackColor = false;
+            btnGestionarNoSocio.Click += btnInscribirActividad_Click;
+            btnGestionarNoSocio.MouseLeave += btnInscribirActividad_MouseLeave;
+            btnGestionarNoSocio.MouseMove += btnInscribirActividad_MouseMove;
             // 
             // btnPagarCuota
             // 
@@ -200,7 +200,7 @@
             Controls.Add(lblUsuario);
             Controls.Add(btnListarSocios);
             Controls.Add(btnPagarCuota);
-            Controls.Add(btnInscribirActividad);
+            Controls.Add(btnGestionarNoSocio);
             Controls.Add(btnImprimirCarnet);
             Controls.Add(btnRegistrarNoSocio);
             Controls.Add(btnRegistrarSocio);
@@ -225,7 +225,7 @@
         private Button btnRegistrarSocio;
         private Button btnRegistrarNoSocio;
         private Button btnImprimirCarnet;
-        private Button btnInscribirActividad;
+        private Button btnGestionarNoSocio;
         private Button btnPagarCuota;
         private Button btnListarSocios;
         private Label lblUsuario;

@@ -30,7 +30,7 @@ namespace proyecto_final_club_deportivo.GUI
             InitializeComponent();
             txtDiaHabilitado.Value = dia;
             txtIdNoSocio.Text = idNoSocio;
-            txtMonto.Text = monto;
+            txtMonto.Text = "$ " + monto + ".-";
         }
 
         private void PagoDiario_Load(object sender, EventArgs e)

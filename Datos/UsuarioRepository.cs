@@ -43,8 +43,7 @@ namespace proyecto_final_club_deportivo.Datos
                 {
                     sqlCon.Close();
                 }
-            }
-            
+            }           
         }
     }
 }

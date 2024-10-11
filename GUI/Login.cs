@@ -4,6 +4,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Net;
 using System.Windows.Forms;
 using proyecto_final_club_deportivo.Logica;
+using proyecto_final_club_deportivo.Entities;
 
 namespace proyecto_final_club_deportivo
 {
@@ -56,10 +57,10 @@ namespace proyecto_final_club_deportivo
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnIngresar_Click(object sender, EventArgs e)
         {
             DataTable tablaLogin = new DataTable();
-            Entities.Usuario user;
+            Usuario user;
             tablaLogin = UsuarioController.login(txtUsername.Text, txtPassword.Text);
             if (tablaLogin.Rows.Count > 0)
             {
@@ -70,7 +71,7 @@ namespace proyecto_final_club_deportivo
                 string dni = tablaLogin.Rows[0][2].ToString();
                 string username = tablaLogin.Rows[0][3].ToString();
                 string rol = tablaLogin.Rows[0][4].ToString();
-                user = new Entities.Usuario(nombre, apellido, dni, username, rol);
+                user = new Usuario(nombre, apellido, dni, username, rol);
 
                 Principal form = new Principal();
                 form.usuario = username;

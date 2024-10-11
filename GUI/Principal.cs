@@ -1,4 +1,5 @@
-﻿using System;
+﻿using proyecto_final_club_deportivo.GUI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -59,10 +60,10 @@ namespace proyecto_final_club_deportivo
 
         private void btnInscribirActividad_Click(object sender, EventArgs e)
         {
-            InscribirActividad inscribirActividad = new InscribirActividad();
-            inscribirActividad.usuario = usuario;
-            inscribirActividad.rol = rol;
-            inscribirActividad.Show();
+            GestionarNoSocios noSocios = new GestionarNoSocios();
+            noSocios.usuario = usuario;
+            noSocios.rol = rol;
+            noSocios.Show();
             this.Hide();
         }
 
@@ -99,12 +100,12 @@ namespace proyecto_final_club_deportivo
 
         private void btnInscribirActividad_MouseMove(object sender, MouseEventArgs e)
         {
-            btnInscribirActividad.BackColor = Color.DarkSlateBlue;
+            btnGestionarNoSocio.BackColor = Color.DarkSlateBlue;
         }
 
         private void btnInscribirActividad_MouseLeave(object sender, EventArgs e)
         {
-            btnInscribirActividad.BackColor = Color.FromArgb(192, 192, 255);
+            btnGestionarNoSocio.BackColor = Color.FromArgb(192, 192, 255);
         }
 
         private void btnPagarCuota_MouseMove(object sender, MouseEventArgs e)
