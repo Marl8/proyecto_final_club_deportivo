@@ -117,5 +117,36 @@ namespace proyecto_final_club_deportivo.GUI
             txtMontoTotal.Text = "0";
             txtValorDiario.Text = "0";
         }
+
+        private void btnLimpiar_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnLimpiar.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        private void btnLimpiar_MouseLeave(object sender, EventArgs e)
+        {
+            btnLimpiar.BackColor = Color.White;
+        }
+
+        private void btnAceptar_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnAceptar.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        private void btnAceptar_MouseLeave(object sender, EventArgs e)
+        {
+            btnAceptar.BackColor = Color.White;
+        }
+
+        private void btnVolver_MouseMove(object sender, MouseEventArgs e)
+        {
+
+            btnVolver.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        private void btnVolver_MouseLeave(object sender, EventArgs e)
+        {
+            btnVolver.BackColor = Color.White;
+        }
     }
 }

@@ -161,5 +161,35 @@ namespace proyecto_final_club_deportivo.GUI
             txtDniNoSocio.ForeColor = Color.Gray;
             txtDiaHabilitado.Value = DateTime.Now.Date;
         }
+
+        private void btnLimpiar_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnLimpiar.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        private void btnLimpiar_MouseLeave(object sender, EventArgs e)
+        {
+            btnLimpiar.BackColor = Color.White;
+        }
+
+        private void btnInscribir_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnPagar.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        private void btnPagar_MouseLeave(object sender, EventArgs e)
+        {
+            btnPagar.BackColor = Color.White;
+        }
+
+        private void btnVolver_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnVolver.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        private void btnVolver_MouseLeave(object sender, EventArgs e)
+        {
+            btnVolver.BackColor = Color.White;
+        }
     }
 }

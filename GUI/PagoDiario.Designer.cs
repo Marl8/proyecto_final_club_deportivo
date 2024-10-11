@@ -37,7 +37,7 @@
             txtDiaHabilitado = new DateTimePicker();
             label4 = new Label();
             pictureBox10 = new PictureBox();
-            btnInscribir = new Button();
+            btnPagar = new Button();
             btnLimpiar = new Button();
             btnVolver = new Button();
             pictureBox2 = new PictureBox();
@@ -134,16 +134,18 @@
             pictureBox10.TabIndex = 71;
             pictureBox10.TabStop = false;
             // 
-            // btnInscribir
+            // btnPagar
             // 
-            btnInscribir.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnInscribir.Location = new Point(271, 365);
-            btnInscribir.Name = "btnInscribir";
-            btnInscribir.Size = new Size(117, 36);
-            btnInscribir.TabIndex = 74;
-            btnInscribir.Text = "PAGAR";
-            btnInscribir.UseVisualStyleBackColor = true;
-            btnInscribir.Click += btnInscribir_Click;
+            btnPagar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnPagar.Location = new Point(271, 365);
+            btnPagar.Name = "btnPagar";
+            btnPagar.Size = new Size(117, 36);
+            btnPagar.TabIndex = 74;
+            btnPagar.Text = "PAGAR";
+            btnPagar.UseVisualStyleBackColor = true;
+            btnPagar.Click += btnInscribir_Click;
+            btnPagar.MouseLeave += btnPagar_MouseLeave;
+            btnPagar.MouseMove += btnInscribir_MouseMove;
             // 
             // btnLimpiar
             // 
@@ -158,6 +160,8 @@
             btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
             btnLimpiar.UseVisualStyleBackColor = true;
             btnLimpiar.Click += btnLimpiar_Click;
+            btnLimpiar.MouseLeave += btnLimpiar_MouseLeave;
+            btnLimpiar.MouseMove += btnLimpiar_MouseMove;
             // 
             // btnVolver
             // 
@@ -172,6 +176,8 @@
             btnVolver.TextAlign = ContentAlignment.MiddleRight;
             btnVolver.UseVisualStyleBackColor = true;
             btnVolver.Click += btnVolver_Click;
+            btnVolver.MouseLeave += btnVolver_MouseLeave;
+            btnVolver.MouseMove += btnVolver_MouseMove;
             // 
             // pictureBox2
             // 
@@ -248,7 +254,7 @@
             Controls.Add(buscarNoSocio);
             Controls.Add(label3);
             Controls.Add(txtDniNoSocio);
-            Controls.Add(btnInscribir);
+            Controls.Add(btnPagar);
             Controls.Add(btnLimpiar);
             Controls.Add(btnVolver);
             Controls.Add(pictureBox10);
@@ -280,7 +286,7 @@
         private DateTimePicker txtDiaHabilitado;
         private Label label4;
         private PictureBox pictureBox10;
-        private Button btnInscribir;
+        private Button btnPagar;
         private Button btnLimpiar;
         private Button btnVolver;
         private PictureBox pictureBox2;
