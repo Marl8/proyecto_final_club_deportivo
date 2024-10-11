@@ -89,7 +89,7 @@
             btnVolver.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnVolver.Image = Properties.Resources.volver;
             btnVolver.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVolver.Location = new Point(606, 70);
+            btnVolver.Location = new Point(618, 70);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(112, 51);
             btnVolver.TabIndex = 76;

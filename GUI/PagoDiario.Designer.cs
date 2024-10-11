@@ -266,6 +266,8 @@
             Controls.Add(lblUsuario);
             Controls.Add(lblPagar);
             Controls.Add(pictureBox2);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "PagoDiario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "PagoDiario";

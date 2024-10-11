@@ -47,6 +47,8 @@ namespace proyecto_final_club_deportivo.GUI
             dtgvNoSocios.Columns[3].Width = 110;
             dtgvNoSocios.Columns[4].Width = 110;
             dtgvNoSocios.Columns[5].Width = 110;
+
+            // Personalizamos el header
             dtgvNoSocios.ColumnHeadersDefaultCellStyle.BackColor = Color.LightGray;
             dtgvNoSocios.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe", 9, FontStyle.Bold);
             dtgvNoSocios.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;

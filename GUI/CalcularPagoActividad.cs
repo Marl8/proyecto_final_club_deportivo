@@ -68,21 +68,29 @@ namespace proyecto_final_club_deportivo.GUI
             if (txtNombreAct.Text != "Actividad" && txtNombreAct.Text != "")
             {
                 tablaActividad = controller.buscarActividad(txtNombreAct.Text.ToLower());
-                string id = tablaActividad.Rows[0][0].ToString();
-                string nombre = tablaActividad.Rows[0][1].ToString();
-                string valor = tablaActividad.Rows[0][2].ToString();
-                int idActividad = int.Parse(id);
-                double valorActividad = int.Parse(valor);
-                actividad = new Actividad(idActividad, nombre, valorActividad);
+                if (tablaActividad.Rows.Count > 0)
+                {
+                    string id = tablaActividad.Rows[0][0].ToString();
+                    string nombre = tablaActividad.Rows[0][1].ToString();
+                    string valor = tablaActividad.Rows[0][2].ToString();
+                    int idActividad = int.Parse(id);
+                    double valorActividad = int.Parse(valor);
+                    actividad = new Actividad(idActividad, nombre, valorActividad);
 
-                this.ListaIds.Add(actividad.IdActividad);
-                this.ListaMontos.Add(actividad.ValorActividad);
-                this.MontoTotal += actividad.ValorActividad;
-                txtIdActividad.Text = actividad.IdActividad.ToString();
-                txtValorDiario.Text = "$ " + actividad.ValorActividad.ToString() + ".-";
-                txtMontoTotal.Text = "$ " + this.MontoTotal.ToString() + ".-";
-                txtNombreAct.Text = "Actividad";
-                txtNombreAct.ForeColor = Color.Gray;
+                    this.ListaIds.Add(actividad.IdActividad);
+                    this.ListaMontos.Add(actividad.ValorActividad);
+                    this.MontoTotal += actividad.ValorActividad;
+                    txtIdActividad.Text = actividad.IdActividad.ToString();
+                    txtValorDiario.Text = "$ " + actividad.ValorActividad.ToString() + ".-";
+                    txtMontoTotal.Text = "$ " + this.MontoTotal.ToString() + ".-";
+                    txtNombreAct.Text = "Actividad";
+                    txtNombreAct.ForeColor = Color.Gray;
+                }
+                else
+                {
+                    MessageBox.Show("No existe una actividad con este nombre", "AVISO DEL SISTEMA",
+                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {

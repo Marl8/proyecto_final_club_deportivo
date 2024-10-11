@@ -253,6 +253,8 @@
             Controls.Add(lblPagar);
             Controls.Add(pictureBox10);
             Controls.Add(pictureBox2);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "CalcularPagoActividad";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Calcular Pago Actividad";
