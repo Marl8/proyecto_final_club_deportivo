@@ -1,4 +1,5 @@
 ﻿using Org.BouncyCastle.Crypto;
+using proyecto_final_club_deportivo.GUI;
 using proyecto_final_club_deportivo.Logica;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace proyecto_final_club_deportivo
         internal ActividadController controller = new ActividadController();
         internal string? rol;
         internal string? usuario;
+        public string? Monto { get; set; }
 
         public InscribirActividad()
         {
@@ -44,10 +46,14 @@ namespace proyecto_final_club_deportivo
             }
             else
             {
-                string idAct = controller.buscarIdActividad(txtNombreAct.Text.ToLower());
-                if (int.Parse(idAct) != 0)
+                DataTable tablaActividad = controller.buscarActividad(txtNombreAct.Text.ToLower());
+                if (tablaActividad.Rows.Count > 0)
                 {
+                    string idAct = tablaActividad.Rows[0][0].ToString();
+                    string nombre = tablaActividad.Rows[0][1].ToString();
+                    string valor = tablaActividad.Rows[0][2].ToString();
                     txtIdActividad.Text = idAct;
+                    this.Monto = valor;
                 }
                 else
                 {
@@ -102,6 +108,14 @@ namespace proyecto_final_club_deportivo
                     MessageBox.Show("Se inscribió con éxito el cliente con Nro. de No socio "
                         + txtIdNoSocio.Text + " en la actividad " + txtNombreAct.Text.ToUpper(),
                         "AVISO DEL SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Question);
+
+                    PagoDiario pago = new PagoDiario(txtIdNoSocio.Text, this.Monto, diaHabilitado);
+                    pago.usuario = this.usuario;
+                    pago.rol = this.rol;
+                    pago.ListaIds.Add(idActividad);
+                    pago.ListaMontos.Add(int.Parse(this.Monto));
+                    pago.Show();
+                    this.Hide();
                 }
                 else if (int.Parse(respuesta) == 2)
                 {

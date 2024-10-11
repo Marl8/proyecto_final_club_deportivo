@@ -48,12 +48,6 @@ namespace proyecto_final_club_deportivo
             {
                 string respuesta;
 
-                /*
-                 Cuando el no socio se inscribe paga la actividad diaria por lo cual se
-                lo habilita para la práctica de la actividad de ese día.
-                 */
-                DateTime diaHabilitado = DateTime.Now.Date;
-
                 bool aptoFisico = false;
                 if (cmbAptoFisico.Text.Equals("Si"))
                 {
@@ -65,7 +59,7 @@ namespace proyecto_final_club_deportivo
                 string dni = txtDni.Text;
                 string email = txtEmail.Text;
                 string telefono = txtTelefono.Text;
-                NoSocio noSocio = new NoSocio(diaHabilitado, aptoFisico, nombre, apellido, dni, email, telefono);
+                NoSocio noSocio = new NoSocio(aptoFisico, nombre, apellido, dni, email, telefono);
 
                 respuesta = noSocioController.inscribirNoSocio(noSocio);
                 bool convertido = int.TryParse(respuesta, out int codigo);

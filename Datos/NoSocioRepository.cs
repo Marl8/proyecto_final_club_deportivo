@@ -34,8 +34,7 @@ namespace proyecto_final_club_deportivo.Datos
                 noSocio.Telefono;
                 comando.Parameters.Add("aptoFisico", MySqlDbType.Byte).Value =
                 noSocio.AptoFisico;
-                comando.Parameters.Add("diaHabilitado", MySqlDbType.Date).Value =
-                noSocio.DiaHabilitado.Date;
+           
                 //comando.Parameters.AddWithValue("diaHabilitado", noSocio.DiaHabilitado.Date);
                 MySqlParameter idSocio = new MySqlParameter();
                 idSocio.ParameterName = "respuesta";
