@@ -26,7 +26,16 @@ namespace proyecto_final_club_deportivo.GUI
         private void ListarNoSocios_Load(object sender, EventArgs e)
         {
             lblUsuario.Text = "USUARIO: " + usuario + " " + "(" + rol + ")";
-            dtgvNoSocios.DataSource = controller.listarNoSocios(DateTime.Now.Date);
+            DataTable lista = controller.listarNoSocios(DateTime.Now.Date);
+            if (lista.Rows.Count > 0)
+            {
+                dtgvNoSocios.DataSource = lista;
+            }
+            else {
+                MessageBox.Show("No hay No Socios habilitados para la práctica deportiva en el dia de la fecha",
+                "AVISO DEL SISTEMA", MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+            }
             personalizarColumnas();
         }
 
@@ -41,17 +50,22 @@ namespace proyecto_final_club_deportivo.GUI
             dtgvNoSocios.Columns[5].HeaderText = "Dia Habilitado";
 
             // Cambiar el ancho de las columnas
-            dtgvNoSocios.Columns[0].Width = 100;
-            dtgvNoSocios.Columns[1].Width = 110;
-            dtgvNoSocios.Columns[2].Width = 110;
-            dtgvNoSocios.Columns[3].Width = 110;
-            dtgvNoSocios.Columns[4].Width = 110;
+            dtgvNoSocios.Columns[0].Width = 66;
+            dtgvNoSocios.Columns[1].Width = 140;
+            dtgvNoSocios.Columns[2].Width = 140;
+            dtgvNoSocios.Columns[3].Width = 85;
+            dtgvNoSocios.Columns[4].Width = 115;
             dtgvNoSocios.Columns[5].Width = 110;
 
             // Personalizamos el header
             dtgvNoSocios.ColumnHeadersDefaultCellStyle.BackColor = Color.LightGray;
             dtgvNoSocios.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe", 9, FontStyle.Bold);
             dtgvNoSocios.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            // Ajustar tamaño de la grilla
+            dtgvNoSocios.Height = dtgvNoSocios.Rows.GetRowsHeight(DataGridViewElementStates.Visible) + dtgvNoSocios.ColumnHeadersHeight;            
+            
+            // Aplicar los ajustes
             dtgvNoSocios.EnableHeadersVisualStyles = false;
         }
 

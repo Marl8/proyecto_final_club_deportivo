@@ -15,7 +15,7 @@ namespace proyecto_final_club_deportivo
 {
     public partial class InscribirActividad : Form
     {
-        internal ActividadController controller = new ActividadController();
+        internal ActividadController controller;
         internal string? rol;
         internal string? usuario;
         public string? Monto { get; set; }
@@ -23,6 +23,7 @@ namespace proyecto_final_club_deportivo
         public InscribirActividad()
         {
             InitializeComponent();
+            controller = new ActividadController();
         }
 
         private void InscribirActividad_Load(object sender, EventArgs e)
@@ -132,10 +133,10 @@ namespace proyecto_final_club_deportivo
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            Principal principal = new Principal();
-            principal.usuario = this.usuario;
-            principal.rol = this.rol;
-            principal.Show();
+            GestionarNoSocios noSocios = new GestionarNoSocios();
+            noSocios.usuario = this.usuario;
+            noSocios.rol = this.rol;
+            noSocios.Show();
             this.Hide();
         }
 

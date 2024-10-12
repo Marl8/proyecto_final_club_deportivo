@@ -16,11 +16,11 @@ namespace proyecto_final_club_deportivo
     {
         internal string? rol;
         internal string? usuario;
-        internal NoSocioController noSocioController = new NoSocioController();
-
+        internal NoSocioController noSocioController;
         public InscribirNoSocio()
         {
             InitializeComponent();
+            noSocioController = new NoSocioController();
         }
 
         private void InscribirNoSocio_Load(object sender, EventArgs e)

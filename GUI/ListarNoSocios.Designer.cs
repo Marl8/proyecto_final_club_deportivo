@@ -28,16 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             label1 = new Label();
             lblUsuario = new Label();
             pictureBox8 = new PictureBox();
-            dtgvNoSocios = new DataGridView();
-            conexionBindingSource = new BindingSource(components);
             btnVolver = new Button();
+            dtgvNoSocios = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtgvNoSocios).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)conexionBindingSource).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -71,19 +68,6 @@
             pictureBox8.TabIndex = 71;
             pictureBox8.TabStop = false;
             // 
-            // dtgvNoSocios
-            // 
-            dtgvNoSocios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvNoSocios.Location = new Point(36, 148);
-            dtgvNoSocios.Name = "dtgvNoSocios";
-            dtgvNoSocios.RowTemplate.Height = 25;
-            dtgvNoSocios.Size = new Size(694, 150);
-            dtgvNoSocios.TabIndex = 72;
-            // 
-            // conexionBindingSource
-            // 
-            conexionBindingSource.DataSource = typeof(Datos.Conexion);
-            // 
             // btnVolver
             // 
             btnVolver.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -100,14 +84,23 @@
             btnVolver.MouseLeave += btnVolver_MouseLeave;
             btnVolver.MouseMove += btnVolver_MouseMove;
             // 
+            // dtgvNoSocios
+            // 
+            dtgvNoSocios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgvNoSocios.Location = new Point(31, 147);
+            dtgvNoSocios.Name = "dtgvNoSocios";
+            dtgvNoSocios.RowTemplate.Height = 25;
+            dtgvNoSocios.Size = new Size(699, 230);
+            dtgvNoSocios.TabIndex = 77;
+            // 
             // ListarNoSocios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkSlateBlue;
             ClientSize = new Size(771, 446);
-            Controls.Add(btnVolver);
             Controls.Add(dtgvNoSocios);
+            Controls.Add(btnVolver);
             Controls.Add(lblUsuario);
             Controls.Add(label1);
             Controls.Add(pictureBox8);
@@ -119,7 +112,6 @@
             Load += ListarNoSocios_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)dtgvNoSocios).EndInit();
-            ((System.ComponentModel.ISupportInitialize)conexionBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -129,8 +121,7 @@
         private Label label1;
         private Label lblUsuario;
         private PictureBox pictureBox8;
-        private DataGridView dtgvNoSocios;
         private Button btnVolver;
-        private BindingSource conexionBindingSource;
+        private DataGridView dtgvNoSocios;
     }
 }

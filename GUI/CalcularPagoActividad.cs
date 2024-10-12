@@ -17,14 +17,17 @@ namespace proyecto_final_club_deportivo.GUI
     {
         internal string? rol;
         internal string? usuario;
-        internal ActividadController controller = new ActividadController();
-        public List<int> ListaIds { get; set; } = new List<int>();
-        public List<double> ListaMontos { get; set; } = new List<double>();
+        internal ActividadController controller;
+        public List<int> ListaIds { get; set; } 
+        public List<double> ListaMontos { get; set; } 
         public double MontoTotal { get; set; }
 
         public CalcularPagoActividad()
         {
             InitializeComponent();
+            controller = new ActividadController();
+            ListaIds = new List<int>();
+            ListaMontos = new List<double>();
         }
 
         private void CalcularPagoActividad_Load(object sender, EventArgs e)

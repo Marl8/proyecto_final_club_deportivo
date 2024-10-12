@@ -10,11 +10,16 @@ namespace proyecto_final_club_deportivo
 {
     public partial class Login : Form
     {
-        internal UsuarioController UsuarioController = new UsuarioController();
+        internal UsuarioController usuarioController;
 
         public Login()
         {
             InitializeComponent();
+            usuarioController = new UsuarioController();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
             txtUsername.ForeColor = Color.Gray;
             txtPassword.ForeColor = Color.Gray;
         }
@@ -61,7 +66,7 @@ namespace proyecto_final_club_deportivo
         {
             DataTable tablaLogin = new DataTable();
             Usuario user;
-            tablaLogin = UsuarioController.login(txtUsername.Text, txtPassword.Text);
+            tablaLogin = usuarioController.login(txtUsername.Text, txtPassword.Text);
             if (tablaLogin.Rows.Count > 0)
             {
                 MessageBox.Show("Ingreso exitoso!", "INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);

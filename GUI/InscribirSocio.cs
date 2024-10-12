@@ -17,11 +17,12 @@ namespace proyecto_final_club_deportivo
     {
         internal string? rol;
         internal string? usuario;
-        internal SocioController socioController = new SocioController();
+        internal SocioController socioController;
 
         public InscribirSocio()
         {
             InitializeComponent();
+            socioController = new SocioController();
         }
 
         private void RegistrarSocio_Load(object sender, EventArgs e)
