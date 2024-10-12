@@ -1,4 +1,5 @@
 ﻿using proyecto_final_club_deportivo.Entities;
+using proyecto_final_club_deportivo.GUI;
 using proyecto_final_club_deportivo.Logica;
 using System;
 using System.Collections.Generic;
@@ -94,6 +95,11 @@ namespace proyecto_final_club_deportivo
                         MessageBox.Show("Se almacenó con éxito el cliente con Nro. de socio "
                             + respuesta, "AVISO DEL SISTEMA",
                         MessageBoxButtons.OK, MessageBoxIcon.Question);
+                        PagarCuota pagarCuota = new PagarCuota(respuesta);
+                        pagarCuota.usuario = usuario;
+                        pagarCuota.rol = rol;  
+                        pagarCuota.Show();
+                        this.Hide();
                     }
                 }
             }

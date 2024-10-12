@@ -61,6 +61,7 @@
             btnPagarCuota.TabIndex = 1;
             btnPagarCuota.Text = "PAGO CUOTA";
             btnPagarCuota.UseVisualStyleBackColor = true;
+            btnPagarCuota.Click += btnPagarCuota_Click;
             btnPagarCuota.MouseLeave += btnPagarCuota_MouseLeave;
             btnPagarCuota.MouseMove += btnPagarCuota_MouseMove;
             // 

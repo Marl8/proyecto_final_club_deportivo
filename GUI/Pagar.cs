@@ -73,5 +73,14 @@ namespace proyecto_final_club_deportivo
             pago.Show();
             this.Hide();
         }
+
+        private void btnPagarCuota_Click(object sender, EventArgs e)
+        {
+            PagarCuota pargarCuota = new PagarCuota();
+            pargarCuota.usuario = usuario;
+            pargarCuota.rol = rol; 
+            pargarCuota.Show();
+            this.Hide();
+        }
     }
 }
