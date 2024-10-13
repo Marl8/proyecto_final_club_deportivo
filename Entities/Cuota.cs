@@ -9,8 +9,8 @@ namespace proyecto_final_club_deportivo.Entities
     internal class Cuota
     {
         public int id {  get; }
-        public double ValorCouta { get; set; }
-        public DateTime FechaPago { get; set; }
+        public double? ValorCouta { get; set; }
+        public DateTime? FechaPago { get; set; }
         public DateTime FechaVencimiento { get; set; }
         public string FormaPago { get; set; }
         public int CantidadCuotas { get; set; }
@@ -29,7 +29,7 @@ namespace proyecto_final_club_deportivo.Entities
             this.Estado = estado;
         }
 
-        public Cuota(double valorCouta, DateTime fechaPago, DateTime fechaVencimiento,
+        public Cuota(double? valorCouta, DateTime? fechaPago, DateTime fechaVencimiento,
             string formaPago, int cantidadCuotas, bool estado)
         {
             this.ValorCouta = valorCouta;

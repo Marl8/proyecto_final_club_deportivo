@@ -11,7 +11,7 @@ namespace proyecto_final_club_deportivo.Datos
 {
     internal class CuotaRepository
     {
-        public string crearCuota(Cuota cuota)
+        public string crearCuota(Cuota cuota, int idSocio)
         {
             string mensaje;
 
@@ -25,7 +25,8 @@ namespace proyecto_final_club_deportivo.Datos
                 comando.Parameters.Add("valorCuota", MySqlDbType.Double).Value =
                 cuota.ValorCouta;
                 comando.Parameters.Add("fechaPago", MySqlDbType.Date).Value =
-                cuota.FechaPago.Date;
+                //DBNull.Value;
+                cuota.FechaPago;
                 comando.Parameters.Add("fechaVencimiento", MySqlDbType.Date).Value =
                 cuota.FechaVencimiento.Date;
                 comando.Parameters.Add("formaPago", MySqlDbType.VarChar).Value =
@@ -34,6 +35,49 @@ namespace proyecto_final_club_deportivo.Datos
                 cuota.CantidadCuotas;
                 comando.Parameters.Add("estadoCuota", MySqlDbType.Byte).Value =
                 cuota.Estado;
+                comando.Parameters.Add("idSocio", MySqlDbType.Int32).Value = idSocio;
+                MySqlParameter codigo = new MySqlParameter();
+                codigo.ParameterName = "respuesta";
+                codigo.MySqlDbType = MySqlDbType.Int32;
+                codigo.Direction = ParameterDirection.Output;
+                comando.Parameters.Add(codigo);
+                sqlCon.Open();
+                comando.ExecuteNonQuery();
+                mensaje = Convert.ToString(codigo.Value);
+            }
+            catch (Exception ex)
+            {
+                mensaje = ex.Message;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open)
+                { sqlCon.Close(); };
+            }
+            return mensaje;
+        }
+
+        public string pagarCuota(int idSocio, double valor, DateTime fechaPago, string formaPago, int cantCuotas)
+        {
+            string mensaje;
+
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                MySqlCommand comando = new MySqlCommand("pagoCuota", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+
+                comando.Parameters.Add("idSocio", MySqlDbType.Int32).Value =
+                idSocio;
+                comando.Parameters.Add("valorCuota", MySqlDbType.Double).Value =
+                valor;
+                comando.Parameters.Add("fechaPago", MySqlDbType.Date).Value =
+                fechaPago.Date;
+                comando.Parameters.Add("formaPago", MySqlDbType.VarChar).Value =
+                formaPago;
+                comando.Parameters.Add("cantCuotas", MySqlDbType.Int32).Value =
+                cantCuotas;
                 MySqlParameter codigo = new MySqlParameter();
                 codigo.ParameterName = "respuesta";
                 codigo.MySqlDbType = MySqlDbType.Int32;
@@ -65,6 +109,73 @@ namespace proyecto_final_club_deportivo.Datos
                 MySqlCommand comando = new MySqlCommand("SELECT id_socio FROM socios WHERE dni = @dni", sqlCon);
 
                 comando.Parameters.AddWithValue("@dni", dniCliente);
+                comando.CommandType = CommandType.Text;
+                sqlCon.Open();
+                MySqlDataReader reader = comando.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    respuesta = reader.GetInt32(0).ToString();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open)
+                { sqlCon.Close(); };
+            }
+            return respuesta;
+        }
+
+        public string existeCuotaSocio(int id)
+        {
+            string respuesta;
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                MySqlCommand comando = new MySqlCommand("existeCuotaSocio", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+
+                comando.Parameters.Add("id", MySqlDbType.Int32).Value = id;
+
+                MySqlParameter existe = new MySqlParameter();
+                existe.ParameterName = "respuesta";
+                existe.MySqlDbType = MySqlDbType.Int32;
+                existe.Direction = ParameterDirection.Output;
+                comando.Parameters.Add(existe);
+                sqlCon.Open();
+                comando.ExecuteNonQuery();
+                respuesta = Convert.ToString(existe.Value);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open)
+                { sqlCon.Close(); };
+            }
+            return respuesta;
+        }
+
+        public string buscarCuotasImpagas(int idSocio)
+        {
+            string respuesta = "0";
+            bool estado = false;
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                MySqlCommand comando = new MySqlCommand("SELECT idCuota FROM cuotas WHERE fk_socio = @id and estado = @estado and fecha_vencimiento < @fecha", sqlCon);
+
+                comando.Parameters.AddWithValue("@id", idSocio);
+                comando.Parameters.AddWithValue("@estado", estado);
+                comando.Parameters.AddWithValue("@fecha", DateTime.Now.Date);
                 comando.CommandType = CommandType.Text;
                 sqlCon.Open();
                 MySqlDataReader reader = comando.ExecuteReader();

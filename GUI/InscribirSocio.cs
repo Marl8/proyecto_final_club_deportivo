@@ -95,7 +95,8 @@ namespace proyecto_final_club_deportivo
                         MessageBox.Show("Se almacenó con éxito el cliente con Nro. de socio "
                             + respuesta, "AVISO DEL SISTEMA",
                         MessageBoxButtons.OK, MessageBoxIcon.Question);
-                        PagarCuota pagarCuota = new PagarCuota(respuesta);
+                        string formaPago = "Efectivo";
+                        PagarCuota pagarCuota = new PagarCuota(respuesta, formaPago);
                         pagarCuota.usuario = usuario;
                         pagarCuota.rol = rol;  
                         pagarCuota.Show();

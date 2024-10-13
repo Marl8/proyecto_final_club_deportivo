@@ -50,6 +50,7 @@
             pictureBox10 = new PictureBox();
             cmbCantCuotas = new ComboBox();
             label7 = new Label();
+            btnVerificarDeuda = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
@@ -61,7 +62,7 @@
             label1.BackColor = Color.DarkSlateBlue;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Snow;
-            label1.Location = new Point(333, 79);
+            label1.Location = new Point(350, 68);
             label1.Name = "label1";
             label1.Size = new Size(180, 32);
             label1.TabIndex = 2;
@@ -91,7 +92,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.Snow;
-            label3.Location = new Point(532, 222);
+            label3.Location = new Point(345, 299);
             label3.Name = "label3";
             label3.Size = new Size(79, 17);
             label3.TabIndex = 73;
@@ -99,7 +100,7 @@
             // 
             // txtValor
             // 
-            txtValor.Location = new Point(617, 221);
+            txtValor.Location = new Point(430, 298);
             txtValor.Name = "txtValor";
             txtValor.Size = new Size(136, 23);
             txtValor.TabIndex = 72;
@@ -113,7 +114,7 @@
             buscarSocio.ForeColor = Color.Black;
             buscarSocio.Image = (Image)resources.GetObject("buscarSocio.Image");
             buscarSocio.ImageAlign = ContentAlignment.MiddleLeft;
-            buscarSocio.Location = new Point(653, 160);
+            buscarSocio.Location = new Point(649, 128);
             buscarSocio.Name = "buscarSocio";
             buscarSocio.Size = new Size(100, 32);
             buscarSocio.TabIndex = 81;
@@ -126,7 +127,7 @@
             // 
             label2.AutoSize = true;
             label2.ForeColor = Color.Snow;
-            label2.Location = new Point(445, 168);
+            label2.Location = new Point(441, 136);
             label2.Name = "label2";
             label2.Size = new Size(68, 15);
             label2.TabIndex = 80;
@@ -134,7 +135,7 @@
             // 
             // txtDniSocio
             // 
-            txtDniSocio.Location = new Point(519, 165);
+            txtDniSocio.Location = new Point(515, 133);
             txtDniSocio.Name = "txtDniSocio";
             txtDniSocio.Size = new Size(118, 23);
             txtDniSocio.TabIndex = 79;
@@ -145,7 +146,7 @@
             // 
             label5.AutoSize = true;
             label5.ForeColor = Color.Snow;
-            label5.Location = new Point(310, 168);
+            label5.Location = new Point(306, 136);
             label5.Name = "label5";
             label5.Size = new Size(52, 15);
             label5.TabIndex = 83;
@@ -155,7 +156,7 @@
             // 
             txtIdSocio.BackColor = Color.LightGray;
             txtIdSocio.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtIdSocio.Location = new Point(368, 161);
+            txtIdSocio.Location = new Point(364, 129);
             txtIdSocio.Name = "txtIdSocio";
             txtIdSocio.Size = new Size(60, 28);
             txtIdSocio.TabIndex = 82;
@@ -165,7 +166,7 @@
             // 
             cmbFormaPago.FormattingEnabled = true;
             cmbFormaPago.Items.AddRange(new object[] { "Efectivo", "Tarjeta de Crédito" });
-            cmbFormaPago.Location = new Point(392, 222);
+            cmbFormaPago.Location = new Point(388, 190);
             cmbFormaPago.Name = "cmbFormaPago";
             cmbFormaPago.Size = new Size(121, 23);
             cmbFormaPago.TabIndex = 84;
@@ -176,7 +177,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.Snow;
-            label4.Location = new Point(285, 223);
+            label4.Location = new Point(281, 191);
             label4.Name = "label4";
             label4.Size = new Size(101, 17);
             label4.TabIndex = 85;
@@ -185,8 +186,8 @@
             // cmbEstado
             // 
             cmbEstado.FormattingEnabled = true;
-            cmbEstado.Items.AddRange(new object[] { "Activo", "Inactivo" });
-            cmbEstado.Location = new Point(587, 283);
+            cmbEstado.Items.AddRange(new object[] { "Pagado", "Pendiente" });
+            cmbEstado.Location = new Point(493, 240);
             cmbEstado.Name = "cmbEstado";
             cmbEstado.Size = new Size(121, 23);
             cmbEstado.TabIndex = 86;
@@ -196,7 +197,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.Snow;
-            label6.Location = new Point(530, 284);
+            label6.Location = new Point(436, 241);
             label6.Name = "label6";
             label6.Size = new Size(51, 17);
             label6.TabIndex = 87;
@@ -263,7 +264,7 @@
             // 
             cmbCantCuotas.FormattingEnabled = true;
             cmbCantCuotas.Items.AddRange(new object[] { "1", "3", "6" });
-            cmbCantCuotas.Location = new Point(443, 283);
+            cmbCantCuotas.Location = new Point(651, 190);
             cmbCantCuotas.Name = "cmbCantCuotas";
             cmbCantCuotas.Size = new Size(70, 23);
             cmbCantCuotas.TabIndex = 93;
@@ -273,11 +274,22 @@
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label7.ForeColor = Color.Snow;
-            label7.Location = new Point(330, 284);
+            label7.Location = new Point(538, 191);
             label7.Name = "label7";
             label7.Size = new Size(107, 17);
             label7.TabIndex = 94;
             label7.Text = "Cantidad Cuotas:";
+            // 
+            // btnVerificarDeuda
+            // 
+            btnVerificarDeuda.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnVerificarDeuda.Location = new Point(585, 292);
+            btnVerificarDeuda.Name = "btnVerificarDeuda";
+            btnVerificarDeuda.Size = new Size(121, 33);
+            btnVerificarDeuda.TabIndex = 95;
+            btnVerificarDeuda.Text = "VERIFICAR DEUDA";
+            btnVerificarDeuda.UseVisualStyleBackColor = true;
+            btnVerificarDeuda.Click += btnVerificarDeuda_Click;
             // 
             // PagarCuota
             // 
@@ -285,6 +297,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkSlateBlue;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnVerificarDeuda);
             Controls.Add(label7);
             Controls.Add(cmbCantCuotas);
             Controls.Add(btnPagar);
@@ -306,6 +319,8 @@
             Controls.Add(label1);
             Controls.Add(pictureBox8);
             Controls.Add(pictureBox10);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "PagarCuota";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Pagar Cuota";
@@ -340,5 +355,6 @@
         private PictureBox pictureBox10;
         private ComboBox cmbCantCuotas;
         private Label label7;
+        private Button btnVerificarDeuda;
     }
 }
