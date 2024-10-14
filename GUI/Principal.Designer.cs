@@ -96,6 +96,7 @@
             btnImprimirCarnet.TabIndex = 3;
             btnImprimirCarnet.Text = "IMPRIMIR CARNET";
             btnImprimirCarnet.UseVisualStyleBackColor = false;
+            btnImprimirCarnet.Click += btnImprimirCarnet_Click;
             btnImprimirCarnet.MouseLeave += btnImprimirCarnet_MouseLeave;
             btnImprimirCarnet.MouseMove += btnImprimirCarnet_MouseMove;
             // 

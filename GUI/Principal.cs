@@ -1,4 +1,6 @@
-﻿using proyecto_final_club_deportivo.GUI;
+﻿using proyecto_final_club_deportivo.Entities;
+using proyecto_final_club_deportivo.GUI;
+using proyecto_final_club_deportivo.Logica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -64,6 +66,15 @@ namespace proyecto_final_club_deportivo
             noSocios.usuario = usuario;
             noSocios.rol = rol;
             noSocios.Show();
+            this.Hide();
+        }
+
+        private void btnImprimirCarnet_Click(object sender, EventArgs e)
+        {
+            GestionarCarnet carnet = new GestionarCarnet();
+            carnet.usuario = this.usuario;
+            carnet.rol = rol;
+            carnet.Show();
             this.Hide();
         }
 

@@ -17,14 +17,9 @@ namespace proyecto_final_club_deportivo.Logica
             return cuotaRepository.crearCuota(cuota, idSocio);
         }
 
-        public string pagarCuota(int idSocio, double valor, DateTime fechaPago, string formaPago, int cantCuotas)
+        public string buscarIdSocio(string dni)
         {
-            return cuotaRepository.pagarCuota(idSocio, valor, fechaPago, formaPago, cantCuotas);
-        }
-
-        public string buscarSocio(string dni)
-        {
-            return cuotaRepository.buscarSocio(dni);
+            return cuotaRepository.buscarIdSocio(dni);
         }
 
         public string existeCuotaSocio(int id)
@@ -35,6 +30,11 @@ namespace proyecto_final_club_deportivo.Logica
         public string buscarCuotasImpagas(int idSocio)
         {
             return cuotaRepository.buscarCuotasImpagas(idSocio);
+        }
+
+        public DateTime buscarFechaVencimiento(int idSocio)
+        {
+            return cuotaRepository.buscarFechaVencimiento(idSocio);
         }
 
     }

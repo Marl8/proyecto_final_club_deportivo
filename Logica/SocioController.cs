@@ -16,5 +16,10 @@ namespace proyecto_final_club_deportivo.Logica
         {
             return socioRepository.inscribirSocio(socio);
         }
+
+        public Socio buscarSocio(string dni) 
+        {
+            return socioRepository.buscarSocio(dni);
+        }
     }
 }

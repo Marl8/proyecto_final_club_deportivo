@@ -30,13 +30,13 @@ namespace proyecto_final_club_deportivo.GUI
             if (lista.Rows.Count > 0)
             {
                 dtgvNoSocios.DataSource = lista;
+                personalizarColumnas();
             }
             else {
                 MessageBox.Show("No hay No Socios habilitados para la práctica deportiva en el dia de la fecha",
                 "AVISO DEL SISTEMA", MessageBoxButtons.OK,
                 MessageBoxIcon.Warning);
-            }
-            personalizarColumnas();
+            }           
         }
 
         private void personalizarColumnas()

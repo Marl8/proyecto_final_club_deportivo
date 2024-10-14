@@ -25,10 +25,11 @@ namespace proyecto_final_club_deportivo.Datos
                 comando.Parameters.Add("valorCuota", MySqlDbType.Double).Value =
                 cuota.ValorCouta;
                 comando.Parameters.Add("fechaPago", MySqlDbType.Date).Value =
-                //DBNull.Value;
-                cuota.FechaPago;
+                cuota.FechaPago.Date;
                 comando.Parameters.Add("fechaVencimiento", MySqlDbType.Date).Value =
                 cuota.FechaVencimiento.Date;
+                comando.Parameters.Add("fechaProxVec", MySqlDbType.Date).Value =
+                cuota.FechaProxVencimiento.Date;
                 comando.Parameters.Add("formaPago", MySqlDbType.VarChar).Value =
                 cuota.FormaPago;
                 comando.Parameters.Add("cantCuotas", MySqlDbType.Int32).Value =
@@ -99,7 +100,7 @@ namespace proyecto_final_club_deportivo.Datos
             return mensaje;
         }
 
-        public string buscarSocio(string dniCliente)
+        public string buscarIdSocio(string dniCliente)
         {
             string respuesta = "0";
             MySqlConnection sqlCon = new MySqlConnection();
@@ -183,6 +184,38 @@ namespace proyecto_final_club_deportivo.Datos
                 {
                     reader.Read();
                     respuesta = reader.GetInt32(0).ToString();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open)
+                { sqlCon.Close(); };
+            }
+            return respuesta;
+        }
+
+        public DateTime buscarFechaVencimiento(int idSocio)
+        {
+            DateTime respuesta = new DateTime();
+            bool estado = false;
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                MySqlCommand comando = new MySqlCommand("SELECT fecha_prox_vencimiento FROM cuotas WHERE fk_socio = @id ORDER BY fecha_prox_vencimiento DESC LIMIT 1", sqlCon);
+
+                comando.Parameters.AddWithValue("@id", idSocio);
+                comando.CommandType = CommandType.Text;
+                sqlCon.Open();
+                MySqlDataReader reader = comando.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    respuesta = reader.GetDateTime(0);
                 }
             }
             catch (Exception)

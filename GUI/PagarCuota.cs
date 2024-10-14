@@ -35,6 +35,7 @@ namespace proyecto_final_club_deportivo.GUI
             cmbFormaPago.Text = formaPago;
             cmbFormaPago.Enabled = false;
             txtDniSocio.Enabled = false;
+            txtDniSocio.Focus();
         }
 
         public PagarCuota(string valor, string idSocio, string formaPago, string cantCuotas)
@@ -47,6 +48,7 @@ namespace proyecto_final_club_deportivo.GUI
             txtDniSocio.Enabled = false;
             txtValor.Text = valor;
             txtValor.Enabled = false;
+            txtDniSocio.Focus();
         }
 
         private void PargarCuota_Load(object sender, EventArgs e)
@@ -59,12 +61,14 @@ namespace proyecto_final_club_deportivo.GUI
             cmbEstado.SelectedText = "--select--";
             cmbCantCuotas.SelectedIndex = 0;
             cmbCantCuotas.Enabled = false;
+            checkValor.Enabled = false;
+            checkValor.Visible = false;
 
-            if(cmbFormaPago.Text != "Efectivo")
+            if (cmbFormaPago.Text != "Efectivo")
             {
                 cmbFormaPago.SelectedItem = null;
                 cmbFormaPago.SelectedText = "--select--";
-            }       
+            }
             txtDniSocio.Focus();
         }
 
@@ -77,7 +81,7 @@ namespace proyecto_final_club_deportivo.GUI
             }
             else
             {
-                string idCliente = controller.buscarSocio(txtDniSocio.Text);
+                string idCliente = controller.buscarIdSocio(txtDniSocio.Text);
                 if (int.Parse(idCliente) != 0)
                 {
                     txtIdSocio.Text = idCliente;
@@ -95,60 +99,67 @@ namespace proyecto_final_club_deportivo.GUI
         /**
          * Método que gestiona el pago de una cuota.
          * Si el socio esá siendo inscripto, por lo cual paga su primera cuota, primero
-         * generamos la cuota y luego registramos su pago. El primer pago solo puede 
+         * generamos la cuota y registramos su pago. El primer pago solo puede 
          * realizarse en Efectivo.
-         * Si el socio ya estaba inscripto se procede al pago de la cuota generada previamente
-         * y se crea la nueva cuota pendiente de pago con vecimiento 30 dias posteriores a la
-         * sfecha en la que se realiza el presente pago.
+         * Si el socio ya estaba inscripto se procede al pago de la cuota y fija la fecha
+         * de vencimiento de la cuota siguiente pago alos 30 dias posteriores de la
+         * fecha en la que se realiza el presente pago.
          * **/
 
         private void btnPagar_Click(object sender, EventArgs e)
         {
-            string mensaje = "0";
-            string response;
-            int id = int.Parse(txtIdSocio.Text);
-            double valor = double.Parse(txtValor.Text);
-            string respuesta = controller.existeCuotaSocio(id);
-            bool convertido = int.TryParse(respuesta, out int codigo);
-            if (convertido)
+            if (txtIdSocio.Text != "" && txtValor.Text != "Valor" && txtValor.Text != ""
+               && cmbFormaPago.Text != "--select--" && cmbEstado.Text != "--select--")
             {
-                string formaPago = cmbFormaPago.Text;
-                int cantCuotas = int.Parse(cmbCantCuotas.Text);
+                string mensaje = "0";
+                string response;
+                int id = int.Parse(txtIdSocio.Text);
+                double valor = double.Parse(txtValor.Text);
+                string respuesta = controller.existeCuotaSocio(id);
+                bool convertido = int.TryParse(respuesta, out int codigo);
+                if (convertido)
+                {
+                    string formaPago = cmbFormaPago.Text;
+                    int cantCuotas = int.Parse(cmbCantCuotas.Text);
 
-                // Si no hay cuotas registradas en el sistema entonces es un socio socio y se genera su primera cuota
-                if (codigo == 0)
-                {     
-                    // Se crea en primer lugar la cuota y luego se abona
-                    crearCuota(id);
-                    mensaje = controller.pagarCuota(id, valor, DateTime.Today, formaPago, cantCuotas);
-                }
-                // Sino se actualiza el estado de la última a "Pagado" y se genera una nueva para el próximo periodo
-                else if (codigo == 1)
-                {
-                    // Procedemos al pago de la cuota
-                    mensaje = controller.pagarCuota(id, valor, DateTime.Today, formaPago, cantCuotas);
+                    // Si no hay cuotas registradas en el sistema entonces es un socio socio y se genera su primera cuota
+                    if (codigo == 0)
+                    {
+                        // Se crea en primer lugar la cuota y luego se abona
+                        DateTime fechaProxVec = DateTime.Today.AddDays(30);
+                        crearCuota(id, fechaProxVec);
+                    }
+                    // Sino se actualiza el estado de la última a "Pagado" y se genera una nueva para el próximo periodo
+                    else if (codigo == 1)
+                    {
+                        // Procedemos al pago de la cuota
+                        DateTime resp = controller.buscarFechaVencimiento(id);
 
-                    crearCuota(id);    
+                        MessageBox.Show("valor textbox" + txtValor.Enabled, "AVISO DEL SISTEMA",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                        // Si el txtValor esta desahibilitado es porque ya se calculo la deuda del socio y el texbox contiene el monto a pagar actualizado
+                        if (resp > DateTime.Today || checkValor.Checked == true)
+                        {
+                            crearCuota(id, resp);
+                        }
+                        else
+                        {
+                            calcularDeuda(resp);
+                        }
+                    }
                 }
-                if (int.Parse(mensaje) == 1)
+                else
                 {
-                    MessageBox.Show("Se Pagó con éxito la cuota para el socio DNI: " + txtIdSocio.Text, 
-                     "AVISO DEL SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                }
-                else if (int.Parse(mensaje) == 0)
-                {
-                    MessageBox.Show("OCURRIÓ UN ERROR POR FAVOR NUEVAMENTE", "AVISO DEL SISTEMA",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else if (int.Parse(mensaje) == 2)
-                {
-                    MessageBox.Show("LA CUOTA YA EXISTE EN EL SISTEMA", "AVISO DEL SISTEMA",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("OCURRIÓ UN ERROR", "AVISO DEL SISTEMA",
+                       MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("OCURRIÓ UN ERROR", "AVISO DEL SISTEMA",
+
+                MessageBox.Show("FALTAN COMPLETAR DATOS", "AVISO DEL SISTEMA",
                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -161,28 +172,19 @@ namespace proyecto_final_club_deportivo.GUI
         private void btnVerificarDeuda_Click(object sender, EventArgs e)
         {
             // Validamos que el socio no tenga cuotas impagas
-            int id = 0;
+            int id;
             double valCuota = 0;
             if (txtIdSocio.Text != "")
             {
                 id = int.Parse(txtIdSocio.Text);
                 string response = controller.buscarCuotasImpagas(id);
                 if (int.Parse(response) != 0)
-                {                 
+                {
                     MessageBox.Show("El socio DNI: " + txtIdSocio.Text + " registra deuda",
                             "AVISO DEL SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //CalcularDeudaCuota deuda = new CalcularDeudaCuota(txtIdSocio.Text, cmbFormaPago.Text, cmbCantCuotas.Text);
-                    CalcularDeudaCuota deuda = new CalcularDeudaCuota();
-                    deuda.usuario = this.usuario;
-                    deuda.rol = this.rol;
-                    if (deuda.ShowDialog() == DialogResult.OK)
-                    {
-                        // Obtener el valor del segundo formulario
-                        string valor = deuda.valor;
 
-                        // Establecer el valor en el campo de texto del formulario original
-                        txtValor.Text = valor;
-                    }
+                    DateTime resp = controller.buscarFechaVencimiento(id);
+                    calcularDeuda(resp);
                 }
                 else
                 {
@@ -197,26 +199,42 @@ namespace proyecto_final_club_deportivo.GUI
             }
         }
 
-        /**
-         * Al pagar una cuota se genera automaticamente la próxima cuota a pagar.
-         * La fecha de vencimiento de esta nueva cuota será a los 30 dias posteriores
-         * a la fecha en la cual se registra el pago.
-         * **/
+        private void calcularDeuda(DateTime ultimoVencimiento)
+        {
+            CalcularDeudaCuota deuda = new CalcularDeudaCuota();
+            deuda.usuario = this.usuario;
+            deuda.rol = this.rol;
+            deuda.vencimiento = ultimoVencimiento;
+            if (deuda.ShowDialog() == DialogResult.OK)
+            {
+                // Obtener el valor del segundo formulario
+                string valor = deuda.valor;
 
-        private void crearCuota(int id)
+                // Establecer el valor en el campo de texto del formulario original
+                txtValor.Text = valor;
+                checkValor.Checked = true;
+            }
+        }
+
+        /**
+         * Método que gestiona la creación de la cuota
+         **/
+
+        private void crearCuota(int id, DateTime fechaVencimiento)
         {
             if (txtIdSocio.Text != "" && txtValor.Text != "Valor" && txtValor.Text != ""
                && cmbFormaPago.Text != "--select--" && cmbEstado.Text != "--select--")
             {
-                double? valor = null;
-                DateTime? fechaPago = null;
-                DateTime fechaVencimiento = DateTime.Today.AddDays(30);
-                string? formaPago = null;
-                int cantCuotas = 0;
+                double valor = double.Parse(txtValor.Text);
+                DateTime fechaPago = DateTime.Today;
+                DateTime fechaProxVenc = DateTime.Today.AddDays(30);
+                DateTime fechaVec = fechaVencimiento;
+                string formaPago = cmbFormaPago.Text;
+                int cantCuotas = int.Parse(cmbCantCuotas.Text);
 
-                bool estado = false;
+                bool estado = true;
 
-                Cuota cuota = new Cuota(valor, fechaPago, fechaVencimiento, formaPago, cantCuotas, estado);
+                Cuota cuota = new Cuota(valor, fechaPago, fechaVencimiento, fechaProxVenc, formaPago, cantCuotas, estado);
                 string respuesta = controller.crearCuota(cuota, id);
 
                 bool convertido = int.TryParse(respuesta, out int codigo);
@@ -297,6 +315,22 @@ namespace proyecto_final_club_deportivo.GUI
                 txtDniSocio.Text = "DNI";
                 txtDniSocio.ForeColor = Color.Gray;
             }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtValor.Text = "Valor";
+            txtValor.ForeColor = Color.Gray;
+            txtDniSocio.Text = "DNI";
+            txtDniSocio.ForeColor = Color.Gray;
+            cmbFormaPago.SelectedItem = null;
+            cmbFormaPago.SelectedText = "--select--";
+            cmbEstado.SelectedItem = null;
+            cmbEstado.SelectedText = "--select--";
+            cmbCantCuotas.SelectedIndex = 0;
+            cmbCantCuotas.Enabled = false;
+            checkValor.Enabled = false;
+            checkValor.Visible = false;
         }
     }
 }
