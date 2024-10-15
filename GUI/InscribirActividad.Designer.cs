@@ -29,42 +29,30 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InscribirActividad));
-            label1 = new Label();
             lblUsuario = new Label();
             pictureBox1 = new PictureBox();
-            txtNombreAct = new TextBox();
-            label2 = new Label();
-            label3 = new Label();
-            txtDniNoSocio = new TextBox();
-            buscarActividad = new Button();
-            buscarNoSocio = new Button();
-            label4 = new Label();
-            label5 = new Label();
-            txtIdNoSocio = new TextBox();
             btnVolver = new Button();
             btnLimpiar = new Button();
             btnInscribir = new Button();
-            txtIdActividad = new TextBox();
             pictureBox10 = new PictureBox();
             pictureBox2 = new PictureBox();
+            label1 = new Label();
+            txtNombreAct = new TextBox();
+            label2 = new Label();
+            txtDniNoSocio = new TextBox();
+            label3 = new Label();
+            buscarActividad = new Button();
+            buscarNoSocio = new Button();
+            label4 = new Label();
+            txtIdNoSocio = new TextBox();
+            label5 = new Label();
+            txtIdActividad = new TextBox();
             txtDiaHabilitado = new DateTimePicker();
             label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.DarkSlateBlue;
-            label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.Snow;
-            label1.Location = new Point(458, 69);
-            label1.Name = "label1";
-            label1.Size = new Size(290, 37);
-            label1.TabIndex = 0;
-            label1.Text = "Inscribir en Actividad";
             // 
             // lblUsuario
             // 
@@ -85,106 +73,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
-            // 
-            // txtNombreAct
-            // 
-            txtNombreAct.Location = new Point(548, 142);
-            txtNombreAct.Name = "txtNombreAct";
-            txtNombreAct.Size = new Size(109, 23);
-            txtNombreAct.TabIndex = 10;
-            txtNombreAct.Text = "Actividad";
-            txtNombreAct.Enter += txtNombreAct_Enter;
-            txtNombreAct.Leave += txtNombreAct_Leave;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.ForeColor = Color.Snow;
-            label2.Location = new Point(435, 145);
-            label2.Name = "label2";
-            label2.Size = new Size(107, 15);
-            label2.TabIndex = 11;
-            label2.Text = "Nombre Actividad:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.ForeColor = Color.Snow;
-            label3.Location = new Point(474, 204);
-            label3.Name = "label3";
-            label3.Size = new Size(68, 15);
-            label3.TabIndex = 13;
-            label3.Text = "Dni Cliente:";
-            // 
-            // txtDniNoSocio
-            // 
-            txtDniNoSocio.Location = new Point(548, 201);
-            txtDniNoSocio.Name = "txtDniNoSocio";
-            txtDniNoSocio.Size = new Size(109, 23);
-            txtDniNoSocio.TabIndex = 12;
-            txtDniNoSocio.Text = "DNI";
-            txtDniNoSocio.Enter += txtDniNoSocio_Enter;
-            txtDniNoSocio.Leave += txtDniNoSocio_Leave;
-            // 
-            // buscarActividad
-            // 
-            buscarActividad.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            buscarActividad.ForeColor = Color.Black;
-            buscarActividad.Image = (Image)resources.GetObject("buscarActividad.Image");
-            buscarActividad.ImageAlign = ContentAlignment.MiddleLeft;
-            buscarActividad.Location = new Point(663, 140);
-            buscarActividad.Name = "buscarActividad";
-            buscarActividad.Size = new Size(85, 25);
-            buscarActividad.TabIndex = 14;
-            buscarActividad.Text = "BUSCAR";
-            buscarActividad.TextAlign = ContentAlignment.MiddleRight;
-            buscarActividad.UseVisualStyleBackColor = true;
-            buscarActividad.Click += buscarActividad_Click;
-            // 
-            // buscarNoSocio
-            // 
-            buscarNoSocio.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            buscarNoSocio.ForeColor = Color.Black;
-            buscarNoSocio.Image = (Image)resources.GetObject("buscarNoSocio.Image");
-            buscarNoSocio.ImageAlign = ContentAlignment.MiddleLeft;
-            buscarNoSocio.Location = new Point(663, 199);
-            buscarNoSocio.Name = "buscarNoSocio";
-            buscarNoSocio.Size = new Size(85, 25);
-            buscarNoSocio.TabIndex = 15;
-            buscarNoSocio.Text = "BUSCAR";
-            buscarNoSocio.TextAlign = ContentAlignment.MiddleRight;
-            buscarNoSocio.UseVisualStyleBackColor = true;
-            buscarNoSocio.Click += buscarNoSocio_Click;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.ForeColor = Color.Snow;
-            label4.Location = new Point(453, 305);
-            label4.Name = "label4";
-            label4.Size = new Size(73, 15);
-            label4.TabIndex = 17;
-            label4.Text = "Id Actividad:";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.ForeColor = Color.Snow;
-            label5.Location = new Point(609, 305);
-            label5.Name = "label5";
-            label5.Size = new Size(68, 15);
-            label5.TabIndex = 19;
-            label5.Text = "Id NoSocio:";
-            // 
-            // txtIdNoSocio
-            // 
-            txtIdNoSocio.BackColor = Color.LightGray;
-            txtIdNoSocio.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtIdNoSocio.Location = new Point(683, 300);
-            txtIdNoSocio.Name = "txtIdNoSocio";
-            txtIdNoSocio.Size = new Size(60, 28);
-            txtIdNoSocio.TabIndex = 18;
-            txtIdNoSocio.TextAlign = HorizontalAlignment.Center;
             // 
             // btnVolver
             // 
@@ -231,16 +119,6 @@
             btnInscribir.MouseLeave += btnInscribir_MouseLeave;
             btnInscribir.MouseMove += btnInscribir_MouseMove;
             // 
-            // txtIdActividad
-            // 
-            txtIdActividad.BackColor = Color.LightGray;
-            txtIdActividad.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtIdActividad.Location = new Point(532, 300);
-            txtIdActividad.Name = "txtIdActividad";
-            txtIdActividad.Size = new Size(60, 28);
-            txtIdActividad.TabIndex = 34;
-            txtIdActividad.TextAlign = HorizontalAlignment.Center;
-            // 
             // pictureBox10
             // 
             pictureBox10.BackColor = Color.FromArgb(53, 47, 80);
@@ -259,13 +137,135 @@
             pictureBox2.TabIndex = 71;
             pictureBox2.TabStop = false;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.DarkSlateBlue;
+            label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.Snow;
+            label1.Location = new Point(458, 65);
+            label1.Name = "label1";
+            label1.Size = new Size(290, 37);
+            label1.TabIndex = 0;
+            label1.Text = "Inscribir en Actividad";
+            // 
+            // txtNombreAct
+            // 
+            txtNombreAct.Location = new Point(548, 138);
+            txtNombreAct.Name = "txtNombreAct";
+            txtNombreAct.Size = new Size(109, 23);
+            txtNombreAct.TabIndex = 10;
+            txtNombreAct.Text = "Actividad";
+            txtNombreAct.Enter += txtNombreAct_Enter;
+            txtNombreAct.Leave += txtNombreAct_Leave;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.ForeColor = Color.Snow;
+            label2.Location = new Point(435, 141);
+            label2.Name = "label2";
+            label2.Size = new Size(107, 15);
+            label2.TabIndex = 11;
+            label2.Text = "Nombre Actividad:";
+            // 
+            // txtDniNoSocio
+            // 
+            txtDniNoSocio.Location = new Point(548, 197);
+            txtDniNoSocio.Name = "txtDniNoSocio";
+            txtDniNoSocio.Size = new Size(109, 23);
+            txtDniNoSocio.TabIndex = 12;
+            txtDniNoSocio.Text = "DNI";
+            txtDniNoSocio.Enter += txtDniNoSocio_Enter;
+            txtDniNoSocio.Leave += txtDniNoSocio_Leave;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.ForeColor = Color.Snow;
+            label3.Location = new Point(474, 200);
+            label3.Name = "label3";
+            label3.Size = new Size(68, 15);
+            label3.TabIndex = 13;
+            label3.Text = "Dni Cliente:";
+            // 
+            // buscarActividad
+            // 
+            buscarActividad.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            buscarActividad.ForeColor = Color.Black;
+            buscarActividad.Image = (Image)resources.GetObject("buscarActividad.Image");
+            buscarActividad.ImageAlign = ContentAlignment.MiddleLeft;
+            buscarActividad.Location = new Point(663, 136);
+            buscarActividad.Name = "buscarActividad";
+            buscarActividad.Size = new Size(85, 25);
+            buscarActividad.TabIndex = 14;
+            buscarActividad.Text = "BUSCAR";
+            buscarActividad.TextAlign = ContentAlignment.MiddleRight;
+            buscarActividad.UseVisualStyleBackColor = true;
+            buscarActividad.Click += buscarActividad_Click;
+            // 
+            // buscarNoSocio
+            // 
+            buscarNoSocio.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            buscarNoSocio.ForeColor = Color.Black;
+            buscarNoSocio.Image = (Image)resources.GetObject("buscarNoSocio.Image");
+            buscarNoSocio.ImageAlign = ContentAlignment.MiddleLeft;
+            buscarNoSocio.Location = new Point(663, 195);
+            buscarNoSocio.Name = "buscarNoSocio";
+            buscarNoSocio.Size = new Size(85, 25);
+            buscarNoSocio.TabIndex = 15;
+            buscarNoSocio.Text = "BUSCAR";
+            buscarNoSocio.TextAlign = ContentAlignment.MiddleRight;
+            buscarNoSocio.UseVisualStyleBackColor = true;
+            buscarNoSocio.Click += buscarNoSocio_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.ForeColor = Color.Snow;
+            label4.Location = new Point(453, 301);
+            label4.Name = "label4";
+            label4.Size = new Size(73, 15);
+            label4.TabIndex = 17;
+            label4.Text = "Id Actividad:";
+            // 
+            // txtIdNoSocio
+            // 
+            txtIdNoSocio.BackColor = Color.LightGray;
+            txtIdNoSocio.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            txtIdNoSocio.Location = new Point(683, 296);
+            txtIdNoSocio.Name = "txtIdNoSocio";
+            txtIdNoSocio.Size = new Size(60, 28);
+            txtIdNoSocio.TabIndex = 18;
+            txtIdNoSocio.TextAlign = HorizontalAlignment.Center;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.ForeColor = Color.Snow;
+            label5.Location = new Point(609, 301);
+            label5.Name = "label5";
+            label5.Size = new Size(68, 15);
+            label5.TabIndex = 19;
+            label5.Text = "Id NoSocio:";
+            // 
+            // txtIdActividad
+            // 
+            txtIdActividad.BackColor = Color.LightGray;
+            txtIdActividad.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            txtIdActividad.Location = new Point(532, 296);
+            txtIdActividad.Name = "txtIdActividad";
+            txtIdActividad.Size = new Size(60, 28);
+            txtIdActividad.TabIndex = 34;
+            txtIdActividad.TextAlign = HorizontalAlignment.Center;
+            // 
             // txtDiaHabilitado
             // 
             txtDiaHabilitado.CalendarFont = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
             txtDiaHabilitado.CalendarTitleForeColor = SystemColors.ActiveCaption;
             txtDiaHabilitado.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             txtDiaHabilitado.Format = DateTimePickerFormat.Custom;
-            txtDiaHabilitado.Location = new Point(577, 248);
+            txtDiaHabilitado.Location = new Point(577, 244);
             txtDiaHabilitado.Name = "txtDiaHabilitado";
             txtDiaHabilitado.Size = new Size(100, 23);
             txtDiaHabilitado.TabIndex = 72;
@@ -275,7 +275,7 @@
             // 
             label6.AutoSize = true;
             label6.ForeColor = Color.Snow;
-            label6.Location = new Point(486, 254);
+            label6.Location = new Point(486, 250);
             label6.Name = "label6";
             label6.Size = new Size(85, 15);
             label6.TabIndex = 73;
@@ -289,24 +289,24 @@
             ClientSize = new Size(845, 455);
             Controls.Add(label6);
             Controls.Add(txtDiaHabilitado);
-            Controls.Add(txtIdActividad);
             Controls.Add(btnInscribir);
+            Controls.Add(txtIdActividad);
             Controls.Add(btnLimpiar);
-            Controls.Add(btnVolver);
             Controls.Add(label5);
+            Controls.Add(btnVolver);
             Controls.Add(txtIdNoSocio);
-            Controls.Add(label4);
-            Controls.Add(buscarNoSocio);
-            Controls.Add(buscarActividad);
-            Controls.Add(label3);
-            Controls.Add(txtDniNoSocio);
-            Controls.Add(label2);
-            Controls.Add(txtNombreAct);
             Controls.Add(pictureBox1);
+            Controls.Add(label4);
             Controls.Add(lblUsuario);
-            Controls.Add(label1);
+            Controls.Add(buscarNoSocio);
             Controls.Add(pictureBox10);
+            Controls.Add(buscarActividad);
             Controls.Add(pictureBox2);
+            Controls.Add(label3);
+            Controls.Add(txtNombreAct);
+            Controls.Add(txtDniNoSocio);
+            Controls.Add(label1);
+            Controls.Add(label2);
             ForeColor = Color.Black;
             MaximizeBox = false;
             MinimizeBox = false;
@@ -322,25 +322,24 @@
         }
 
         #endregion
-
-        private Label label1;
         private Label lblUsuario;
         private PictureBox pictureBox1;
-        private TextBox txtNombreAct;
-        private Label label2;
-        private Label label3;
-        private TextBox txtDniNoSocio;
-        private Button buscarActividad;
-        private Button buscarNoSocio;
-        private Label label4;
-        private Label label5;
-        private TextBox txtIdNoSocio;
         private Button btnVolver;
         private Button btnLimpiar;
         private Button btnInscribir;
-        private TextBox txtIdActividad;
         private PictureBox pictureBox10;
         private PictureBox pictureBox2;
+        private Label label1;
+        private TextBox txtNombreAct;
+        private Label label2;
+        private TextBox txtDniNoSocio;
+        private Label label3;
+        private Button buscarActividad;
+        private Button buscarNoSocio;
+        private Label label4;
+        private TextBox txtIdNoSocio;
+        private Label label5;
+        private TextBox txtIdActividad;
         private DateTimePicker txtDiaHabilitado;
         private Label label6;
     }

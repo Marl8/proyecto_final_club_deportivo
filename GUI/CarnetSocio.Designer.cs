@@ -285,7 +285,7 @@
             MinimizeBox = false;
             Name = "CarnetSocio";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "CarnetSocio";
+            Text = "Carnet Socio";
             Load += CarnetSocio_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

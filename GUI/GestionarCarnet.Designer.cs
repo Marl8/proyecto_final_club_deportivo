@@ -176,9 +176,11 @@
             Controls.Add(lblUsuario);
             Controls.Add(lblPagar);
             Controls.Add(pictureBox10);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "GestionarCarnet";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "GestionarCarnet";
+            Text = "Gestionar Carnet";
             Load += GestionarCarnet_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ResumeLayout(false);

@@ -141,6 +141,7 @@
             btnListarSocios.TabIndex = 6;
             btnListarSocios.Text = "LISTAR SOCIOS";
             btnListarSocios.UseVisualStyleBackColor = false;
+            btnListarSocios.Click += btnListarSocios_Click;
             btnListarSocios.MouseLeave += btnListarSocios_MouseLeave;
             btnListarSocios.MouseMove += btnListarSocios_MouseMove;
             // 

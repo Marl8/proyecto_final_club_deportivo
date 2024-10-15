@@ -143,7 +143,7 @@
             btnPagar.TabIndex = 74;
             btnPagar.Text = "PAGAR";
             btnPagar.UseVisualStyleBackColor = true;
-            btnPagar.Click += btnInscribir_Click;
+            btnPagar.Click += btnPagar_Click;
             btnPagar.MouseLeave += btnPagar_MouseLeave;
             btnPagar.MouseMove += btnInscribir_MouseMove;
             // 

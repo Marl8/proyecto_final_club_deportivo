@@ -49,19 +49,20 @@ namespace proyecto_final_club_deportivo.GUI
                     int numeroDeDias = diferencia.Days;
 
                     // Prorrateamos el monto de la cuota en 30 dias.
-                    double cuotaPorDia = valorCuotaAnterior / 30;
+                    double cuotaPorDia = valorCuotaActual / 30;
                     
                     // Calculamos el monto a pagar de acuerdo al tiempo transcurrido desde el vencimiento
                     double montoDiasDesdesVencimiento = cuotaPorDia * numeroDeDias;
 
-                    // Aplicamos un recargo del 10% sobre la cuota vencida
-                    double recargo = montoDiasDesdesVencimiento * 0.10;
-
                     // Calculamos el monto total
-                    double monto = montoDiasDesdesVencimiento + valorCuotaActual;
-                    
+                    double monto = montoDiasDesdesVencimiento + valorCuotaAnterior;
+
+                    // Aplicamos un recargo del 10% como interes punitorio
+                    double recargo = monto * 0.10;
+
                     // Monto final a pagar con el recargo aplicado
                     valorAdeudado = monto + recargo;
+                    valorAdeudado = Math.Round(valorAdeudado, 2);
                 }           
 
                 // Establecer el valor de la propiedad Valor

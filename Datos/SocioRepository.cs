@@ -109,5 +109,118 @@ namespace proyecto_final_club_deportivo.Datos
             }
             return socio;
         }
+
+        /**
+         * Listará todos los socios con cuota impaga con vencimiento en el dia.  
+         **/
+
+        public DataTable listarSociosVencimientoDiario(DateTime dia)
+        {
+            MySqlDataReader reader;
+            DataTable tabla = new DataTable();
+
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                string query = "SELECT s.id_socio, s.nombre, s.apellido, s.dni, c.fecha_prox_vencimiento, c.estado " +
+                    "FROM socios AS s INNER JOIN cuotas AS c ON s.id_socio = c.fk_socio " +
+                    "WHERE fecha_prox_vencimiento = @fechaVenc";
+                MySqlCommand comando = new MySqlCommand(query, sqlCon);
+                comando.CommandType = CommandType.Text;
+
+                comando.Parameters.AddWithValue("@fechaVenc", dia);
+                //comando.Parameters.AddWithValue("@estado", estado);
+                sqlCon.Open();
+                reader = comando.ExecuteReader();
+                tabla.Load(reader);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open)
+                {
+                    sqlCon.Close();
+                }
+            }
+            return tabla;
+        }
+
+        public DataTable listarSociosEnMora(DateTime dia)
+        {
+            MySqlDataReader reader;
+            DataTable tabla = new DataTable();
+            bool estado = false; 
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                string query = "SELECT s.id_socio, s.nombre, s.apellido, s.dni, c.fecha_prox_vencimiento, c.estado, s.estado " +
+                    "FROM socios AS s " +
+                    "INNER JOIN cuotas c ON s.id_socio = c.fk_socio " +
+                    "INNER JOIN (SELECT fk_socio, MAX(fecha_prox_vencimiento) AS max_fecha FROM cuotas GROUP BY fk_socio) AS px " +
+                    "ON c.fk_socio = px.fk_socio AND c.fecha_prox_vencimiento = px.max_fecha " +
+                    "WHERE px.max_fecha < @fechaVenc AND c.estado = @estado " +
+                    "ORDER BY c.fecha_prox_vencimiento DESC;";
+                MySqlCommand comando = new MySqlCommand(query, sqlCon);
+                comando.CommandType = CommandType.Text;
+
+                comando.Parameters.AddWithValue("@fechaVenc", dia);
+                comando.Parameters.AddWithValue("@estado", estado);
+                sqlCon.Open();
+                reader = comando.ExecuteReader();
+                tabla.Load(reader);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open)
+                {
+                    sqlCon.Close();
+                }
+            }
+            return tabla;
+        }
+
+        // Si el socio esta en mora será inhabilitado para las todas las actividades
+        public string modificarEstadoSocio(string dni, bool estado)
+        {
+            string respuesta;
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                MySqlCommand comando = new MySqlCommand("modificarEstadoSocio", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+
+                comando.Parameters.Add("dniSocio", MySqlDbType.VarChar).Value = dni;
+                comando.Parameters.Add("estadoSocio", MySqlDbType.Byte).Value = estado;
+
+                MySqlParameter existe = new MySqlParameter();
+                existe.ParameterName = "respuesta";
+                existe.MySqlDbType = MySqlDbType.Int32;
+                existe.Direction = ParameterDirection.Output;
+                comando.Parameters.Add(existe);
+                sqlCon.Open();
+                comando.ExecuteNonQuery();
+                respuesta = Convert.ToString(existe.Value);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open)
+                { sqlCon.Close(); };
+            }
+            return respuesta;
+        }
     }
 }

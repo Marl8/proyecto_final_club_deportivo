@@ -148,6 +148,15 @@ namespace proyecto_final_club_deportivo
         {
             btnSalir.BackColor = Color.FromArgb(192, 192, 255);
         }
+
+        private void btnListarSocios_Click(object sender, EventArgs e)
+        {
+            GestionListadosSocios listas = new GestionListadosSocios();
+            listas.usuario = this.usuario;
+            listas.rol = this.rol;
+            listas.Show();
+            this.Hide();
+        }
     }
 }
 

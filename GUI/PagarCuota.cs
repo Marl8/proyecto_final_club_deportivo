@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,9 @@ namespace proyecto_final_club_deportivo.GUI
     {
         internal string? rol;
         internal string? usuario;
+        private string? dni;
         internal CuotaController controller;
+        internal SocioController socioController = new SocioController();
 
         public PagarCuota()
         {
@@ -57,18 +60,12 @@ namespace proyecto_final_club_deportivo.GUI
             txtValor.ForeColor = Color.Gray;
             txtDniSocio.Text = "DNI";
             txtDniSocio.ForeColor = Color.Gray;
-            cmbEstado.SelectedItem = null;
-            cmbEstado.SelectedText = "--select--";
             cmbCantCuotas.SelectedIndex = 0;
             cmbCantCuotas.Enabled = false;
             checkValor.Enabled = false;
             checkValor.Visible = false;
-
-            if (cmbFormaPago.Text != "Efectivo")
-            {
-                cmbFormaPago.SelectedItem = null;
-                cmbFormaPago.SelectedText = "--select--";
-            }
+            cmbEstado.SelectedIndex = 0;
+            cmbFormaPago.SelectedIndex = 0;
             txtDniSocio.Focus();
         }
 
@@ -81,7 +78,8 @@ namespace proyecto_final_club_deportivo.GUI
             }
             else
             {
-                string idCliente = controller.buscarIdSocio(txtDniSocio.Text);
+                this.dni = txtDniSocio.Text;
+                string idCliente = controller.buscarIdSocio(this.dni);
                 if (int.Parse(idCliente) != 0)
                 {
                     txtIdSocio.Text = idCliente;
@@ -135,14 +133,12 @@ namespace proyecto_final_club_deportivo.GUI
                         // Procedemos al pago de la cuota
                         DateTime resp = controller.buscarFechaVencimiento(id);
 
-                        MessageBox.Show("valor textbox" + txtValor.Enabled, "AVISO DEL SISTEMA",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
                         // Si el txtValor esta desahibilitado es porque ya se calculo la deuda del socio y el texbox contiene el monto a pagar actualizado
                         if (resp > DateTime.Today || checkValor.Checked == true)
                         {
                             crearCuota(id, resp);
+                            bool estado = true;
+                            socioController.modificarEstadoSocio(this.dni, estado);
                         }
                         else
                         {
@@ -173,7 +169,7 @@ namespace proyecto_final_club_deportivo.GUI
         {
             // Validamos que el socio no tenga cuotas impagas
             int id;
-            double valCuota = 0;
+            double valCuota;
             if (txtIdSocio.Text != "")
             {
                 id = int.Parse(txtIdSocio.Text);
@@ -236,6 +232,7 @@ namespace proyecto_final_club_deportivo.GUI
 
                 Cuota cuota = new Cuota(valor, fechaPago, fechaVencimiento, fechaProxVenc, formaPago, cantCuotas, estado);
                 string respuesta = controller.crearCuota(cuota, id);
+                
 
                 bool convertido = int.TryParse(respuesta, out int codigo);
                 if (convertido)
@@ -323,6 +320,9 @@ namespace proyecto_final_club_deportivo.GUI
             txtValor.ForeColor = Color.Gray;
             txtDniSocio.Text = "DNI";
             txtDniSocio.ForeColor = Color.Gray;
+            txtIdSocio.Clear();
+            txtDniSocio.Enabled = true;
+            cmbFormaPago.Enabled = true;
             cmbFormaPago.SelectedItem = null;
             cmbFormaPago.SelectedText = "--select--";
             cmbEstado.SelectedItem = null;

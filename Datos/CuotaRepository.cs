@@ -172,7 +172,7 @@ namespace proyecto_final_club_deportivo.Datos
             try
             {
                 sqlCon = Conexion.getInstancia().CrearConexion();
-                MySqlCommand comando = new MySqlCommand("SELECT idCuota FROM cuotas WHERE fk_socio = @id and estado = @estado and fecha_vencimiento < @fecha", sqlCon);
+                MySqlCommand comando = new MySqlCommand("SELECT idCuota FROM cuotas WHERE fk_socio = @id and estado = @estado and fecha_prox_vencimiento < @fecha", sqlCon);
 
                 comando.Parameters.AddWithValue("@id", idSocio);
                 comando.Parameters.AddWithValue("@estado", estado);

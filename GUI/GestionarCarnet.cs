@@ -61,7 +61,6 @@ namespace proyecto_final_club_deportivo.GUI
             return controller.buscarSocio(idCliente);
         }
 
-
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             CarnetSocio carnetSocio = new CarnetSocio();
