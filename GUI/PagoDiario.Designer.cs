@@ -270,7 +270,7 @@
             MinimizeBox = false;
             Name = "PagoDiario";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "PagoDiario";
+            Text = "Pago Diario";
             Load += PagoDiario_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

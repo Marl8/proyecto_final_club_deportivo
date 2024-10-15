@@ -43,11 +43,11 @@
             label1.BackColor = Color.DarkSlateBlue;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Snow;
-            label1.Location = new Point(256, 76);
+            label1.Location = new Point(129, 76);
             label1.Name = "label1";
-            label1.Size = new Size(228, 32);
+            label1.Size = new Size(413, 32);
             label1.TabIndex = 2;
-            label1.Text = "LISTAR NO SOCIOS";
+            label1.Text = "LISTA DE NO SOCIOS HABILITADOS";
             // 
             // lblUsuario
             // 
@@ -90,7 +90,7 @@
             dtgvNoSocios.Location = new Point(31, 147);
             dtgvNoSocios.Name = "dtgvNoSocios";
             dtgvNoSocios.RowTemplate.Height = 25;
-            dtgvNoSocios.Size = new Size(699, 230);
+            dtgvNoSocios.Size = new Size(699, 272);
             dtgvNoSocios.TabIndex = 77;
             // 
             // ListarNoSocios

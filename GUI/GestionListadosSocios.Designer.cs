@@ -74,7 +74,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(34, 138);
+            pictureBox1.Location = new Point(34, 114);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(208, 182);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -140,7 +140,7 @@
             MinimizeBox = false;
             Name = "GestionListadosSocios";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "GestionListadosSocios";
+            Text = "Gestion Listados Socios";
             Load += GestionListadosSocios_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

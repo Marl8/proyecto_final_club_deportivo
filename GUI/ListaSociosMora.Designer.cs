@@ -95,6 +95,7 @@
             // 
             // dtgvSociosMora
             // 
+            dtgvSociosMora.BackgroundColor = Color.DarkSlateBlue;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.LightGray;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
@@ -117,7 +118,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dtgvSociosMora.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dtgvSociosMora.RowTemplate.Height = 25;
-            dtgvSociosMora.Size = new Size(670, 290);
+            dtgvSociosMora.Size = new Size(670, 301);
             dtgvSociosMora.TabIndex = 79;
             dtgvSociosMora.CellClick += dtgvSociosMora_CellClick;
             // 
