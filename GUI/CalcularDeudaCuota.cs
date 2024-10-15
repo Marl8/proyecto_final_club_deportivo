@@ -31,48 +31,60 @@ namespace proyecto_final_club_deportivo.GUI
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            double valorCuotaAnterior;
+            double valorCuotaActual;
             if (txtValorAnterior.Text != "" && txtValorActual.Text != "")
             {
-                double valorCuotaAnterior = double.Parse(txtValorAnterior.Text);
-                double valorCuotaActual = double.Parse(txtValorActual.Text);
+                bool esNum1 = double.TryParse(txtValorAnterior.Text, out double val1);
+                bool esNum2 = double.TryParse(txtValorActual.Text, out double val2);
 
-                double valorAdeudado = 0;
-                DateTime fechaActual = DateTime.Today;
-
-                // Si ya venció el plazo para efectuar el pago de la cuota
-                if (this.vencimiento < fechaActual)
+                if(esNum1 && esNum2)
                 {
-                    // Calculamos la cantidad de dias que pasaron desde el vencimiento
-                    TimeSpan diferencia = fechaActual.Subtract(vencimiento);
+                    valorCuotaActual = val2;
+                    valorCuotaAnterior = val1;
+                    double valorAdeudado = 0;
+                    DateTime fechaActual = DateTime.Today;
 
-                    // Conviero esa cantidad a int.
-                    int numeroDeDias = diferencia.Days;
+                    // Si ya venció el plazo para efectuar el pago de la cuota
+                    if (this.vencimiento < fechaActual)
+                    {
+                        // Calculamos la cantidad de dias que pasaron desde el vencimiento
+                        TimeSpan diferencia = fechaActual.Subtract(vencimiento);
 
-                    // Prorrateamos el monto de la cuota en 30 dias.
-                    double cuotaPorDia = valorCuotaActual / 30;
-                    
-                    // Calculamos el monto a pagar de acuerdo al tiempo transcurrido desde el vencimiento
-                    double montoDiasDesdesVencimiento = cuotaPorDia * numeroDeDias;
+                        // Conviero esa cantidad a int.
+                        int numeroDeDias = diferencia.Days;
 
-                    // Calculamos el monto total
-                    double monto = montoDiasDesdesVencimiento + valorCuotaAnterior;
+                        // Prorrateamos el monto de la cuota en 30 dias.
+                        double cuotaPorDia = valorCuotaActual / 30;
 
-                    // Aplicamos un recargo del 10% como interes punitorio
-                    double recargo = monto * 0.10;
+                        // Calculamos el monto a pagar de acuerdo al tiempo transcurrido desde el vencimiento
+                        double montoDiasDesdesVencimiento = cuotaPorDia * numeroDeDias;
 
-                    // Monto final a pagar con el recargo aplicado
-                    valorAdeudado = monto + recargo;
-                    valorAdeudado = Math.Round(valorAdeudado, 2);
-                }           
+                        // Calculamos el monto total
+                        double monto = montoDiasDesdesVencimiento + valorCuotaAnterior;
 
-                // Establecer el valor de la propiedad Valor
-                this.valor = valorAdeudado.ToString();
+                        // Aplicamos un recargo del 10% como interes punitorio
+                        double recargo = monto * 0.10;
 
-                // Establecer el resultado del diálogo a OK
-                this.DialogResult = DialogResult.OK;
+                        // Monto final a pagar con el recargo aplicado
+                        valorAdeudado = monto + recargo;
+                        valorAdeudado = Math.Round(valorAdeudado, 2);
+                    }
 
-                // Cerrar el formulario
-                this.Close();
+                    // Establecer el valor de la propiedad Valor
+                    this.valor = valorAdeudado.ToString();
+
+                    // Establecer el resultado del diálogo a OK
+                    this.DialogResult = DialogResult.OK;
+
+                    // Cerrar el formulario
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("NO SON TIPOS NUMÉRICOS", "AVISO DEL SISTEMA",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {

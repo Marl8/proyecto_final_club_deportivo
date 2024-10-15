@@ -167,15 +167,13 @@ namespace proyecto_final_club_deportivo.Datos
         public string buscarCuotasImpagas(int idSocio)
         {
             string respuesta = "0";
-            bool estado = false;
             MySqlConnection sqlCon = new MySqlConnection();
             try
             {
                 sqlCon = Conexion.getInstancia().CrearConexion();
-                MySqlCommand comando = new MySqlCommand("SELECT idCuota FROM cuotas WHERE fk_socio = @id and estado = @estado and fecha_prox_vencimiento < @fecha", sqlCon);
+                MySqlCommand comando = new MySqlCommand("SELECT idCuota FROM cuotas WHERE fk_socio = @id and fecha_prox_vencimiento < @fecha", sqlCon);
 
                 comando.Parameters.AddWithValue("@id", idSocio);
-                comando.Parameters.AddWithValue("@estado", estado);
                 comando.Parameters.AddWithValue("@fecha", DateTime.Now.Date);
                 comando.CommandType = CommandType.Text;
                 sqlCon.Open();

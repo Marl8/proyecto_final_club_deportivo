@@ -112,46 +112,56 @@ namespace proyecto_final_club_deportivo.GUI
                 string mensaje = "0";
                 string response;
                 int id = int.Parse(txtIdSocio.Text);
-                double valor = double.Parse(txtValor.Text);
-                string respuesta = controller.existeCuotaSocio(id);
-                bool convertido = int.TryParse(respuesta, out int codigo);
-                if (convertido)
+                double valor;
+                bool esNum = double.TryParse(txtValor.Text, out double val);
+                if (esNum)
                 {
-                    string formaPago = cmbFormaPago.Text;
-                    int cantCuotas = int.Parse(cmbCantCuotas.Text);
-
-                    // Si no hay cuotas registradas en el sistema entonces es un socio socio y se genera su primera cuota
-                    if (codigo == 0)
+                    valor = val;
+                    string respuesta = controller.existeCuotaSocio(id);
+                    bool convertido = int.TryParse(respuesta, out int codigo);
+                    if (convertido)
                     {
-                        /* Se crea en primer lugar la cuota y luego se abona. 
-                         * La fecha de vencimiento al no existir por ser la primer cuota y abonarse al momento 
-                         * se fija en el dia del pago. 
-                         */
-                        DateTime fechaVenc = DateTime.Today;
-                        crearCuota(id, fechaVenc);
+                        string formaPago = cmbFormaPago.Text;
+                        int cantCuotas = int.Parse(cmbCantCuotas.Text);
+
+                        // Si no hay cuotas registradas en el sistema entonces es un socio socio y se genera su primera cuota
+                        if (codigo == 0)
+                        {
+                            /* Se crea en primer lugar la cuota y luego se abona. 
+                             * La fecha de vencimiento al no existir por ser la primer cuota y abonarse al momento 
+                             * se fija en el dia del pago. 
+                             */
+                            DateTime fechaVenc = DateTime.Today;
+                            crearCuota(id, fechaVenc);
+                        }
+                        // Sino se actualiza el estado de la última a "Pagado" y se genera una nueva para el próximo periodo
+                        else if (codigo == 1)
+                        {
+                            // Procedemos al pago de la cuota
+                            DateTime resp = controller.buscarFechaVencimiento(id);
+
+                            // Si el txtValor esta desahibilitado es porque ya se calculo la deuda del socio y el texbox contiene el monto a pagar actualizado
+                            if (resp > DateTime.Today || checkValor.Checked == true)
+                            {
+                                crearCuota(id, resp);
+                                bool estado = true;
+                                socioController.modificarEstadoSocio(this.dni, estado);
+                            }
+                            else
+                            {
+                                calcularDeuda(resp);
+                            }
+                        }
                     }
-                    // Sino se actualiza el estado de la última a "Pagado" y se genera una nueva para el próximo periodo
-                    else if (codigo == 1)
+                    else
                     {
-                        // Procedemos al pago de la cuota
-                        DateTime resp = controller.buscarFechaVencimiento(id);
-
-                        // Si el txtValor esta desahibilitado es porque ya se calculo la deuda del socio y el texbox contiene el monto a pagar actualizado
-                        if (resp > DateTime.Today || checkValor.Checked == true)
-                        {
-                            crearCuota(id, resp);
-                            bool estado = true;
-                            socioController.modificarEstadoSocio(this.dni, estado);
-                        }
-                        else
-                        {
-                            calcularDeuda(resp);
-                        }
+                        MessageBox.Show("OCURRIÓ UN ERROR", "AVISO DEL SISTEMA",
+                           MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("OCURRIÓ UN ERROR", "AVISO DEL SISTEMA",
+                    MessageBox.Show("DEBE INGRESAR UN VALOR NUMÉRICO", "AVISO DEL SISTEMA",
                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -172,7 +182,6 @@ namespace proyecto_final_club_deportivo.GUI
         {
             // Validamos que el socio no tenga cuotas impagas
             int id;
-            double valCuota;
             if (txtIdSocio.Text != "")
             {
                 id = int.Parse(txtIdSocio.Text);
@@ -224,38 +233,48 @@ namespace proyecto_final_club_deportivo.GUI
             if (txtIdSocio.Text != "" && txtValor.Text != "Valor" && txtValor.Text != ""
                && cmbFormaPago.Text != "--select--" && cmbEstado.Text != "--select--")
             {
-                double valor = double.Parse(txtValor.Text);
-                DateTime fechaPago = DateTime.Today;
-                DateTime fechaProxVenc = DateTime.Today.AddDays(30);
-                DateTime fechaVec = fechaVencimiento;
-                string formaPago = cmbFormaPago.Text;
-                int cantCuotas = int.Parse(cmbCantCuotas.Text);
-
-                bool estado = true;
-
-                Cuota cuota = new Cuota(valor, fechaPago, fechaVencimiento, fechaProxVenc, formaPago, cantCuotas, estado);
-                string respuesta = controller.crearCuota(cuota, id);
-                
-
-                bool convertido = int.TryParse(respuesta, out int codigo);
-                if (convertido)
+                double valor;
+                bool esNum = double.TryParse(txtValor.Text, out double val);
+                if (esNum)
                 {
-                    if (codigo == 1)
+                    valor = val;
+                    DateTime fechaPago = DateTime.Today;
+                    DateTime fechaProxVenc = DateTime.Today.AddDays(30);
+                    DateTime fechaVec = fechaVencimiento;
+                    string formaPago = cmbFormaPago.Text;
+                    int cantCuotas = int.Parse(cmbCantCuotas.Text);
+
+                    bool estado = true;
+
+                    Cuota cuota = new Cuota(valor, fechaPago, fechaVencimiento, fechaProxVenc, formaPago, cantCuotas, estado);
+                    string respuesta = controller.crearCuota(cuota, id);
+
+
+                    bool convertido = int.TryParse(respuesta, out int codigo);
+                    if (convertido)
                     {
-                        MessageBox.Show("Se generó con éxito la couta para el socio DNI: " + txtIdSocio.Text
-                        , "AVISO DEL SISTEMA",
-                        MessageBoxButtons.OK, MessageBoxIcon.Question);
+                        if (codigo == 1)
+                        {
+                            MessageBox.Show("Se generó con éxito la couta para el socio DNI: " + txtIdSocio.Text
+                            , "AVISO DEL SISTEMA",
+                            MessageBoxButtons.OK, MessageBoxIcon.Question);
+                        }
+                        else if (codigo == 0)
+                        {
+                            MessageBox.Show("OCURRIÓ UN ERROR AL CREAR LA CUOTA", "AVISO DEL SISTEMA",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else if (codigo == 2)
+                        {
+                            MessageBox.Show("LA CUOTA YA EXISTE EN EL SISTEMA", "AVISO DEL SISTEMA",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                    else if (codigo == 0)
-                    {
-                        MessageBox.Show("OCURRIÓ UN ERROR AL CREAR LA CUOTA", "AVISO DEL SISTEMA",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else if (codigo == 2)
-                    {
-                        MessageBox.Show("LA CUOTA YA EXISTE EN EL SISTEMA", "AVISO DEL SISTEMA",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                }
+                else
+                {
+                    MessageBox.Show("DEBE INGRESAR UN VALOR NUMÉRICO", "AVISO DEL SISTEMA",
+                       MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
