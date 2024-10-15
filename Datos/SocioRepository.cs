@@ -153,7 +153,6 @@ namespace proyecto_final_club_deportivo.Datos
         {
             MySqlDataReader reader;
             DataTable tabla = new DataTable();
-            bool estado = false; 
             MySqlConnection sqlCon = new MySqlConnection();
             try
             {
@@ -163,13 +162,12 @@ namespace proyecto_final_club_deportivo.Datos
                     "INNER JOIN cuotas c ON s.id_socio = c.fk_socio " +
                     "INNER JOIN (SELECT fk_socio, MAX(fecha_prox_vencimiento) AS max_fecha FROM cuotas GROUP BY fk_socio) AS px " +
                     "ON c.fk_socio = px.fk_socio AND c.fecha_prox_vencimiento = px.max_fecha " +
-                    "WHERE px.max_fecha < @fechaVenc AND c.estado = @estado " +
+                    "WHERE px.max_fecha < @fechaVenc " +
                     "ORDER BY c.fecha_prox_vencimiento DESC;";
                 MySqlCommand comando = new MySqlCommand(query, sqlCon);
                 comando.CommandType = CommandType.Text;
 
                 comando.Parameters.AddWithValue("@fechaVenc", dia);
-                comando.Parameters.AddWithValue("@estado", estado);
                 sqlCon.Open();
                 reader = comando.ExecuteReader();
                 tabla.Load(reader);

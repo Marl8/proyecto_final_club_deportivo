@@ -123,9 +123,12 @@ namespace proyecto_final_club_deportivo.GUI
                     // Si no hay cuotas registradas en el sistema entonces es un socio socio y se genera su primera cuota
                     if (codigo == 0)
                     {
-                        // Se crea en primer lugar la cuota y luego se abona
-                        DateTime fechaProxVec = DateTime.Today.AddDays(30);
-                        crearCuota(id, fechaProxVec);
+                        /* Se crea en primer lugar la cuota y luego se abona. 
+                         * La fecha de vencimiento al no existir por ser la primer cuota y abonarse al momento 
+                         * se fija en el dia del pago. 
+                         */
+                        DateTime fechaVenc = DateTime.Today;
+                        crearCuota(id, fechaVenc);
                     }
                     // Sino se actualiza el estado de la última a "Pagado" y se genera una nueva para el próximo periodo
                     else if (codigo == 1)

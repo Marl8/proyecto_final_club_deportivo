@@ -47,13 +47,8 @@ namespace proyecto_final_club_deportivo.GUI
                     dtgvSociosMora.Rows[renglon].Cells[2].Value = row[2].ToString();
                     dtgvSociosMora.Rows[renglon].Cells[3].Value = row[3].ToString();
                     dtgvSociosMora.Rows[renglon].Cells[4].Value = row[4].ToString();
-                    dtgvSociosMora.Rows[renglon].Cells[5].Value = row[5].ToString();
+                    dtgvSociosMora.Rows[renglon].Cells[5].Value = "Pendiente";
                     dtgvSociosMora.Rows[renglon].Cells[6].Value = row[6].ToString();
-
-                    if (dtgvSociosMora.Rows[renglon].Cells[5].Value == "0")
-                    {
-                        dtgvSociosMora.Rows[renglon].Cells[5].Value = "Pendiente";
-                    }
 
                     if (dtgvSociosMora.Rows[renglon].Cells[6].Value == "1")
                     {
