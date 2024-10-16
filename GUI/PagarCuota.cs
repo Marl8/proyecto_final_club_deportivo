@@ -97,10 +97,10 @@ namespace proyecto_final_club_deportivo.GUI
         /**
          * Método que gestiona el pago de una cuota.
          * Si el socio esá siendo inscripto, por lo cual paga su primera cuota, primero
-         * generamos la cuota y registramos su pago. El primer pago solo puede 
-         * realizarse en Efectivo.
+         * generamos la cuota y registramos su pago. El primer pago solo puede realizarse 
+         * en Efectivo.
          * Si el socio ya estaba inscripto se procede al pago de la cuota y fija la fecha
-         * de vencimiento de la cuota siguiente pago alos 30 dias posteriores de la
+         * de vencimiento de la cuota siguiente pago a los 30 dias posteriores de la
          * fecha en la que se realiza el presente pago.
          * **/
 
@@ -134,13 +134,18 @@ namespace proyecto_final_club_deportivo.GUI
                             DateTime fechaVenc = DateTime.Today;
                             crearCuota(id, fechaVenc);
                         }
-                        // Sino se actualiza el estado de la última a "Pagado" y se genera una nueva para el próximo periodo
+                        // Sino se genera una cuota nueva para el presente periodo
                         else if (codigo == 1)
                         {
-                            // Procedemos al pago de la cuota
+                            /* Buscamos la última fecha de próximo vencimiento registrada para el socio,la cual constituye el
+                               el plazo de pago para el vecimciento actual */   
                             DateTime resp = controller.buscarFechaVencimiento(id);
 
-                            // Si el txtValor esta desahibilitado es porque ya se calculo la deuda del socio y el texbox contiene el monto a pagar actualizado
+                            /* Comparamos fecha de vencimiento con la fecha actual.
+                             * Si la fecha de vencimiento es menor entonces el socio está en mora y debe procederse al calculo
+                             * de la deuda.
+                             * Si el plazo de vencimiento no se cumplió o si el checkBox esta en estado TRUE 
+                             * debido a que ya se calculo la deuda del socio se puede procesar el pago */
                             if (resp > DateTime.Today || checkValor.Checked == true)
                             {
                                 crearCuota(id, resp);
@@ -149,6 +154,7 @@ namespace proyecto_final_club_deportivo.GUI
                             }
                             else
                             {
+                                // Caso contrario debe calcularse la deuda
                                 calcularDeuda(resp);
                             }
                         }
@@ -175,7 +181,7 @@ namespace proyecto_final_club_deportivo.GUI
 
         /**
          * Método que verifica la exitencia de cuotas impagas(solo puede habr una sola cuota impaga
-         * dado que, luego el socio es inahibiltado) si existe deuda se suman los montos de ambas.
+         * dado que, luego el socio es inahibiltado) si existe deuda se procede a su cálculo.
          * **/
 
         private void btnVerificarDeuda_Click(object sender, EventArgs e)
