@@ -17,6 +17,7 @@ namespace proyecto_final_club_deportivo.GUI
     {
         internal string? rol;
         internal string? usuario;
+        internal string? idNoSocio;
         internal ActividadController controller;
         public List<int> ListaIds { get; set; } 
         public List<double> ListaMontos { get; set; } 
@@ -55,6 +56,11 @@ namespace proyecto_final_club_deportivo.GUI
             pago.montoTotal = this.MontoTotal;
             pago.ListaIds = this.ListaIds;
             pago.ListaMontos = this.ListaMontos;
+            if(this.idNoSocio == null)
+            {
+                this.idNoSocio = "";
+                pago.idNoSocio = this.idNoSocio;
+            }
             pago.Show();
             this.Hide();
         }

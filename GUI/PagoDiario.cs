@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace proyecto_final_club_deportivo.GUI
 {
@@ -16,6 +17,7 @@ namespace proyecto_final_club_deportivo.GUI
         internal string? rol;
         internal string? usuario;
         internal double montoTotal = 0;
+        internal string idNoSocio = "";
         internal List<int> ListaIds { get; set; } = new List<int>();
         internal List<double> ListaMontos { get; set; } = new List<double>();
         internal ActividadController controller = new ActividadController();
@@ -30,6 +32,7 @@ namespace proyecto_final_club_deportivo.GUI
             InitializeComponent();
             txtDiaHabilitado.Value = dia;
             txtIdNoSocio.Text = idNoSocio;
+            txtDniNoSocio.Enabled = false;
             txtMonto.Text = "$ " + monto + ".-";
         }
 
@@ -42,8 +45,23 @@ namespace proyecto_final_club_deportivo.GUI
             txtDiaHabilitado.Value = DateTime.Now.Date;
             txtDiaHabilitado.MinDate = DateTime.Now.Date;
 
+            if (!this.idNoSocio.Equals("") && txtIdNoSocio.Text.Equals("")) {
+                txtIdNoSocio.Text = this.idNoSocio;
+            }
+            else
+            {
+                this.idNoSocio = txtIdNoSocio.Text;              
+            }
             if (montoTotal != 0)
             {
+                if (this.idNoSocio.Equals("") && txtIdNoSocio.Text.Equals(""))
+                {
+                    txtDniNoSocio.Enabled = true;
+                }
+                else
+                {
+                    txtDniNoSocio.Enabled = false;
+                }
                 txtMonto.Text = "$" + montoTotal.ToString() + ".-";
             }
         }
@@ -62,6 +80,7 @@ namespace proyecto_final_club_deportivo.GUI
             CalcularPagoActividad calcular = new CalcularPagoActividad();
             calcular.usuario = this.usuario;
             calcular.rol = this.rol;
+            calcular.idNoSocio = this.idNoSocio;
             calcular.Show();
             this.Hide();
         }
