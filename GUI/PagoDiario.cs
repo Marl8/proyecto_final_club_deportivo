@@ -152,6 +152,11 @@ namespace proyecto_final_club_deportivo.GUI
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            else
+            {
+                MessageBox.Show("Faltan completar datos", "AVISO DEL SISTEMA",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void txtDniNoSocio_Enter(object sender, EventArgs e)

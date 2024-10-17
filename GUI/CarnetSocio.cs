@@ -52,6 +52,8 @@ namespace proyecto_final_club_deportivo.GUI
             }
         }
 
+        // Envia directamente el documento a la impresora
+
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             btnImprimir.Visible = false;
@@ -68,6 +70,8 @@ namespace proyecto_final_club_deportivo.GUI
             MessageBox.Show("Operación existosa", "AVISO DEL SISTEMA",
             MessageBoxButtons.OK, MessageBoxIcon.Information);
             Principal principal = new Principal();
+            principal.usuario = this.usuario;
+            principal.rol = this.rol;
             principal.Show();
             this.Close();
         }
