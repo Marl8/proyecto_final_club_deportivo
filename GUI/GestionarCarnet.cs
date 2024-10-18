@@ -25,10 +25,19 @@ namespace proyecto_final_club_deportivo.GUI
             controller = new SocioController();
         }
 
+        public GestionarCarnet(string idSocio, string dni)
+        {
+            InitializeComponent();
+            txtIdSocio.Text = idSocio;
+            this.Dni = dni;
+            controller = new SocioController();
+        }
+
         private void GestionarCarnet_Load(object sender, EventArgs e)
         {
             lblUsuario.Text = "USUARIO: " + usuario + " " + "(" + rol + ")";
             txtDniSocio.ForeColor = Color.Gray;
+            txtIdSocio.Enabled = false;
         }
 
         private void buscarSocio_Click(object sender, EventArgs e)
@@ -79,7 +88,7 @@ namespace proyecto_final_club_deportivo.GUI
                 carnetSocio.rol = this.rol;
                 carnetSocio.Show();
                 this.Hide();
-            }
+            } 
             else
             {
                 MessageBox.Show("No existen socios con ese DNI", "AVISO DEL SISTEMA",

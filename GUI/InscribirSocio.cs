@@ -96,7 +96,7 @@ namespace proyecto_final_club_deportivo
                             + respuesta, "AVISO DEL SISTEMA",
                         MessageBoxButtons.OK, MessageBoxIcon.Question);
                         string formaPago = "Efectivo";
-                        PagarCuota pagarCuota = new PagarCuota(respuesta, formaPago);
+                        PagarCuota pagarCuota = new PagarCuota(respuesta, formaPago, socio.Dni.ToString());
                         pagarCuota.usuario = usuario;
                         pagarCuota.rol = rol;  
                         pagarCuota.Show();

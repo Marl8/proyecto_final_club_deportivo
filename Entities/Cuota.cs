@@ -42,16 +42,5 @@ namespace proyecto_final_club_deportivo.Entities
             this.CantidadCuotas = cantidadCuotas;
             this.Estado = estado;
         }
-
-        /*public Cuota(double? valorCouta, DateTime? fechaPago, DateTime fechaVencimiento,
-            string formaPago, int cantidadCuotas, bool estado)
-        {
-            this.ValorCouta = valorCouta;
-            this.FechaPago = fechaPago;
-            this.FechaVencimiento = fechaVencimiento;
-            this.FormaPago = formaPago;
-            this.CantidadCuotas = cantidadCuotas;
-            this.Estado = estado;
-        }*/
     }
 }

@@ -30,11 +30,12 @@ namespace proyecto_final_club_deportivo.GUI
             cmbEstado.SelectedIndex = 0;
         }
 
-        public PagarCuota(string idSocio, string formaPago)
+        public PagarCuota(string idSocio, string formaPago, string dni)
         {
             InitializeComponent();
             controller = new CuotaController();
             txtIdSocio.Text = idSocio;
+            this.dni = dni;
             cmbFormaPago.Text = formaPago;
             cmbFormaPago.Enabled = false;
             txtDniSocio.Enabled = false;
@@ -133,6 +134,12 @@ namespace proyecto_final_club_deportivo.GUI
                              */
                             DateTime fechaVenc = DateTime.Today;
                             crearCuota(id, fechaVenc);
+
+                            GestionarCarnet carnet = new GestionarCarnet(txtIdSocio.Text, this.dni);
+                            carnet.usuario = this.usuario;
+                            carnet.rol = this.rol;
+                            carnet.Show();
+                            this.Hide();
                         }
                         // Sino se genera una cuota nueva para el presente periodo
                         else if (codigo == 1)
@@ -261,7 +268,7 @@ namespace proyecto_final_club_deportivo.GUI
                     {
                         if (codigo == 1)
                         {
-                            MessageBox.Show("Se generó con éxito la couta para el socio DNI: " + txtIdSocio.Text
+                            MessageBox.Show("Se generó con éxito la cuota para el socio DNI: " + txtIdSocio.Text
                             , "AVISO DEL SISTEMA",
                             MessageBoxButtons.OK, MessageBoxIcon.Question);
                         }
