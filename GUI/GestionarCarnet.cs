@@ -30,6 +30,8 @@ namespace proyecto_final_club_deportivo.GUI
             InitializeComponent();
             txtIdSocio.Text = idSocio;
             this.Dni = dni;
+            txtDniSocio.Text = dni;
+            txtDniSocio.Enabled = false;
             controller = new SocioController();
         }
 
