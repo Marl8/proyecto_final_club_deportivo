@@ -40,6 +40,7 @@
             btnSalir = new Button();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            btnGestionUsuarios = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -191,12 +192,28 @@
             pictureBox2.TabIndex = 10;
             pictureBox2.TabStop = false;
             // 
+            // btnGestionUsuarios
+            // 
+            btnGestionUsuarios.BackColor = Color.FromArgb(192, 192, 255);
+            btnGestionUsuarios.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnGestionUsuarios.ForeColor = Color.Black;
+            btnGestionUsuarios.Location = new Point(263, 379);
+            btnGestionUsuarios.Name = "btnGestionUsuarios";
+            btnGestionUsuarios.Size = new Size(144, 46);
+            btnGestionUsuarios.TabIndex = 11;
+            btnGestionUsuarios.Text = "GESTION USUARIOS";
+            btnGestionUsuarios.UseVisualStyleBackColor = false;
+            btnGestionUsuarios.Click += btnGestionUsuarios_Click;
+            btnGestionUsuarios.MouseLeave += btnGestionUsuarios_MouseLeave;
+            btnGestionUsuarios.MouseMove += btnGestionUsuarios_MouseMove;
+            // 
             // Principal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkSlateBlue;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnGestionUsuarios);
             Controls.Add(pictureBox2);
             Controls.Add(btnSalir);
             Controls.Add(lblUsuario);
@@ -234,5 +251,6 @@
         private Button btnSalir;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private Button btnGestionUsuarios;
     }
 }

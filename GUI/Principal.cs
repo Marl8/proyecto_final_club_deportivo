@@ -26,6 +26,11 @@ namespace proyecto_final_club_deportivo
         private void Principal_Load(object sender, EventArgs e)
         {
             lblUsuario.Text = "USUARIO: " + usuario + " " + "(" + rol + ")";
+            if (this.rol.Equals("Empleado"))
+            {
+                btnGestionUsuarios.Visible = false;
+                btnGestionUsuarios.Enabled = false;
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -77,6 +82,26 @@ namespace proyecto_final_club_deportivo
             carnet.Show();
             this.Hide();
         }
+
+        private void btnListarSocios_Click(object sender, EventArgs e)
+        {
+            GestionListadosSocios listas = new GestionListadosSocios();
+            listas.usuario = this.usuario;
+            listas.rol = this.rol;
+            listas.Show();
+            this.Hide();
+        }
+
+
+        private void btnGestionUsuarios_Click(object sender, EventArgs e)
+        {
+            GestionUsuarios gestionUsuarios = new GestionUsuarios();
+            gestionUsuarios.usuario = this.usuario;
+            gestionUsuarios.rol = rol;
+            gestionUsuarios.Show();
+            this.Hide();
+        }
+
 
         private void btnRegistrarSocio_MouseMove(object sender, MouseEventArgs e)
         {
@@ -149,13 +174,14 @@ namespace proyecto_final_club_deportivo
             btnSalir.BackColor = Color.FromArgb(192, 192, 255);
         }
 
-        private void btnListarSocios_Click(object sender, EventArgs e)
+        private void btnGestionUsuarios_MouseMove(object sender, MouseEventArgs e)
         {
-            GestionListadosSocios listas = new GestionListadosSocios();
-            listas.usuario = this.usuario;
-            listas.rol = this.rol;
-            listas.Show();
-            this.Hide();
+            btnGestionUsuarios.BackColor = Color.FromArgb(104, 90, 158);
+        }
+
+        private void btnGestionUsuarios_MouseLeave(object sender, EventArgs e)
+        {
+            btnGestionUsuarios.BackColor = Color.FromArgb(192, 192, 255);
         }
     }
 }

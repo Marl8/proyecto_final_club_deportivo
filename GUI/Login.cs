@@ -62,6 +62,17 @@ namespace proyecto_final_club_deportivo
             }
         }
 
+        /**
+         * Encriptamos la contraseña con una algoritmo SHA256 ya es considerado muy mala práctica guardar
+         * contraseñas planas en la base de datos.
+         * Sin embargo, a los fines de facilitar el acceso a la aplicación con el objeto de probar su 
+         * funcionamiento se adjuntan los datos de logeo.
+         * Username: prueba
+         * Password: 123
+         * 
+         * Username: fabi
+         * Password: 12345
+         * **/
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             DataTable tablaLogin = new DataTable();
