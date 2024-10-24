@@ -108,10 +108,6 @@ namespace proyecto_final_club_deportivo.GUI
             {
                 MessageBox.Show("El usuario no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (user.Rows.Count > 0)
-            {
-                MessageBox.Show("Usuario editado con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
     }
 }

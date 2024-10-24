@@ -1,4 +1,6 @@
-﻿using System;
+﻿using proyecto_final_club_deportivo.Entities;
+using proyecto_final_club_deportivo.Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,10 +16,12 @@ namespace proyecto_final_club_deportivo.GUI
     {
         internal string? rol;
         internal string? usuario;
+        UsuarioController usuarioController;
 
         public CrearUsuario()
         {
             InitializeComponent();
+            usuarioController = new UsuarioController();    
         }
 
         private void CrearUsuario_Load(object sender, EventArgs e)
@@ -34,12 +38,58 @@ namespace proyecto_final_club_deportivo.GUI
             cmbRol.SelectedText = "--select--";
         }
 
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            DataTable rol = usuarioController.buscarRol(cmbRol.SelectedItem.ToString());
+            int idRol = 0;
+            string crearUsuario = "";
+            if (rol.Rows.Count > 0)
+            {
+                idRol = int.Parse(rol.Rows[0][0].ToString());
+                string nombre = txtNombre.Text;
+                string apellido = txtApellido.Text;
+                string username = txtUsername.Text;
+                string password = txtPassword.Text;
+                string dni = txtDni.Text;
+                string email = txtEmail.Text;
+                string telefono = txtTelefono.Text;
+                string rolName = cmbRol.SelectedItem.ToString();
+
+                if (nombre != "" && apellido != "" && dni != "" && telefono != "" && rolName != "" &&
+                    username != "" && email != "" && password != "")
+                {
+                    string passEncriptado = UsuarioController.getSHA256(password);
+
+                    Usuario user = new Usuario(nombre, apellido, dni, email, telefono, username, passEncriptado, rolName);
+                    crearUsuario = usuarioController.crearUsuario(user, idRol);
+
+                    if (crearUsuario.Equals("0"))
+                    {
+                        MessageBox.Show("OCURRIÓ UN ERROR INTENTE NUEVAMENTE.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("El usuario con id " + crearUsuario + " fue creado con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Faltan Completar Datos (*).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron roles con este nombre.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
+        }
+
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            Principal principal = new Principal();
-            principal.usuario = this.usuario;
-            principal.rol = this.rol;
-            principal.Show();
+            ListaUsuarios lista = new ListaUsuarios();
+            lista.usuario = this.usuario;
+            lista.rol = this.rol;
+            lista.Show();
             this.Hide();
         }
 

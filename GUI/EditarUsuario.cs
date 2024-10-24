@@ -34,6 +34,7 @@ namespace proyecto_final_club_deportivo.GUI
             txtApellido.Text = apellido;
             txtUsername.Text = username;
             txtUsername.Enabled = false;
+            txtPassword.ForeColor = Color.Gray;
             txtDni.Text = dni;
             txtEmail.Text = email;
             txtTelefono.Text = telefono;
@@ -65,10 +66,10 @@ namespace proyecto_final_club_deportivo.GUI
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            Principal principal = new Principal();
-            principal.usuario = this.usuario;
-            principal.rol = this.rol;
-            principal.Show();
+            ListaUsuarios lista = new ListaUsuarios();
+            lista.usuario = this.usuario;
+            lista.rol = this.rol;
+            lista.Show();
             this.Hide();
         }
 
@@ -208,37 +209,41 @@ namespace proyecto_final_club_deportivo.GUI
             if (rol.Rows.Count > 0)
             {
                 idRol = int.Parse(rol.Rows[0][0].ToString());
-            }
-            string nombre = txtNombre.Text;
-            string apellido = txtApellido.Text;
-            string username = txtUsername.Text;
-            string password = txtPassword.Text;
-            string dni = txtDni.Text;
-            string email = txtEmail.Text;
-            string telefono = txtTelefono.Text;
-            string rolName = cmbRol.SelectedItem.ToString();
+                string nombre = txtNombre.Text;
+                string apellido = txtApellido.Text;
+                string username = txtUsername.Text;
+                string password = txtPassword.Text;
+                string dni = txtDni.Text;
+                string email = txtEmail.Text;
+                string telefono = txtTelefono.Text;
+                string rolName = cmbRol.SelectedItem.ToString();
 
-            if (nombre != "" && apellido != "" && dni != "" && telefono != "" && rolName != "" &&
-                username != "" && email != "" && password != "")
-            {
-                MessageBox.Show(password, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                string passCodificado = UsuarioController.getSHA256(password);
-
-                Usuario user = new Usuario(nombre, apellido, dni, email, telefono, username, passCodificado, rolName);
-                modificarUsuario = usuarioController.editarUsuario(user, idRol);
-
-                if (modificarUsuario.Equals("0"))
+                if (nombre != "" && apellido != "" && dni != "" && telefono != "" && rolName != "" &&
+                    username != "" && email != "" && password != "")
                 {
-                    MessageBox.Show("OCURRIÓ UN ERROR INTENTE NUEVAMENTE.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string passEncriptado = UsuarioController.getSHA256(password);
+
+                    Usuario user = new Usuario(nombre, apellido, dni, email, telefono, username, passEncriptado, rolName);
+                    modificarUsuario = usuarioController.editarUsuario(user, idRol);
+
+                    if (modificarUsuario.Equals("0"))
+                    {
+                        MessageBox.Show("OCURRIÓ UN ERROR INTENTE NUEVAMENTE.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("El usuario con id " + modificarUsuario + " fue modificado con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("El usuario con id " + modificarUsuario + " fue modificado con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Faltan Completar Datos (*).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
             }
             else
             {
-                MessageBox.Show("Faltan Completar Datos (*).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se encontraron roles con este nombre.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

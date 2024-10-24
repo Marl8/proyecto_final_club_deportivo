@@ -40,6 +40,11 @@ namespace proyecto_final_club_deportivo.Logica
             return usuarioRepository.buscarRol(nombre);
         }
 
+        public string crearUsuario(Usuario usuario, int idRol)
+        {
+            return usuarioRepository.crearUsuario(usuario, idRol);
+        }
+
         public string editarUsuario(Usuario usuario, int idRol)
         {
             return usuarioRepository.editarUsuario(usuario, idRol);

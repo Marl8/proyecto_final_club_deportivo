@@ -152,23 +152,29 @@
             // 
             // btnEditar
             // 
-            btnEditar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEditar.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEditar.Image = (Image)resources.GetObject("btnEditar.Image");
+            btnEditar.ImageAlign = ContentAlignment.MiddleLeft;
             btnEditar.Location = new Point(712, 184);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(108, 37);
             btnEditar.TabIndex = 83;
             btnEditar.Text = "EDITAR";
+            btnEditar.TextAlign = ContentAlignment.MiddleRight;
             btnEditar.UseVisualStyleBackColor = true;
             btnEditar.Click += btnEditar_Click;
             // 
             // btnEliminar
             // 
             btnEliminar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEliminar.Image = (Image)resources.GetObject("btnEliminar.Image");
+            btnEliminar.ImageAlign = ContentAlignment.MiddleLeft;
             btnEliminar.Location = new Point(712, 249);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(108, 37);
             btnEliminar.TabIndex = 84;
             btnEliminar.Text = "ELIMINAR";
+            btnEliminar.TextAlign = ContentAlignment.MiddleRight;
             btnEliminar.UseVisualStyleBackColor = true;
             btnEliminar.Click += btnEliminar_Click;
             // 

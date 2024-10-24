@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CrearUsuario));
             label1 = new Label();
             lblUsuario = new Label();
             pictureBox10 = new PictureBox();
@@ -366,12 +367,16 @@
             // btnGuardar
             // 
             btnGuardar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnGuardar.Location = new Point(229, 418);
+            btnGuardar.Image = (Image)resources.GetObject("btnGuardar.Image");
+            btnGuardar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnGuardar.Location = new Point(233, 418);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(141, 42);
+            btnGuardar.Size = new Size(131, 42);
             btnGuardar.TabIndex = 101;
             btnGuardar.Text = "GUARDAR";
+            btnGuardar.TextAlign = ContentAlignment.MiddleRight;
             btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // btnVolver
             // 

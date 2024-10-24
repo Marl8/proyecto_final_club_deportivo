@@ -144,6 +144,48 @@ namespace proyecto_final_club_deportivo.Datos
             }
         }
 
+        public string crearUsuario(Usuario user, int idRol)
+        {
+            string respuesta;
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                MySqlCommand comando = new MySqlCommand("crearUsuario", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+
+                comando.Parameters.Add("nombreUs", MySqlDbType.VarChar).Value = user.Nombre;
+                comando.Parameters.Add("apellidoUs", MySqlDbType.VarChar).Value = user.Apellido;
+                comando.Parameters.Add("usernameUs", MySqlDbType.VarChar).Value = user.Username;
+                comando.Parameters.Add("passwordUs", MySqlDbType.VarChar).Value = user.Password;
+                comando.Parameters.Add("dniUs", MySqlDbType.VarChar).Value = user.Dni;
+                comando.Parameters.Add("emailUs", MySqlDbType.VarChar).Value = user.Email;
+                comando.Parameters.Add("telefonoUs", MySqlDbType.VarChar).Value = user.Telefono;
+                comando.Parameters.Add("rolUs", MySqlDbType.Int32).Value = idRol;
+
+                MySqlParameter existe = new MySqlParameter();
+                existe.ParameterName = "respuesta";
+                existe.MySqlDbType = MySqlDbType.Int32;
+                existe.Direction = ParameterDirection.Output;
+                comando.Parameters.Add(existe);
+                sqlCon.Open();
+                comando.ExecuteNonQuery();
+                respuesta = Convert.ToString(existe.Value);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open)
+                { sqlCon.Close(); };
+            }
+            return respuesta;
+        }
+
+
+
         public string editarUsuario(Usuario user, int idRol)
         {
             string respuesta;
