@@ -1,4 +1,5 @@
 ﻿using proyecto_final_club_deportivo.Datos;
+using proyecto_final_club_deportivo.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -19,6 +20,35 @@ namespace proyecto_final_club_deportivo.Logica
             return this.usuarioRepository.loginUsuario(username, pass);
         }
 
+        public DataTable listarUsuarios()
+        {
+            return usuarioRepository.listarUsuarios();
+        }
+
+        public DataTable buscarUsuarioPorId(int id)
+        {
+            return usuarioRepository.buscarUsuarioPorId(id);
+        }
+
+        public DataTable buscarUsuarioPorUsername(string username)
+        {
+            return usuarioRepository.buscarUsuarioPorUsername(username);
+        }
+
+        public DataTable buscarRol(string nombre)
+        {
+            return usuarioRepository.buscarRol(nombre);
+        }
+
+        public string editarUsuario(Usuario usuario, int idRol)
+        {
+            return usuarioRepository.editarUsuario(usuario, idRol);
+        }
+
+        public string eliminarUsuario(int id)
+        {
+            return usuarioRepository.eliminarUsuario(id);
+        }
 
         // Encripta la contraseña con un algoritmo SHA256
         public static string getSHA256(string str)

@@ -1,6 +1,6 @@
 ﻿namespace proyecto_final_club_deportivo.GUI
 {
-    partial class ModificarUsuario
+    partial class EditarUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -28,16 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModificarUsuario));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditarUsuario));
             lblUsuario = new Label();
             pictureBox10 = new PictureBox();
             label1 = new Label();
-            buscarActividad = new Button();
             btnLimpiar = new Button();
-            btnModificar = new Button();
+            btnEditar = new Button();
             btnVolver = new Button();
             label10 = new Label();
-            txtRol = new TextBox();
             pictureBox7 = new PictureBox();
             pictureBox8 = new PictureBox();
             label8 = new Label();
@@ -47,32 +45,31 @@
             pictureBox6 = new PictureBox();
             pictureBox5 = new PictureBox();
             pictureBox4 = new PictureBox();
-            pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
-            label7 = new Label();
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
-            cmbEstado = new ComboBox();
             txtTelefono = new TextBox();
             txtEmail = new TextBox();
             txtDni = new TextBox();
             txtApellido = new TextBox();
             txtNombre = new TextBox();
             pictureBox9 = new PictureBox();
+            cmbRol = new ComboBox();
+            pictureBox3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // lblUsuario
@@ -88,7 +85,7 @@
             // pictureBox10
             // 
             pictureBox10.BackColor = Color.FromArgb(53, 47, 80);
-            pictureBox10.Location = new Point(-1, -2);
+            pictureBox10.Location = new Point(-1, 0);
             pictureBox10.Name = "pictureBox10";
             pictureBox10.Size = new Size(590, 51);
             pictureBox10.TabIndex = 70;
@@ -100,55 +97,48 @@
             label1.BackColor = Color.DarkSlateBlue;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Snow;
-            label1.Location = new Point(160, 73);
+            label1.Location = new Point(197, 71);
             label1.Name = "label1";
-            label1.Size = new Size(261, 32);
+            label1.Size = new Size(210, 32);
             label1.TabIndex = 71;
-            label1.Text = "MODIFICAR USUARIO";
-            // 
-            // buscarActividad
-            // 
-            buscarActividad.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            buscarActividad.ForeColor = Color.Black;
-            buscarActividad.Image = (Image)resources.GetObject("buscarActividad.Image");
-            buscarActividad.ImageAlign = ContentAlignment.MiddleLeft;
-            buscarActividad.Location = new Point(351, 385);
-            buscarActividad.Name = "buscarActividad";
-            buscarActividad.Size = new Size(87, 32);
-            buscarActividad.TabIndex = 134;
-            buscarActividad.Text = "BUSCAR";
-            buscarActividad.TextAlign = ContentAlignment.MiddleRight;
-            buscarActividad.UseVisualStyleBackColor = true;
+            label1.Text = "EDITAR USUARIO";
             // 
             // btnLimpiar
             // 
             btnLimpiar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnLimpiar.Image = Properties.Resources.limpiar;
             btnLimpiar.ImageAlign = ContentAlignment.BottomLeft;
-            btnLimpiar.Location = new Point(65, 468);
+            btnLimpiar.Location = new Point(83, 437);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(126, 42);
             btnLimpiar.TabIndex = 133;
             btnLimpiar.Text = "LIMPIAR";
             btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
-            // btnModificar
+            // btnEditar
             // 
-            btnModificar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnModificar.Location = new Point(222, 468);
-            btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(141, 42);
-            btnModificar.TabIndex = 132;
-            btnModificar.Text = "MODIFICAR";
-            btnModificar.UseVisualStyleBackColor = true;
+            btnEditar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEditar.Image = (Image)resources.GetObject("btnEditar.Image");
+            btnEditar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEditar.Location = new Point(244, 437);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(123, 42);
+            btnEditar.TabIndex = 132;
+            btnEditar.Text = "EDITAR";
+            btnEditar.TextAlign = ContentAlignment.MiddleRight;
+            btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
+            btnEditar.Enter += txPassword_Enter;
+            btnEditar.Leave += txtPassword_Leave;
             // 
             // btnVolver
             // 
             btnVolver.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnVolver.Image = Properties.Resources.volver;
             btnVolver.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVolver.Location = new Point(393, 468);
+            btnVolver.Location = new Point(399, 437);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(113, 42);
             btnVolver.TabIndex = 131;
@@ -162,21 +152,11 @@
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label10.ForeColor = Color.Snow;
-            label10.Location = new Point(191, 393);
+            label10.Location = new Point(337, 342);
             label10.Name = "label10";
             label10.Size = new Size(30, 17);
             label10.TabIndex = 130;
             label10.Text = "Rol:";
-            // 
-            // txtRol
-            // 
-            txtRol.Location = new Point(222, 391);
-            txtRol.Name = "txtRol";
-            txtRol.Size = new Size(123, 23);
-            txtRol.TabIndex = 129;
-            txtRol.Text = "Rol";
-            txtRol.Enter += txtRol_Enter;
-            txtRol.Leave += txtRol_Leave;
             // 
             // pictureBox7
             // 
@@ -227,8 +207,8 @@
             txtPassword.Size = new Size(178, 23);
             txtPassword.TabIndex = 124;
             txtPassword.Text = "Password";
-            txtPassword.Enter += textUsername_Enter;
-            txtPassword.Leave += txtUsername_Leave;
+            txtPassword.Enter += txPassword_Enter;
+            txtPassword.Leave += txtPassword_Leave;
             // 
             // txtUsername
             // 
@@ -270,16 +250,6 @@
             pictureBox4.TabIndex = 120;
             pictureBox4.TabStop = false;
             // 
-            // pictureBox3
-            // 
-            pictureBox3.Image = Properties.Resources.asterisk1;
-            pictureBox3.Location = new Point(475, 339);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(15, 18);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 119;
-            pictureBox3.TabStop = false;
-            // 
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.asterisk1;
@@ -299,17 +269,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 117;
             pictureBox1.TabStop = false;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.ForeColor = Color.Snow;
-            label7.Location = new Point(318, 339);
-            label7.Name = "label7";
-            label7.Size = new Size(51, 17);
-            label7.TabIndex = 116;
-            label7.Text = "Estado:";
             // 
             // label6
             // 
@@ -366,15 +325,6 @@
             label2.TabIndex = 111;
             label2.Text = "Nombre:";
             // 
-            // cmbEstado
-            // 
-            cmbEstado.FormattingEnabled = true;
-            cmbEstado.Items.AddRange(new object[] { "Activo", "Inactivo" });
-            cmbEstado.Location = new Point(370, 338);
-            cmbEstado.Name = "cmbEstado";
-            cmbEstado.Size = new Size(99, 23);
-            cmbEstado.TabIndex = 110;
-            // 
             // txtTelefono
             // 
             txtTelefono.Location = new Point(104, 337);
@@ -428,24 +378,43 @@
             // pictureBox9
             // 
             pictureBox9.BackColor = Color.FromArgb(53, 47, 80);
-            pictureBox9.Location = new Point(-1, 444);
+            pictureBox9.Location = new Point(-4, 405);
             pictureBox9.Name = "pictureBox9";
             pictureBox9.Size = new Size(593, 105);
             pictureBox9.TabIndex = 135;
             pictureBox9.TabStop = false;
             // 
-            // ModificarUsuario
+            // cmbRol
+            // 
+            cmbRol.FormattingEnabled = true;
+            cmbRol.Items.AddRange(new object[] { "Administrador", "Empleado" });
+            cmbRol.Location = new Point(373, 339);
+            cmbRol.Name = "cmbRol";
+            cmbRol.Size = new Size(121, 23);
+            cmbRol.TabIndex = 136;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources.asterisk1;
+            pictureBox3.Location = new Point(497, 342);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(15, 18);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 137;
+            pictureBox3.TabStop = false;
+            // 
+            // EditarUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkSlateBlue;
-            ClientSize = new Size(588, 542);
-            Controls.Add(buscarActividad);
+            ClientSize = new Size(588, 506);
+            Controls.Add(pictureBox3);
+            Controls.Add(cmbRol);
             Controls.Add(btnLimpiar);
-            Controls.Add(btnModificar);
+            Controls.Add(btnEditar);
             Controls.Add(btnVolver);
             Controls.Add(label10);
-            Controls.Add(txtRol);
             Controls.Add(pictureBox7);
             Controls.Add(pictureBox8);
             Controls.Add(label8);
@@ -455,16 +424,13 @@
             Controls.Add(pictureBox6);
             Controls.Add(pictureBox5);
             Controls.Add(pictureBox4);
-            Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
-            Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(cmbEstado);
             Controls.Add(txtTelefono);
             Controls.Add(txtEmail);
             Controls.Add(txtDni);
@@ -476,20 +442,20 @@
             Controls.Add(pictureBox10);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "ModificarUsuario";
+            Name = "EditarUsuario";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Modificar Usuario";
-            Load += ModificarUsuario_Load;
+            Text = "Editar Usuario";
+            Load += EditarUsuario_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -499,12 +465,10 @@
         private Label lblUsuario;
         private PictureBox pictureBox10;
         private Label label1;
-        private Button buscarActividad;
         private Button btnLimpiar;
-        private Button btnModificar;
+        private Button btnEditar;
         private Button btnVolver;
         private Label label10;
-        private TextBox txtRol;
         private PictureBox pictureBox7;
         private PictureBox pictureBox8;
         private Label label8;
@@ -514,21 +478,20 @@
         private PictureBox pictureBox6;
         private PictureBox pictureBox5;
         private PictureBox pictureBox4;
-        private PictureBox pictureBox3;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
-        private Label label7;
         private Label label6;
         private Label label5;
         private Label label4;
         private Label label3;
         private Label label2;
-        private ComboBox cmbEstado;
         private TextBox txtTelefono;
         private TextBox txtEmail;
         private TextBox txtDni;
         private TextBox txtApellido;
         private TextBox txtNombre;
         private PictureBox pictureBox9;
+        private ComboBox cmbRol;
+        private PictureBox pictureBox3;
     }
 }

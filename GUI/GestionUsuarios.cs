@@ -1,4 +1,5 @@
-﻿using System;
+﻿using proyecto_final_club_deportivo.Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,10 +15,12 @@ namespace proyecto_final_club_deportivo.GUI
     {
         internal string? rol;
         internal string? usuario;
+        internal UsuarioController usuarioController;
 
         public GestionUsuarios()
         {
             InitializeComponent();
+            usuarioController = new UsuarioController();
         }
 
         private void GestionUsuarios_Load(object sender, EventArgs e)
@@ -44,42 +47,71 @@ namespace proyecto_final_club_deportivo.GUI
             btnVolver.BackColor = Color.White;
         }
 
-        private void btnCrearUsusario_MouseMove(object sender, MouseEventArgs e)
+        private void btnGestionarUsuarios_MouseMove(object sender, MouseEventArgs e)
         {
-            btnCrearUsusario.BackColor = Color.FromArgb(192, 192, 255);
+            btnGestionarUsuarios.BackColor = Color.FromArgb(192, 192, 255);
         }
 
-        private void btnCrearUsusario_MouseLeave(object sender, EventArgs e)
+        private void btnGestionarUsuarios_MouseLeave(object sender, EventArgs e)
         {
-            btnCrearUsusario.BackColor = Color.White;
+            btnGestionarUsuarios.BackColor = Color.White;
         }
 
-        private void btnModificarUsuario_MouseMove(object sender, MouseEventArgs e)
+        private void btnMiUsuario_MouseMove(object sender, MouseEventArgs e)
         {
-            btnModificarUsuario.BackColor = Color.FromArgb(192, 192, 255);
+            btnMiUsuario.BackColor = Color.FromArgb(192, 192, 255);
         }
 
-        private void btnModificarUsuario_MouseLeave(object sender, EventArgs e)
+        private void btnMiUsuario_MouseLeave(object sender, EventArgs e)
         {
-            btnModificarUsuario.BackColor = Color.White;
+            btnMiUsuario.BackColor = Color.White;
         }
 
-        private void btnCrearUsusario_Click(object sender, EventArgs e)
+        private void btnGestionarUsuarios_Click(object sender, EventArgs e)
         {
-            CrearUsuario usuario = new CrearUsuario();
+            ListaUsuarios usuario = new ListaUsuarios();
             usuario.usuario = this.usuario;
             usuario.rol = this.rol;
             usuario.Show();
             this.Hide();
         }
 
-        private void btnModificarUsuario_Click(object sender, EventArgs e)
+        private void btnMiUsuario_Click(object sender, EventArgs e)
         {
-            ModificarUsuario usuario = new ModificarUsuario();
-            usuario.usuario = this.usuario;
-            usuario.rol = this.rol;
-            usuario.Show();
-            this.Hide();
+            DataTable user = usuarioController.buscarUsuarioPorUsername(this.usuario);
+            string rol = "";
+            if (user.Rows.Count > 0) {
+
+                string nombre = user.Rows[0][1].ToString();
+                string apellido = user.Rows[0][2].ToString();
+                string username = user.Rows[0][3].ToString();
+                string dni = user.Rows[0][4].ToString();
+                string email = user.Rows[0][5].ToString();
+                string telefono = user.Rows[0][6].ToString();
+                int fkRol = int.Parse(user.Rows[0][7].ToString());
+
+                if (fkRol == 1)
+                {
+                    rol = "Administrador";
+                }
+                else if (fkRol == 2)
+                {
+                    rol = "Empleado";
+                }
+                EditarUsuario usuario = new EditarUsuario(nombre, apellido, username, dni, email, telefono, rol);
+                usuario.usuario = this.usuario;
+                usuario.rol = this.rol;
+                usuario.Show();
+                this.Hide();
+            }
+            if (user.Rows.Count <= 0)
+            {
+                MessageBox.Show("El usuario no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (user.Rows.Count > 0)
+            {
+                MessageBox.Show("Usuario editado con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

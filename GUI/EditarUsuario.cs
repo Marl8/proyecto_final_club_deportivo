@@ -1,4 +1,6 @@
-﻿using System;
+﻿using proyecto_final_club_deportivo.Entities;
+using proyecto_final_club_deportivo.Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,28 +12,55 @@ using System.Windows.Forms;
 
 namespace proyecto_final_club_deportivo.GUI
 {
-    public partial class CrearUsuario : Form
+    public partial class EditarUsuario : Form
     {
         internal string? rol;
         internal string? usuario;
+        private bool precargado = false;
+        UsuarioController usuarioController;
 
-        public CrearUsuario()
+        public EditarUsuario()
         {
             InitializeComponent();
+            usuarioController = new UsuarioController();
         }
 
-        private void CrearUsuario_Load(object sender, EventArgs e)
+        public EditarUsuario(string nombre, string apellido, string username,
+            string dni, string email, string telefono, string rol)
+        {
+            InitializeComponent();
+            usuarioController = new UsuarioController();
+            txtNombre.Text = nombre;
+            txtApellido.Text = apellido;
+            txtUsername.Text = username;
+            txtUsername.Enabled = false;
+            txtDni.Text = dni;
+            txtEmail.Text = email;
+            txtTelefono.Text = telefono;
+            if (rol.Equals("Administrador"))
+            {
+                cmbRol.SelectedIndex = 0;
+            }
+            else
+            {
+                cmbRol.SelectedIndex = 1;
+            }
+            this.precargado = true;
+        }
+
+        private void EditarUsuario_Load(object sender, EventArgs e)
         {
             lblUsuario.Text = "USUARIO: " + usuario + " " + "(" + rol + ")";
-            txtNombre.ForeColor = Color.Gray;
-            txtApellido.ForeColor = Color.Gray;
-            txtDni.ForeColor = Color.Gray;
-            txtEmail.ForeColor = Color.Gray;
-            txtTelefono.ForeColor = Color.Gray;
-            txtUsername.ForeColor = Color.Gray;
-            txtPassword.ForeColor = Color.Gray;
-            cmbRol.SelectedItem = null;
-            cmbRol.SelectedText = "--select--";
+            if (precargado == false)
+            {
+                txtNombre.ForeColor = Color.Gray;
+                txtApellido.ForeColor = Color.Gray;
+                txtDni.ForeColor = Color.Gray;
+                txtEmail.ForeColor = Color.Gray;
+                txtTelefono.ForeColor = Color.Gray;
+                txtUsername.ForeColor = Color.Gray;
+                txtPassword.ForeColor = Color.Gray;
+            }
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -168,6 +197,48 @@ namespace proyecto_final_club_deportivo.GUI
             {
                 txtTelefono.Text = "Telefono";
                 txtTelefono.ForeColor = Color.Gray;
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            DataTable rol = usuarioController.buscarRol(cmbRol.SelectedItem.ToString());
+            int idRol = 0;
+            string modificarUsuario = "";
+            if (rol.Rows.Count > 0)
+            {
+                idRol = int.Parse(rol.Rows[0][0].ToString());
+            }
+            string nombre = txtNombre.Text;
+            string apellido = txtApellido.Text;
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+            string dni = txtDni.Text;
+            string email = txtEmail.Text;
+            string telefono = txtTelefono.Text;
+            string rolName = cmbRol.SelectedItem.ToString();
+
+            if (nombre != "" && apellido != "" && dni != "" && telefono != "" && rolName != "" &&
+                username != "" && email != "" && password != "")
+            {
+                MessageBox.Show(password, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string passCodificado = UsuarioController.getSHA256(password);
+
+                Usuario user = new Usuario(nombre, apellido, dni, email, telefono, username, passCodificado, rolName);
+                modificarUsuario = usuarioController.editarUsuario(user, idRol);
+
+                if (modificarUsuario.Equals("0"))
+                {
+                    MessageBox.Show("OCURRIÓ UN ERROR INTENTE NUEVAMENTE.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("El usuario con id " + modificarUsuario + " fue modificado con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Faltan Completar Datos (*).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

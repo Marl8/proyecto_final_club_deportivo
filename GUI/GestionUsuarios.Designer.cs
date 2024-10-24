@@ -33,8 +33,8 @@
             lblUsuario = new Label();
             pictureBox10 = new PictureBox();
             pictureBox1 = new PictureBox();
-            btnCrearUsusario = new Button();
-            btnModificarUsuario = new Button();
+            btnGestionarUsuarios = new Button();
+            btnMiUsuario = new Button();
             btnVolver = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -81,31 +81,31 @@
             pictureBox1.TabIndex = 73;
             pictureBox1.TabStop = false;
             // 
-            // btnCrearUsusario
+            // btnGestionarUsuarios
             // 
-            btnCrearUsusario.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCrearUsusario.Location = new Point(288, 133);
-            btnCrearUsusario.Name = "btnCrearUsusario";
-            btnCrearUsusario.Size = new Size(182, 51);
-            btnCrearUsusario.TabIndex = 74;
-            btnCrearUsusario.Text = "CREAR USUARIO";
-            btnCrearUsusario.UseVisualStyleBackColor = true;
-            btnCrearUsusario.Click += btnCrearUsusario_Click;
-            btnCrearUsusario.MouseLeave += btnCrearUsusario_MouseLeave;
-            btnCrearUsusario.MouseMove += btnCrearUsusario_MouseMove;
+            btnGestionarUsuarios.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnGestionarUsuarios.Location = new Point(288, 133);
+            btnGestionarUsuarios.Name = "btnGestionarUsuarios";
+            btnGestionarUsuarios.Size = new Size(182, 51);
+            btnGestionarUsuarios.TabIndex = 74;
+            btnGestionarUsuarios.Text = "GESTIONAR USUARIOS";
+            btnGestionarUsuarios.UseVisualStyleBackColor = true;
+            btnGestionarUsuarios.Click += btnGestionarUsuarios_Click;
+            btnGestionarUsuarios.MouseLeave += btnGestionarUsuarios_MouseLeave;
+            btnGestionarUsuarios.MouseMove += btnGestionarUsuarios_MouseMove;
             // 
-            // btnModificarUsuario
+            // btnMiUsuario
             // 
-            btnModificarUsuario.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnModificarUsuario.Location = new Point(288, 221);
-            btnModificarUsuario.Name = "btnModificarUsuario";
-            btnModificarUsuario.Size = new Size(182, 51);
-            btnModificarUsuario.TabIndex = 75;
-            btnModificarUsuario.Text = "MODIFICAR USUARIO";
-            btnModificarUsuario.UseVisualStyleBackColor = true;
-            btnModificarUsuario.Click += btnModificarUsuario_Click;
-            btnModificarUsuario.MouseLeave += btnModificarUsuario_MouseLeave;
-            btnModificarUsuario.MouseMove += btnModificarUsuario_MouseMove;
+            btnMiUsuario.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnMiUsuario.Location = new Point(288, 221);
+            btnMiUsuario.Name = "btnMiUsuario";
+            btnMiUsuario.Size = new Size(182, 51);
+            btnMiUsuario.TabIndex = 75;
+            btnMiUsuario.Text = "MI USUARIO";
+            btnMiUsuario.UseVisualStyleBackColor = true;
+            btnMiUsuario.Click += btnMiUsuario_Click;
+            btnMiUsuario.MouseLeave += btnMiUsuario_MouseLeave;
+            btnMiUsuario.MouseMove += btnMiUsuario_MouseMove;
             // 
             // btnVolver
             // 
@@ -130,8 +130,8 @@
             BackColor = Color.DarkSlateBlue;
             ClientSize = new Size(538, 405);
             Controls.Add(btnVolver);
-            Controls.Add(btnModificarUsuario);
-            Controls.Add(btnCrearUsusario);
+            Controls.Add(btnMiUsuario);
+            Controls.Add(btnGestionarUsuarios);
             Controls.Add(pictureBox1);
             Controls.Add(lblUsuario);
             Controls.Add(lblPagar);
@@ -154,8 +154,8 @@
         private Label lblUsuario;
         private PictureBox pictureBox10;
         private PictureBox pictureBox1;
-        private Button btnCrearUsusario;
-        private Button btnModificarUsuario;
+        private Button btnGestionarUsuarios;
+        private Button btnMiUsuario;
         private Button btnVolver;
     }
 }
