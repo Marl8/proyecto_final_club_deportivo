@@ -67,9 +67,13 @@ namespace proyecto_final_club_deportivo
          * contraseñas planas en la base de datos.
          * Sin embargo, a los fines de facilitar el acceso a la aplicación con el objeto de probar su 
          * funcionamiento se adjuntan los datos de logeo.
+         * 
+         * USUARIO ROL ADMINISTRADOR:
+         * 
          * Username: prueba
          * Password: 123
          * 
+         * USUARIO ROL EMPLEADO:
          * Username: fabi
          * Password: 12345
          * **/

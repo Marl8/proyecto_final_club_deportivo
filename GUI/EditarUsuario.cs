@@ -221,9 +221,9 @@ namespace proyecto_final_club_deportivo.GUI
                 if (nombre != "" && apellido != "" && dni != "" && telefono != "" && rolName != "" &&
                     username != "" && email != "" && password != "")
                 {
-                    string passEncriptado = UsuarioController.getSHA256(password);
+                    string passCifrado = UsuarioController.getSHA256(password);
 
-                    Usuario user = new Usuario(nombre, apellido, dni, email, telefono, username, passEncriptado, rolName);
+                    Usuario user = new Usuario(nombre, apellido, dni, email, telefono, username, passCifrado, rolName);
                     modificarUsuario = usuarioController.editarUsuario(user, idRol);
 
                     if (modificarUsuario.Equals("0"))
