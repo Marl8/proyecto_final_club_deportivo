@@ -26,6 +26,7 @@ namespace proyecto_final_club_deportivo.GUI
             txtUsuario.ForeColor = Color.Gray;
             cargarTabla();
             personalizarColumnas();
+            txtUsuario.Focus();
         }
 
         private void cargarTabla()
@@ -165,7 +166,16 @@ namespace proyecto_final_club_deportivo.GUI
             }
         }
 
-        private void txtUsuario_MouseMove(object sender, MouseEventArgs e)
+        private void btnCrearUsuario_Click(object sender, EventArgs e)
+        {
+            CrearUsuario crear = new CrearUsuario();
+            crear.usuario = this.usuario;
+            crear.rol = this.rol;
+            crear.Show();
+            this.Hide();
+        }
+
+        private void txtUsuario_Enter(object sender, EventArgs e)
         {
             if (txtUsuario.Text == "Usuario")
             {
@@ -174,22 +184,13 @@ namespace proyecto_final_club_deportivo.GUI
             }
         }
 
-        private void txtUsuario_MouseLeave(object sender, EventArgs e)
+        private void txtUsuario_Leave(object sender, EventArgs e)
         {
             if (txtUsuario.Text == "")
             {
                 txtUsuario.Text = "Usuario";
                 txtUsuario.ForeColor = Color.Gray;
             }
-        }
-
-        private void btnCrearUsuario_Click(object sender, EventArgs e)
-        {
-            CrearUsuario crear = new CrearUsuario();
-            crear.usuario = this.usuario;
-            crear.rol = this.rol;
-            crear.Show();
-            this.Hide();
         }
     }
 }

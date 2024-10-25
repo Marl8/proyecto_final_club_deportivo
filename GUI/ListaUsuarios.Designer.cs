@@ -37,9 +37,9 @@
             btnCrearUsuario = new Button();
             buscarUsuario = new Button();
             label2 = new Label();
-            txtUsuario = new TextBox();
             btnEditar = new Button();
             btnEliminar = new Button();
+            txtUsuario = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtgvUsuarios).BeginInit();
             SuspendLayout();
@@ -140,16 +140,6 @@
             label2.Size = new Size(0, 15);
             label2.TabIndex = 81;
             // 
-            // txtUsuario
-            // 
-            txtUsuario.Location = new Point(491, 126);
-            txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(96, 23);
-            txtUsuario.TabIndex = 80;
-            txtUsuario.Text = "Usuario";
-            txtUsuario.MouseLeave += txtUsuario_MouseLeave;
-            txtUsuario.MouseMove += txtUsuario_MouseMove;
-            // 
             // btnEditar
             // 
             btnEditar.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -178,17 +168,27 @@
             btnEliminar.UseVisualStyleBackColor = true;
             btnEliminar.Click += btnEliminar_Click;
             // 
+            // txtUsuario
+            // 
+            txtUsuario.Location = new Point(500, 126);
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Size = new Size(96, 23);
+            txtUsuario.TabIndex = 85;
+            txtUsuario.Text = "Usuario";
+            txtUsuario.Enter += txtUsuario_Enter;
+            txtUsuario.Leave += txtUsuario_Leave;
+            // 
             // ListaUsuarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkSlateBlue;
             ClientSize = new Size(832, 456);
+            Controls.Add(txtUsuario);
             Controls.Add(btnEliminar);
             Controls.Add(btnEditar);
             Controls.Add(buscarUsuario);
             Controls.Add(label2);
-            Controls.Add(txtUsuario);
             Controls.Add(btnCrearUsuario);
             Controls.Add(dtgvUsuarios);
             Controls.Add(btnVolver);
@@ -217,8 +217,8 @@
         private Button btnCrearUsuario;
         private Button buscarUsuario;
         private Label label2;
-        private TextBox txtUsuario;
         private Button btnEditar;
         private Button btnEliminar;
+        private TextBox txtUsuario;
     }
 }
