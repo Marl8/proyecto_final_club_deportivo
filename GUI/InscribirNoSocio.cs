@@ -68,7 +68,7 @@ namespace proyecto_final_club_deportivo
                 {
                     if (codigo == 1)
                     {
-                        MessageBox.Show("SOCIO YA EXISTE", "AVISO DEL SISTEMA",
+                        MessageBox.Show("EL CLIENTE YA EXISTE", "AVISO DEL SISTEMA",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
