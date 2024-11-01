@@ -36,6 +36,7 @@
             label1 = new Label();
             btnVolver = new Button();
             dtgvSociosMora = new DataGridView();
+            btnSuspender = new Button();
             Id = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             Apellido = new DataGridViewTextBoxColumn();
@@ -43,7 +44,6 @@
             FechaVenc = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
             EstadoSocio = new DataGridViewTextBoxColumn();
-            btnSuspender = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtgvSociosMora).BeginInit();
             SuspendLayout();
@@ -122,6 +122,17 @@
             dtgvSociosMora.TabIndex = 79;
             dtgvSociosMora.CellClick += dtgvSociosMora_CellClick;
             // 
+            // btnSuspender
+            // 
+            btnSuspender.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSuspender.Location = new Point(696, 209);
+            btnSuspender.Name = "btnSuspender";
+            btnSuspender.Size = new Size(92, 37);
+            btnSuspender.TabIndex = 80;
+            btnSuspender.Text = "SUSPENDER";
+            btnSuspender.UseVisualStyleBackColor = true;
+            btnSuspender.Click += btnSuspender_Click;
+            // 
             // Id
             // 
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -135,13 +146,13 @@
             // 
             Nombre.HeaderText = "Nombre";
             Nombre.Name = "Nombre";
-            Nombre.Width = 115;
+            Nombre.Width = 112;
             // 
             // Apellido
             // 
             Apellido.HeaderText = "Apellido";
             Apellido.Name = "Apellido";
-            Apellido.Width = 115;
+            Apellido.Width = 112;
             // 
             // Dni
             // 
@@ -165,18 +176,7 @@
             // 
             EstadoSocio.HeaderText = "Estado Socio";
             EstadoSocio.Name = "EstadoSocio";
-            EstadoSocio.Width = 86;
-            // 
-            // btnSuspender
-            // 
-            btnSuspender.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSuspender.Location = new Point(696, 209);
-            btnSuspender.Name = "btnSuspender";
-            btnSuspender.Size = new Size(92, 37);
-            btnSuspender.TabIndex = 80;
-            btnSuspender.Text = "SUSPENDER";
-            btnSuspender.UseVisualStyleBackColor = true;
-            btnSuspender.Click += btnSuspender_Click;
+            EstadoSocio.Width = 83;
             // 
             // ListaSociosMora
             // 
@@ -209,6 +209,7 @@
         private Label label1;
         private Button btnVolver;
         private DataGridView dtgvSociosMora;
+        private Button btnSuspender;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Apellido;
@@ -216,6 +217,5 @@
         private DataGridViewTextBoxColumn FechaVenc;
         private DataGridViewTextBoxColumn Estado;
         private DataGridViewTextBoxColumn EstadoSocio;
-        private Button btnSuspender;
     }
 }
