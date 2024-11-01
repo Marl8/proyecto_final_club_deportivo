@@ -16,12 +16,87 @@ namespace proyecto_final_club_deportivo
         {
             InitializeComponent();
             usuarioController = new UsuarioController();
+
+            // Configurar el formulario para aceptar la tecla Enter
+            this.AcceptButton = btnIngresar;
+
+            // Agregar eventos KeyPress a los TextBox
+            txtUsername.KeyPress += new KeyPressEventHandler(TextBox_KeyPress);
+            txtPassword.KeyPress += new KeyPressEventHandler(TextBox_KeyPress);
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
             txtUsername.ForeColor = Color.Gray;
             txtPassword.ForeColor = Color.Gray;
+        }
+
+        private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Si se presiona Enter
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                // Prevenir el sonido de beep
+                e.Handled = true; 
+                realizarLogin();
+            }
+        }
+
+        /**
+         * Encriptamos la contraseña con una algoritmo SHA256 ya es considerado muy mala práctica guardar
+         * contraseñas planas en la base de datos.
+         * Sin embargo, a los fines de facilitar el acceso a la aplicación con el objeto de probar su 
+         * funcionamiento se adjuntan los datos de logeo.
+         * 
+         * USUARIO ROL ADMINISTRADOR:
+         * 
+         * Username: prueba
+         * Password: 123
+         * 
+         * USUARIO ROL EMPLEADO:
+         * Username: fabi
+         * Password: 12345
+         * **/
+        private void realizarLogin()
+        {
+            DataTable tablaLogin = new DataTable();
+            Usuario user;
+            tablaLogin = usuarioController.login(txtUsername.Text, txtPassword.Text);
+            if (tablaLogin.Rows.Count > 0)
+            {
+                MessageBox.Show("Ingreso exitoso!", "INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                string nombre = tablaLogin.Rows[0][0].ToString();
+                string apellido = tablaLogin.Rows[0][1].ToString();
+                string dni = tablaLogin.Rows[0][2].ToString();
+                string username = tablaLogin.Rows[0][3].ToString();
+                string rol = tablaLogin.Rows[0][4].ToString();
+                user = new Usuario(nombre, apellido, dni, username, rol);
+
+                Principal form = new Principal();
+                form.usuario = username;
+                form.rol = rol;
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Usuario y/o password incorrecto", "ERROR",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPassword.Clear();
+                txtUsername.Clear();
+                txtUsername.Text = "USUARIO";
+                txtUsername.ForeColor = Color.Gray;
+                txtPassword.Text = "CONTRASEÑA";
+                txtPassword.ForeColor = Color.Gray;
+                txtPassword.UseSystemPasswordChar = false;
+                txtUsername.Focus();
+            }
+        }
+
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            realizarLogin();
         }
 
         private void txtUsername_Enter(object sender, EventArgs e)
@@ -59,58 +134,6 @@ namespace proyecto_final_club_deportivo
                 txtPassword.Text = "CONTRASEÑA";
                 txtPassword.ForeColor = Color.Gray;
                 txtPassword.UseSystemPasswordChar = false;
-            }
-        }
-
-        /**
-         * Encriptamos la contraseña con una algoritmo SHA256 ya es considerado muy mala práctica guardar
-         * contraseñas planas en la base de datos.
-         * Sin embargo, a los fines de facilitar el acceso a la aplicación con el objeto de probar su 
-         * funcionamiento se adjuntan los datos de logeo.
-         * 
-         * USUARIO ROL ADMINISTRADOR:
-         * 
-         * Username: prueba
-         * Password: 123
-         * 
-         * USUARIO ROL EMPLEADO:
-         * Username: fabi
-         * Password: 12345
-         * **/
-        private void btnIngresar_Click(object sender, EventArgs e)
-        {
-            DataTable tablaLogin = new DataTable();
-            Usuario user;
-            tablaLogin = usuarioController.login(txtUsername.Text, txtPassword.Text);
-            if (tablaLogin.Rows.Count > 0)
-            {
-                MessageBox.Show("Ingreso exitoso!", "INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                string nombre = tablaLogin.Rows[0][0].ToString();
-                string apellido = tablaLogin.Rows[0][1].ToString();
-                string dni = tablaLogin.Rows[0][2].ToString();
-                string username = tablaLogin.Rows[0][3].ToString();
-                string rol = tablaLogin.Rows[0][4].ToString();
-                user = new Usuario(nombre, apellido, dni, username, rol);
-
-                Principal form = new Principal();
-                form.usuario = username;
-                form.rol = rol;
-                form.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Usuario y/o password incorrecto", "ERROR",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtPassword.Clear();
-                txtUsername.Clear();
-                txtUsername.Text = "USUARIO";
-                txtUsername.ForeColor = Color.Gray;
-                txtPassword.Text = "CONTRASEÑA";
-                txtPassword.ForeColor = Color.Gray;
-                txtPassword.UseSystemPasswordChar = false;
-                txtUsername.Focus();
             }
         }
 
