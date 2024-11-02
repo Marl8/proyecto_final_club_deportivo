@@ -10,12 +10,15 @@ namespace proyecto_final_club_deportivo
 {
     public partial class Login : Form
     {
+        private string? username;
+        private string? rol;
         internal UsuarioController usuarioController;
 
         public Login()
         {
             InitializeComponent();
             usuarioController = new UsuarioController();
+            pictureBoxSpinner.Visible = false;
 
             // Configurar el formulario para aceptar la tecla Enter
             this.AcceptButton = btnIngresar;
@@ -57,21 +60,22 @@ namespace proyecto_final_club_deportivo
          * Username: fabi
          * Password: 12345
          * **/
-        private void realizarLogin()
+        private async void realizarLogin()
         {
-            DataTable tablaLogin = new DataTable();
-            Usuario user;
-            tablaLogin = usuarioController.login(txtUsername.Text, txtPassword.Text);
-            if (tablaLogin.Rows.Count > 0)
+            // Mostrar el spinner
+            pictureBoxSpinner.Visible = true;
+            btnIngresar.Enabled = false;
+
+            // Realizar el login de manera asincrónica
+            bool loginSuccess = await PerformLoginAsync();
+
+            // Ocultar el spinner
+            pictureBoxSpinner.Visible = false;
+            btnIngresar.Enabled = true;
+
+            if (loginSuccess)
             {
                 MessageBox.Show("Ingreso exitoso!", "INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                string nombre = tablaLogin.Rows[0][0].ToString();
-                string apellido = tablaLogin.Rows[0][1].ToString();
-                string dni = tablaLogin.Rows[0][2].ToString();
-                string username = tablaLogin.Rows[0][3].ToString();
-                string rol = tablaLogin.Rows[0][4].ToString();
-                user = new Usuario(nombre, apellido, dni, username, rol);
 
                 Principal form = new Principal();
                 form.usuario = username;
@@ -92,6 +96,30 @@ namespace proyecto_final_club_deportivo
                 txtPassword.UseSystemPasswordChar = false;
                 txtUsername.Focus();
             }
+        }
+
+        private async Task<bool> PerformLoginAsync()
+        {
+            return await Task.Run(() =>
+            {
+                DataTable tablaLogin = new DataTable();
+                Usuario user;
+                tablaLogin = usuarioController.login(txtUsername.Text, txtPassword.Text);
+                bool existe = tablaLogin.Rows.Count > 0;
+
+                if (existe)
+                {
+                    string nombre = tablaLogin.Rows[0][0].ToString();
+                    string apellido = tablaLogin.Rows[0][1].ToString();
+                    string dni = tablaLogin.Rows[0][2].ToString();
+                    string username = tablaLogin.Rows[0][3].ToString();
+                    string rol = tablaLogin.Rows[0][4].ToString();
+                    user = new Usuario(nombre, apellido, dni, username, rol);
+                    this.username = user.Username;
+                    this.rol = user.Rol;
+                }
+                return existe;
+            });
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)

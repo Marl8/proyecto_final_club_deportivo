@@ -34,7 +34,9 @@
             btnIngresar = new Button();
             pictureBox1 = new PictureBox();
             lblTitulo = new Label();
+            pictureBoxSpinner = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSpinner).BeginInit();
             SuspendLayout();
             // 
             // txtUsername
@@ -92,12 +94,23 @@
             lblTitulo.TabIndex = 7;
             lblTitulo.Text = "Club Deportivo";
             // 
+            // pictureBoxSpinner
+            // 
+            pictureBoxSpinner.Image = (Image)resources.GetObject("pictureBoxSpinner.Image");
+            pictureBoxSpinner.Location = new Point(328, 302);
+            pictureBoxSpinner.Name = "pictureBoxSpinner";
+            pictureBoxSpinner.Size = new Size(35, 24);
+            pictureBoxSpinner.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBoxSpinner.TabIndex = 8;
+            pictureBoxSpinner.TabStop = false;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkSlateBlue;
             ClientSize = new Size(487, 347);
+            Controls.Add(pictureBoxSpinner);
             Controls.Add(lblTitulo);
             Controls.Add(pictureBox1);
             Controls.Add(btnIngresar);
@@ -110,6 +123,7 @@
             Text = "Login";
             Load += Login_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSpinner).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -121,5 +135,6 @@
         private Button btnIngresar;
         private PictureBox pictureBox1;
         private Label lblTitulo;
+        private PictureBox pictureBoxSpinner;
     }
 }

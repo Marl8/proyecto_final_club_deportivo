@@ -13,7 +13,6 @@ namespace proyecto_final_club_deportivo.Entities
         public string Password { get; set; }
         public string Rol { get; set; }
 
-
         public Usuario(int id, string nombre, string apellido, string dni, string email,
             string telefono, string username, string rol)
             : base(nombre, apellido, dni, email, telefono)
