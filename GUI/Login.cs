@@ -5,6 +5,7 @@ using System.Net;
 using System.Windows.Forms;
 using proyecto_final_club_deportivo.Logica;
 using proyecto_final_club_deportivo.Entities;
+using System.Runtime.CompilerServices;
 
 namespace proyecto_final_club_deportivo
 {
@@ -13,12 +14,18 @@ namespace proyecto_final_club_deportivo
         private string? username;
         private string? rol;
         internal UsuarioController usuarioController;
-
+        private PictureBox spinner;
         public Login()
         {
             InitializeComponent();
             usuarioController = new UsuarioController();
-            pictureBoxSpinner.Visible = false;
+            panelLogin.Visible = false;
+
+            this.spinner = crearSpinner();
+
+            // Agregar los controles al formulario
+            this.Controls.Add(spinner);
+            this.spinner.Visible = false;
 
             // Configurar el formulario para aceptar la tecla Enter
             this.AcceptButton = btnIngresar;
@@ -45,6 +52,19 @@ namespace proyecto_final_club_deportivo
             }
         }
 
+        private PictureBox crearSpinner()
+        {
+            PictureBox pictureBoxSpinner = new PictureBox();
+            string imagePath = Path.Combine(Directory.GetCurrentDirectory(), "imagines", "loading.gif");
+            pictureBoxSpinner.Image = Properties.Resources.loading; 
+            pictureBoxSpinner.Size = new Size(35, 35);
+            pictureBoxSpinner.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBoxSpinner.BackColor = Color.FromArgb(128, Color.Gray);
+            pictureBoxSpinner.Left = (this.ClientSize.Width - pictureBoxSpinner.Width) / 2;
+            pictureBoxSpinner.Top = pictureBoxSpinner.Bottom + 110;
+            return pictureBoxSpinner;
+        }
+
         /**
          * Encriptamos la contraseña con una algoritmo SHA256 ya es considerado muy mala práctica guardar
          * contraseñas planas en la base de datos.
@@ -62,16 +82,25 @@ namespace proyecto_final_club_deportivo
          * **/
         private async void realizarLogin()
         {
-            // Mostrar el spinner
-            pictureBoxSpinner.Visible = true;
+            this.spinner.Visible = true;
+            this.spinner.BringToFront();
+            panelLogin.Visible = true;
+            panelLogin.BackColor = Color.FromArgb(128, Color.Gray);
+            
+            // Inhabilitamos los botones y inputs
             btnIngresar.Enabled = false;
+            lblTitulo.BackColor = Color.FromArgb(128, Color.Gray);
+            pictureInicio.BackColor= Color.FromArgb(128, Color.Gray);
+            txtUsername.Enabled = false;
+            txtPassword.Enabled = false;
 
             // Realizar el login de manera asincrónica
             bool loginSuccess = await PerformLoginAsync();
 
             // Ocultar el spinner
-            pictureBoxSpinner.Visible = false;
+            this.spinner.Visible = false;
             btnIngresar.Enabled = true;
+            
 
             if (loginSuccess)
             {
@@ -89,11 +118,18 @@ namespace proyecto_final_club_deportivo
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPassword.Clear();
                 txtUsername.Clear();
+                txtPassword.Enabled = true;
+                txtUsername.Enabled = true;
                 txtUsername.Text = "USUARIO";
                 txtUsername.ForeColor = Color.Gray;
                 txtPassword.Text = "CONTRASEÑA";
                 txtPassword.ForeColor = Color.Gray;
                 txtPassword.UseSystemPasswordChar = false;
+                btnIngresar.Enabled= true;
+                lblTitulo.BackColor = Color.DarkSlateBlue;
+                pictureInicio.BackColor = Color.DarkSlateBlue;
+                this.spinner.Visible = false;
+                panelLogin.Visible = false;
                 txtUsername.Focus();
             }
         }

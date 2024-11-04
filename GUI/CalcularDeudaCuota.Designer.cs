@@ -70,11 +70,11 @@
             // 
             label1.AutoSize = true;
             label1.ForeColor = Color.Snow;
-            label1.Location = new Point(52, 98);
+            label1.Location = new Point(71, 98);
             label1.Name = "label1";
-            label1.Size = new Size(117, 15);
+            label1.Size = new Size(98, 15);
             label1.TabIndex = 6;
-            label1.Text = "Valor Cuota Anterior:";
+            label1.Text = "Valor Cuota Base:";
             // 
             // label2
             // 

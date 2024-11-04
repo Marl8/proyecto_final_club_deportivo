@@ -32,11 +32,10 @@
             txtUsername = new TextBox();
             txtPassword = new TextBox();
             btnIngresar = new Button();
-            pictureBox1 = new PictureBox();
+            pictureInicio = new PictureBox();
             lblTitulo = new Label();
-            pictureBoxSpinner = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxSpinner).BeginInit();
+            panelLogin = new Panel();
+            ((System.ComponentModel.ISupportInitialize)pictureInicio).BeginInit();
             SuspendLayout();
             // 
             // txtUsername
@@ -62,7 +61,7 @@
             // btnIngresar
             // 
             btnIngresar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnIngresar.Location = new Point(264, 252);
+            btnIngresar.Location = new Point(263, 243);
             btnIngresar.Name = "btnIngresar";
             btnIngresar.Size = new Size(159, 44);
             btnIngresar.TabIndex = 5;
@@ -72,16 +71,16 @@
             btnIngresar.MouseLeave += btnIngresar_MouseLeave;
             btnIngresar.MouseMove += btnIngresar_MouseMove;
             // 
-            // pictureBox1
+            // pictureInicio
             // 
-            pictureBox1.Image = Properties.Resources.login2;
-            pictureBox1.InitialImage = (Image)resources.GetObject("pictureBox1.InitialImage");
-            pictureBox1.Location = new Point(34, 84);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(211, 167);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 6;
-            pictureBox1.TabStop = false;
+            pictureInicio.Image = Properties.Resources.login2;
+            pictureInicio.InitialImage = (Image)resources.GetObject("pictureInicio.InitialImage");
+            pictureInicio.Location = new Point(34, 84);
+            pictureInicio.Name = "pictureInicio";
+            pictureInicio.Size = new Size(211, 167);
+            pictureInicio.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureInicio.TabIndex = 6;
+            pictureInicio.TabStop = false;
             // 
             // lblTitulo
             // 
@@ -94,15 +93,12 @@
             lblTitulo.TabIndex = 7;
             lblTitulo.Text = "Club Deportivo";
             // 
-            // pictureBoxSpinner
+            // panelLogin
             // 
-            pictureBoxSpinner.Image = (Image)resources.GetObject("pictureBoxSpinner.Image");
-            pictureBoxSpinner.Location = new Point(328, 302);
-            pictureBoxSpinner.Name = "pictureBoxSpinner";
-            pictureBoxSpinner.Size = new Size(35, 24);
-            pictureBoxSpinner.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBoxSpinner.TabIndex = 8;
-            pictureBoxSpinner.TabStop = false;
+            panelLogin.Location = new Point(1, -1);
+            panelLogin.Name = "panelLogin";
+            panelLogin.Size = new Size(489, 351);
+            panelLogin.TabIndex = 10;
             // 
             // Login
             // 
@@ -110,20 +106,19 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkSlateBlue;
             ClientSize = new Size(487, 347);
-            Controls.Add(pictureBoxSpinner);
+            Controls.Add(pictureInicio);
             Controls.Add(lblTitulo);
-            Controls.Add(pictureBox1);
             Controls.Add(btnIngresar);
             Controls.Add(txtPassword);
             Controls.Add(txtUsername);
+            Controls.Add(panelLogin);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             Load += Login_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxSpinner).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureInicio).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -133,8 +128,8 @@
         private TextBox txtUsername;
         private TextBox txtPassword;
         private Button btnIngresar;
-        private PictureBox pictureBox1;
+        private PictureBox pictureInicio;
         private Label lblTitulo;
-        private PictureBox pictureBoxSpinner;
+        private Panel panelLogin;
     }
 }

@@ -31,7 +31,7 @@ namespace proyecto_final_club_deportivo.GUI
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            double valorCuotaAnterior;
+            double valorCuotaBase;
             double valorCuotaActual;
             if (txtValorAnterior.Text != "" && txtValorActual.Text != "")
             {
@@ -40,8 +40,12 @@ namespace proyecto_final_club_deportivo.GUI
 
                 if(esNum1 && esNum2)
                 {
+                    // Valor de la cuota actual
                     valorCuotaActual = val2;
-                    valorCuotaAnterior = val1;
+
+                    // Valor de la cuota que será tomada como base para el cálculo de la deuda
+                    valorCuotaBase = val1;
+                    
                     double valorAdeudado = 0;
                     DateTime fechaActual = DateTime.Today;
 
@@ -55,13 +59,13 @@ namespace proyecto_final_club_deportivo.GUI
                         int numeroDeDias = diferencia.Days;
 
                         // Prorrateamos el monto de la cuota en 30 dias.
-                        double cuotaPorDia = valorCuotaActual / 30;
+                        double cuotaPorDia = valorCuotaBase / 30;
 
                         // Calculamos el monto a pagar de acuerdo al tiempo transcurrido desde el vencimiento
-                        double montoDiasDesdesVencimiento = cuotaPorDia * numeroDeDias;
+                        double montoDiasDesdeVencimiento = cuotaPorDia * numeroDeDias;
 
                         // Calculamos el monto total
-                        double monto = montoDiasDesdesVencimiento + valorCuotaAnterior;
+                        double monto = montoDiasDesdeVencimiento + valorCuotaActual;
 
                         // Aplicamos un recargo del 10% como interes punitorio
                         double recargo = monto * 0.10;
