@@ -162,6 +162,8 @@ namespace proyecto_final_club_deportivo.GUI
                             else
                             {
                                 // Caso contrario debe calcularse la deuda
+                                MessageBox.Show("Socio con deuda. Debe liquidarse la deuda para continuar.", "AVISO DEL SISTEMA",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 calcularDeuda(resp);
                             }
                         }
@@ -233,6 +235,7 @@ namespace proyecto_final_club_deportivo.GUI
 
                 // Establecer el valor en el campo de texto del formulario original
                 txtValor.Text = valor;
+                txtValor.Enabled = false;
                 checkValor.Checked = true;
             }
         }
