@@ -34,8 +34,7 @@ namespace proyecto_final_club_deportivo.GUI
             txtTelefono.ForeColor = Color.Gray;
             txtUsername.ForeColor = Color.Gray;
             txtPassword.ForeColor = Color.Gray;
-            cmbRol.SelectedItem = null;
-            cmbRol.SelectedText = "--select--";
+            cmbRol.SelectedIndex = 1;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -55,8 +54,8 @@ namespace proyecto_final_club_deportivo.GUI
                 string telefono = txtTelefono.Text;
                 string rolName = cmbRol.SelectedItem.ToString();
 
-                if (nombre != "" && apellido != "" && dni != "" && telefono != "" && rolName != "" &&
-                    username != "" && email != "" && password != "")
+                if (nombre != "Nombre" && apellido != "Apellido" && dni != "DNI" && telefono != "Telefono" &&
+                    username != "Username" && email != "Email" && password != "Password")
                 {
                     string passEncriptado = UsuarioController.getSHA256(password);
 
@@ -230,8 +229,7 @@ namespace proyecto_final_club_deportivo.GUI
             txtTelefono.Text = "Telefono";
             txtUsername.Text = "Username";
             txtPassword.Text = "Password";
-            cmbRol.SelectedItem = null;
-            cmbRol.SelectedText = "--select--";
+            cmbRol.SelectedIndex = 1;
             txtPassword.UseSystemPasswordChar = false;
             txtNombre.ForeColor = Color.Gray;
             txtApellido.ForeColor = Color.Gray;
