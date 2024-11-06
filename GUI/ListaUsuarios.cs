@@ -38,6 +38,11 @@ namespace proyecto_final_club_deportivo.GUI
             }
         }
 
+        private void btnRecargar_Click(object sender, EventArgs e)
+        {
+            cargarTabla();
+        }
+
         private void personalizarColumnas()
         {
             // Cambiar nombres de columnas

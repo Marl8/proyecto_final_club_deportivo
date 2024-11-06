@@ -40,6 +40,7 @@
             btnEditar = new Button();
             btnEliminar = new Button();
             txtUsuario = new TextBox();
+            btnRecargar = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtgvUsuarios).BeginInit();
             SuspendLayout();
@@ -145,7 +146,7 @@
             btnEditar.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnEditar.Image = (Image)resources.GetObject("btnEditar.Image");
             btnEditar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEditar.Location = new Point(712, 184);
+            btnEditar.Location = new Point(712, 242);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(108, 37);
             btnEditar.TabIndex = 83;
@@ -159,7 +160,7 @@
             btnEliminar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnEliminar.Image = (Image)resources.GetObject("btnEliminar.Image");
             btnEliminar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminar.Location = new Point(712, 249);
+            btnEliminar.Location = new Point(712, 302);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(108, 37);
             btnEliminar.TabIndex = 84;
@@ -178,12 +179,27 @@
             txtUsuario.Enter += txtUsuario_Enter;
             txtUsuario.Leave += txtUsuario_Leave;
             // 
+            // btnRecargar
+            // 
+            btnRecargar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnRecargar.Image = (Image)resources.GetObject("btnRecargar.Image");
+            btnRecargar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnRecargar.Location = new Point(712, 184);
+            btnRecargar.Name = "btnRecargar";
+            btnRecargar.Size = new Size(108, 37);
+            btnRecargar.TabIndex = 86;
+            btnRecargar.Text = "RECARGAR";
+            btnRecargar.TextAlign = ContentAlignment.MiddleRight;
+            btnRecargar.UseVisualStyleBackColor = true;
+            btnRecargar.Click += btnRecargar_Click;
+            // 
             // ListaUsuarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkSlateBlue;
             ClientSize = new Size(832, 456);
+            Controls.Add(btnRecargar);
             Controls.Add(txtUsuario);
             Controls.Add(btnEliminar);
             Controls.Add(btnEditar);
@@ -220,5 +236,6 @@
         private Button btnEditar;
         private Button btnEliminar;
         private TextBox txtUsuario;
+        private Button btnRecargar;
     }
 }
