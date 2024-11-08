@@ -45,14 +45,17 @@ namespace proyecto_final_club_deportivo.GUI
                     dtgvSocios.Rows[renglon].Cells[5].Value = row[5].ToString();
 
                     int idSocio = int.Parse(row[0].ToString());
+                    
+                    // Buscamos la última fecha de vencimiento de la cuota para el socio 
                     DateTime fechaProxVenc = cuotaController.buscarFechaVencimiento(idSocio);
 
                     DateTime fechaVencimiento = Convert.ToDateTime(row[4]);
                     dtgvSocios.Rows[renglon].Cells[4].Value = fechaVencimiento.ToString("dd/MM/yyyy");
 
-                    /* Si la fecha de vencimiento actual coincide con la última fecha registrada de próximo pago 
-                     * es porque la cuota se encuentra impaga(dado que si se hubiera efectuado el pago el sistema 
-                     * tendría registrada una cuota con fecha de próximo vencimiento más a futuro).
+                    /* Si la fecha de vencimiento actual(el día en curso) coincide con la última fecha registrada 
+                     * de próximo pago(última fecha de vencimiento registada) es porque la cuota se encuentra impaga
+                     * (dado que si se hubiera efectuado el pago el sistema tendría registrada una cuota con fecha de
+                     * próximo vencimiento más a futuro para el socio en cuestíon).
                      * En consecuencia se la setea como Pediente en caso contrario la cuota ya se encuentra paga.
                     */
                     if (fechaVencimiento == fechaProxVenc)
