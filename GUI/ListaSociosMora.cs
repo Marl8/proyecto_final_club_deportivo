@@ -85,6 +85,12 @@ namespace proyecto_final_club_deportivo.GUI
             numFila = e.RowIndex;
         }
 
+        /***
+         * Método para suspender a un socio en la práctica de actividades por falta de pago.
+         * La suspensión no implica su baja por lo cual el socio continuará devengando deuda
+         * hasta que esta se haga efectiva.
+         * Una vez regularizada su situación será rehabilitado para la práctica de actividades.
+         * **/
         private void btnSuspender_Click(object sender, EventArgs e)
         {
             string estado = "0";

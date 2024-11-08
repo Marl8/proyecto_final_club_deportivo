@@ -97,12 +97,12 @@ namespace proyecto_final_club_deportivo.GUI
 
         /**
          * Método que gestiona el pago de una cuota.
-         * Si el socio esá siendo inscripto, por lo cual paga su primera cuota, primero
-         * generamos la cuota y registramos su pago. El primer pago solo puede realizarse 
+         * Si el socio esá siendo inscripto, por lo cual paga su primera cuota, se
+         * genera la cuota y registra su pago. El primer pago solo puede realizarse 
          * en Efectivo.
          * Si el socio ya estaba inscripto se procede al pago de la cuota y fija la fecha
-         * de vencimiento de la cuota siguiente pago a los 30 dias posteriores de la
-         * fecha en la que se realiza el presente pago.
+         * de vencimiento de la cuota siguiente a los 30 dias posteriores de la fecha en 
+         * la que se realiza el presente pago.
          * **/
 
         private void btnPagar_Click(object sender, EventArgs e)
@@ -128,7 +128,7 @@ namespace proyecto_final_club_deportivo.GUI
                         // Si no hay cuotas registradas en el sistema entonces es un socio socio y se genera su primera cuota
                         if (codigo == 0)
                         {
-                            /* Se crea en primer lugar la cuota y luego se abona. 
+                            /* Se genera la cuota y se abona. 
                              * La fecha de vencimiento al no existir por ser la primer cuota y abonarse al momento 
                              * se fija en el dia del pago. 
                              */
@@ -189,8 +189,8 @@ namespace proyecto_final_club_deportivo.GUI
         }
 
         /**
-         * Método que verifica la exitencia de cuotas impagas(solo puede habr una sola cuota impaga
-         * dado que, luego el socio es inahibiltado) si existe deuda se procede a su cálculo.
+         * Método que verifica la exitencia de deuda.
+         * Si existe deuda se procede a su cálculo.
          * **/
 
         private void btnVerificarDeuda_Click(object sender, EventArgs e)
