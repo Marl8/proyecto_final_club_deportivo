@@ -155,19 +155,30 @@ namespace proyecto_final_club_deportivo.GUI
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (numFila < dtgvUsuarios.RowCount)
+            // Mostrar el MessageBox de confirmación
+            DialogResult result = MessageBox.Show("¿Está seguro de que desea eliminar este elemento?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Verificar la respuesta del usuario
+            if (result == DialogResult.Yes)
             {
-                int id = int.Parse(dtgvUsuarios.Rows[numFila].Cells[0].Value.ToString());
-                string respuesta = usuarioController.eliminarUsuario(id);
-                if (respuesta.Equals("0"))
+                if (numFila < dtgvUsuarios.RowCount)
                 {
-                    MessageBox.Show("El usuario no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    int id = int.Parse(dtgvUsuarios.Rows[numFila].Cells[0].Value.ToString());
+                    string respuesta = usuarioController.eliminarUsuario(id);
+                    if (respuesta.Equals("0"))
+                    {
+                        MessageBox.Show("El usuario no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario eliminado con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cargarTabla();
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Usuario eliminado con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    cargarTabla();
-                }
+            }
+            else
+            {
+                MessageBox.Show("La eliminación ha sido cancelada.", "Eliminación cancelada", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

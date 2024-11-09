@@ -1,10 +1,12 @@
 ﻿using MySql.Data.MySqlClient;
 using proyecto_final_club_deportivo.Entities;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
@@ -219,6 +221,60 @@ namespace proyecto_final_club_deportivo.Datos
                 { sqlCon.Close(); };
             }
             return respuesta;
+        }
+
+        /* Para dar de baja un socio debemos hacer un delete en cascada primero eliminar
+        * sus cuotas asociadas para luego poder proceder a su eliminación de la tabla socios.
+        **/
+        public void eliminarCuotasSocio(int idSocio)
+        {
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                string query = "DELETE FROM cuotas WHERE fk_socio = @id";
+                MySqlCommand comando = new MySqlCommand(query, sqlCon);
+                comando.CommandType = CommandType.Text;
+
+                comando.Parameters.AddWithValue("@id", idSocio);
+                sqlCon.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open)
+                { sqlCon.Close(); };
+            }
+        }
+
+
+        public void eliminarSocio(int id)
+        {
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                string query = "DELETE FROM socios WHERE id_socio = @id";
+                MySqlCommand comando = new MySqlCommand(query, sqlCon);
+                comando.CommandType = CommandType.Text;
+
+                comando.Parameters.AddWithValue("@id", id);
+                sqlCon.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open)
+                { sqlCon.Close(); };
+            }
         }
     }
 }

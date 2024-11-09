@@ -1,4 +1,5 @@
-﻿using proyecto_final_club_deportivo.Logica;
+﻿using proyecto_final_club_deportivo.Entities;
+using proyecto_final_club_deportivo.Logica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -65,7 +66,7 @@ namespace proyecto_final_club_deportivo.GUI
             }
             else
             {
-                MessageBox.Show("No hay Socios morosos","AVISO DEL SISTEMA", MessageBoxButtons.OK,
+                MessageBox.Show("No hay Socios morosos", "AVISO DEL SISTEMA", MessageBoxButtons.OK,
                 MessageBoxIcon.Warning);
             }
         }
@@ -114,6 +115,40 @@ namespace proyecto_final_club_deportivo.GUI
             }
             dtgvSociosMora.Rows.Clear();
             cargarTabla();
+        }
+
+        private void btnBaja_Click(object sender, EventArgs e)
+        {
+            // Mostrar el MessageBox de confirmación
+            DialogResult result = MessageBox.Show("¿Está seguro de que desea eliminar este elemento?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Verificar la respuesta del usuario
+            if (result == DialogResult.Yes)
+            {
+                if (numFila < dtgvSociosMora.RowCount)
+                {
+                    string dniSocio = dtgvSociosMora.Rows[numFila].Cells[3].Value.ToString();
+                    int id = int.Parse(dtgvSociosMora.Rows[numFila].Cells[0].Value.ToString());
+                    this.controller.eliminarCuotaSocio(id);
+                    this.controller.eliminarSocio(id);
+                    Socio socio = controller.buscarSocio(dniSocio);
+
+                    if (socio == null)
+                    {
+                        MessageBox.Show("El elemento ha sido eliminado.", "Eliminación completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dtgvSociosMora.Rows.Clear();
+                        cargarTabla();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ha ocurrido un error. No se ha podido completar la operación.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("La eliminación ha sido cancelada.", "Eliminación cancelada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

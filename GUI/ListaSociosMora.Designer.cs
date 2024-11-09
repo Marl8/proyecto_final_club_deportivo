@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             lblUsuario = new Label();
             pictureBox8 = new PictureBox();
             label1 = new Label();
             btnVolver = new Button();
             dtgvSociosMora = new DataGridView();
-            btnSuspender = new Button();
             Id = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             Apellido = new DataGridViewTextBoxColumn();
@@ -44,6 +43,8 @@
             FechaVenc = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
             EstadoSocio = new DataGridViewTextBoxColumn();
+            btnSuspender = new Button();
+            btnBaja = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtgvSociosMora).BeginInit();
             SuspendLayout();
@@ -96,48 +97,37 @@
             // dtgvSociosMora
             // 
             dtgvSociosMora.BackgroundColor = Color.DarkSlateBlue;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.LightGray;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dtgvSociosMora.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = Color.LightGray;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dtgvSociosMora.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dtgvSociosMora.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvSociosMora.Columns.AddRange(new DataGridViewColumn[] { Id, Nombre, Apellido, Dni, FechaVenc, Estado, EstadoSocio });
             dtgvSociosMora.EnableHeadersVisualStyles = false;
             dtgvSociosMora.Location = new Point(12, 137);
             dtgvSociosMora.Name = "dtgvSociosMora";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dtgvSociosMora.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dtgvSociosMora.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dtgvSociosMora.RowTemplate.Height = 25;
             dtgvSociosMora.Size = new Size(670, 301);
             dtgvSociosMora.TabIndex = 79;
             dtgvSociosMora.CellClick += dtgvSociosMora_CellClick;
             // 
-            // btnSuspender
-            // 
-            btnSuspender.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSuspender.Location = new Point(696, 209);
-            btnSuspender.Name = "btnSuspender";
-            btnSuspender.Size = new Size(92, 37);
-            btnSuspender.TabIndex = 80;
-            btnSuspender.Text = "SUSPENDER";
-            btnSuspender.UseVisualStyleBackColor = true;
-            btnSuspender.Click += btnSuspender_Click;
-            // 
             // Id
             // 
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            Id.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            Id.DefaultCellStyle = dataGridViewCellStyle5;
             Id.HeaderText = "Id";
             Id.Name = "Id";
             Id.Width = 50;
@@ -178,12 +168,35 @@
             EstadoSocio.Name = "EstadoSocio";
             EstadoSocio.Width = 83;
             // 
+            // btnSuspender
+            // 
+            btnSuspender.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSuspender.Location = new Point(696, 209);
+            btnSuspender.Name = "btnSuspender";
+            btnSuspender.Size = new Size(92, 37);
+            btnSuspender.TabIndex = 80;
+            btnSuspender.Text = "SUSPENDER";
+            btnSuspender.UseVisualStyleBackColor = true;
+            btnSuspender.Click += btnSuspender_Click;
+            // 
+            // btnBaja
+            // 
+            btnBaja.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnBaja.Location = new Point(696, 268);
+            btnBaja.Name = "btnBaja";
+            btnBaja.Size = new Size(92, 37);
+            btnBaja.TabIndex = 81;
+            btnBaja.Text = "BAJA";
+            btnBaja.UseVisualStyleBackColor = true;
+            btnBaja.Click += btnBaja_Click;
+            // 
             // ListaSociosMora
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkSlateBlue;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnBaja);
             Controls.Add(btnSuspender);
             Controls.Add(dtgvSociosMora);
             Controls.Add(btnVolver);
@@ -217,5 +230,6 @@
         private DataGridViewTextBoxColumn FechaVenc;
         private DataGridViewTextBoxColumn Estado;
         private DataGridViewTextBoxColumn EstadoSocio;
+        private Button btnBaja;
     }
 }

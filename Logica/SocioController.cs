@@ -37,5 +37,15 @@ namespace proyecto_final_club_deportivo.Logica
         {
             return socioRepository.modificarEstadoSocio(dni, estado);
         }
+
+        public void eliminarCuotaSocio(int idSocio)
+        {
+            socioRepository.eliminarCuotasSocio(idSocio);
+        }
+
+        public void eliminarSocio(int idSocio)
+        {
+            socioRepository.eliminarSocio(idSocio);
+        }
     }
 }
