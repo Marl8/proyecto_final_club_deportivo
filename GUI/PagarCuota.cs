@@ -129,7 +129,7 @@ namespace proyecto_final_club_deportivo.GUI
                         if (codigo == 0)
                         {
                             /* Se genera la cuota y se abona. 
-                             * La fecha de vencimiento al no existir por ser la primer cuota y abonarse al momento 
+                             * La fecha de vencimiento al no existir por ser la primera cuota y abonarse al momento 
                              * se fija en el dia del pago. 
                              */
                             DateTime fechaVenc = DateTime.Today;
@@ -145,7 +145,8 @@ namespace proyecto_final_club_deportivo.GUI
                         else if (codigo == 1)
                         {
                             /* Buscamos la última fecha de próximo vencimiento registrada para el socio,la cual constituye el
-                               el plazo de pago para el vecimciento actual */   
+                               el plazo de pago para el vecimciento actual */  
+                            
                             DateTime resp = controller.buscarFechaVencimiento(id);
 
                             /* Comparamos fecha de vencimiento con la fecha actual.
