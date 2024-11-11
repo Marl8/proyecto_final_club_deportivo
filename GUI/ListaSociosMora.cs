@@ -120,7 +120,7 @@ namespace proyecto_final_club_deportivo.GUI
         private void btnBaja_Click(object sender, EventArgs e)
         {
             // Mostrar el MessageBox de confirmación
-            DialogResult result = MessageBox.Show("¿Está seguro de que desea eliminar este elemento?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("¿Está seguro de que desea dar de baja este socio?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             // Verificar la respuesta del usuario
             if (result == DialogResult.Yes)
@@ -135,7 +135,7 @@ namespace proyecto_final_club_deportivo.GUI
 
                     if (socio == null)
                     {
-                        MessageBox.Show("El elemento ha sido eliminado.", "Eliminación completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("El socio ha sido dado de baja.", "Eliminación completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         dtgvSociosMora.Rows.Clear();
                         cargarTabla();
                     }

@@ -156,7 +156,7 @@ namespace proyecto_final_club_deportivo.GUI
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             // Mostrar el MessageBox de confirmación
-            DialogResult result = MessageBox.Show("¿Está seguro de que desea eliminar este elemento?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("¿Está seguro de que desea dar de baja a este usuario?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             // Verificar la respuesta del usuario
             if (result == DialogResult.Yes)

@@ -125,7 +125,7 @@ namespace proyecto_final_club_deportivo.GUI
                         string formaPago = cmbFormaPago.Text;
                         int cantCuotas = int.Parse(cmbCantCuotas.Text);
 
-                        // Si no hay cuotas registradas en el sistema entonces es un socio socio y se genera su primera cuota
+                        // Si no hay cuotas registradas en el sistema entonces es un nuevo socio y se genera su primera cuota
                         if (codigo == 0)
                         {
                             /* Se genera la cuota y se abona. 
