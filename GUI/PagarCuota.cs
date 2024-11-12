@@ -272,7 +272,7 @@ namespace proyecto_final_club_deportivo.GUI
                     {
                         if (codigo == 1)
                         {
-                            MessageBox.Show("Se generó con éxito la cuota para el socio DNI: " + txtIdSocio.Text
+                            MessageBox.Show("Se generó con éxito la cuota para el Socio con Nº de Socio: " + txtIdSocio.Text
                             , "AVISO DEL SISTEMA",
                             MessageBoxButtons.OK, MessageBoxIcon.Question);
                         }
