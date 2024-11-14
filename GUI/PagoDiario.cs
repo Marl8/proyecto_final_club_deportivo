@@ -98,6 +98,7 @@ namespace proyecto_final_club_deportivo.GUI
                 if (int.Parse(idCliente) != 0)
                 {
                     txtIdNoSocio.Text = idCliente;
+                    this.idNoSocio = idCliente;
                 }
                 else
                 {
@@ -134,22 +135,22 @@ namespace proyecto_final_club_deportivo.GUI
                     int idActividad = this.ListaIds[i];
                     double monto = this.ListaMontos[i];
                     respuesta = controller.pagarActividadDiaria(id, idActividad, fecha, monto);
-                }
 
-                if (int.Parse(respuesta) == 0)
-                {
-                    MessageBox.Show("OCURRIÓ UN ERROR INTENTE NUEVAMENTE", "AVISO DEL SISTEMA",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else if (int.Parse(respuesta) == 1)
-                {
-                    MessageBox.Show("Se registró con éxito el pago del cliente con Nro. de No socio "
-                        + txtIdNoSocio.Text, "AVISO DEL SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                }
-                else if (int.Parse(respuesta) == 2)
-                {
-                    MessageBox.Show("CLIENTE NO ESTA INSCRIPTO", "AVISO DEL SISTEMA",
+                    if (int.Parse(respuesta) == 0)
+                    {
+                        MessageBox.Show("OCURRIÓ UN ERROR INTENTE NUEVAMENTE", "AVISO DEL SISTEMA",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (int.Parse(respuesta) == 1)
+                    {
+                        MessageBox.Show("Se registró con éxito el pago del cliente con Nro. de No socio "
+                            + txtIdNoSocio.Text, "AVISO DEL SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    }
+                    else if (int.Parse(respuesta) == 2)
+                    {
+                        MessageBox.Show("CLiente no esta inscripto en la actividad con id: " + idActividad, "AVISO DEL SISTEMA",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             else

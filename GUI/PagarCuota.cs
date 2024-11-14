@@ -154,7 +154,7 @@ namespace proyecto_final_club_deportivo.GUI
                              * de la deuda.
                              * Si el plazo de vencimiento no se cumplió o si el checkBox esta en estado TRUE 
                              * debido a que ya se calculo la deuda del socio se puede procesar el pago */
-                            if (resp > DateTime.Today || checkValor.Checked == true)
+                            if (resp >= DateTime.Today || checkValor.Checked == true)
                             {
                                 crearCuota(id, resp);
                                 bool estado = true;

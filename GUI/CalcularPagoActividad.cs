@@ -56,9 +56,8 @@ namespace proyecto_final_club_deportivo.GUI
             pago.montoTotal = this.MontoTotal;
             pago.ListaIds = this.ListaIds;
             pago.ListaMontos = this.ListaMontos;
-            if(this.idNoSocio == null)
+            if(this.idNoSocio != null)
             {
-                this.idNoSocio = "";
                 pago.idNoSocio = this.idNoSocio;
             }
             pago.Show();

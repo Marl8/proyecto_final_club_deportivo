@@ -35,23 +35,23 @@ namespace proyecto_final_club_deportivo.Datos
         private string clave;
         private static Conexion? con = null;
 
-        /*private Conexion() 
+        private Conexion() 
         {
             this.baseDatos = "proyecto_club_deportivo";
             this.servidor = "localhost";
             this.puerto = "3306";
             this.usuario = "root";
             this.clave = "4842";
-        }*/
+        }
 
-        private Conexion()
+        /*private Conexion()
         {
             this.baseDatos = "bm0cbfipzlmy25cartq2";
             this.servidor = "bm0cbfipzlmy25cartq2-mysql.services.clever-cloud.com";
             this.puerto = "3306";
             this.usuario = "ugjrogu4xztm9uix";
             this.clave = "HJFkxQONPWlyE13xxf7u";
-        }
+        }*/
 
         // proceso de interacción
         public MySqlConnection CrearConexion()
