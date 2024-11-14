@@ -124,7 +124,7 @@ namespace proyecto_final_club_deportivo.GUI
          **/
         private void btnPagar_Click(object sender, EventArgs e)
         {
-            if (txtDniNoSocio.Text != "" && txtMonto.Text != "0" && this.ListaIds.Count > 0)
+            if (txtIdNoSocio.Text != "" && txtMonto.Text != "0" && this.ListaIds.Count > 0)
             {
                 int id = int.Parse(txtIdNoSocio.Text);
                 DateTime fecha = txtDiaHabilitado.Value;

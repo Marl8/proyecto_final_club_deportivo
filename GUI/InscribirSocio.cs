@@ -71,37 +71,41 @@ namespace proyecto_final_club_deportivo
                 if (cmbAptoFisico.Text.Equals("Si"))
                 {
                     aptoFisico = true;
+                    string nombre = txtNombre.Text;
+                    string apellido = txtApellido.Text;
+                    string dni = txtDni.Text;
+                    string email = txtEmail.Text;
+                    string telefono = txtTelefono.Text;
+
+                    Socio socio = new Socio(estado, aptoFisico, nombre, apellido, dni, email, telefono);
+
+                    respuesta = socioController.inscribirSocio(socio);
+                    bool convertido = int.TryParse(respuesta, out int codigo);
+                    if (convertido)
+                    {
+                        if (codigo == 1)
+                        {
+                            MessageBox.Show("EL CLIENTE YA EXISTE", "AVISO DEL SISTEMA",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Se almacenó con éxito el cliente con Nro. de socio "
+                                + respuesta, "AVISO DEL SISTEMA",
+                            MessageBoxButtons.OK, MessageBoxIcon.Question);
+                            string formaPago = "Efectivo";
+                            PagarCuota pagarCuota = new PagarCuota(respuesta, formaPago, socio.Dni.ToString());
+                            pagarCuota.usuario = usuario;
+                            pagarCuota.rol = rol;
+                            pagarCuota.Show();
+                            this.Hide();
+                        }
+                    }
                 }
-
-                string nombre = txtNombre.Text;
-                string apellido = txtApellido.Text;
-                string dni = txtDni.Text;
-                string email = txtEmail.Text;
-                string telefono = txtTelefono.Text;
-
-                Socio socio = new Socio(estado, aptoFisico, nombre, apellido, dni, email, telefono);
-
-                respuesta = socioController.inscribirSocio(socio);
-                bool convertido = int.TryParse(respuesta, out int codigo);
-                if (convertido)
+                else
                 {
-                    if (codigo == 1)
-                    {
-                        MessageBox.Show("EL CLIENTE YA EXISTE", "AVISO DEL SISTEMA",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Se almacenó con éxito el cliente con Nro. de socio "
-                            + respuesta, "AVISO DEL SISTEMA",
-                        MessageBoxButtons.OK, MessageBoxIcon.Question);
-                        string formaPago = "Efectivo";
-                        PagarCuota pagarCuota = new PagarCuota(respuesta, formaPago, socio.Dni.ToString());
-                        pagarCuota.usuario = usuario;
-                        pagarCuota.rol = rol;  
-                        pagarCuota.Show();
-                        this.Hide();
-                    }
+                    MessageBox.Show("Debe presentarse el Apto físico para poder continuar con la inscripción", "AVISO DEL SISTEMA",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
