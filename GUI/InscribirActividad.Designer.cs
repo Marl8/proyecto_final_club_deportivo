@@ -1,4 +1,7 @@
-﻿namespace proyecto_final_club_deportivo
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace proyecto_final_club_deportivo
 {
     partial class InscribirActividad
     {

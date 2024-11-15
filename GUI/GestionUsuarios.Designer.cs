@@ -1,4 +1,7 @@
-﻿namespace proyecto_final_club_deportivo.GUI
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace proyecto_final_club_deportivo.GUI
 {
     partial class GestionUsuarios
     {
