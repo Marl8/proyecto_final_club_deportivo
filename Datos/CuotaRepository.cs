@@ -171,7 +171,11 @@ namespace proyecto_final_club_deportivo.Datos
             try
             {
                 sqlCon = Conexion.getInstancia().CrearConexion();
-                MySqlCommand comando = new MySqlCommand("SELECT idCuota FROM cuotas WHERE fk_socio = @id and fecha_prox_vencimiento < @fecha", sqlCon);
+                string query = "SELECT c.idCuota FROM cuotas AS c INNER JOIN socios s ON s.id_socio = c.fk_socio " +
+                    "JOIN (SELECT fk_socio, MAX(fecha_prox_vencimiento) AS max_fecha FROM cuotas GROUP BY fk_socio) AS px " +
+                    "ON c.fk_socio = px.fk_socio AND c.fecha_prox_vencimiento = px.max_fecha " +
+                    "WHERE px.max_fecha < @fecha and id_socio = @id ORDER BY c.fecha_prox_vencimiento DESC";
+                MySqlCommand comando = new MySqlCommand(query, sqlCon);
 
                 comando.Parameters.AddWithValue("@id", idSocio);
                 comando.Parameters.AddWithValue("@fecha", DateTime.Now.Date);
