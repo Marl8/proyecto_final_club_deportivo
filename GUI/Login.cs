@@ -6,6 +6,10 @@ using System.Windows.Forms;
 using proyecto_final_club_deportivo.Logica;
 using proyecto_final_club_deportivo.Entities;
 using System.Runtime.CompilerServices;
+using System.IO;
+using System;
+using System.Drawing;
+using System.Threading.Tasks;
 
 namespace proyecto_final_club_deportivo
 {

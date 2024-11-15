@@ -1,6 +1,8 @@
 ﻿using proyecto_final_club_deportivo.Entities;
 using proyecto_final_club_deportivo.Logica;
+using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace proyecto_final_club_deportivo.GUI

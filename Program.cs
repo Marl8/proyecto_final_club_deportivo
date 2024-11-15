@@ -1,3 +1,6 @@
+using System;
+using System.Windows.Forms;
+
 namespace proyecto_final_club_deportivo
 {
     internal static class Program
