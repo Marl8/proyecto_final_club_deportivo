@@ -103,6 +103,7 @@ namespace proyecto_final_club_deportivo.Datos
             this.clave = T_clave; // "";
         }*/
 
+
         // proceso de interacción
         public MySqlConnection CrearConexion()
         {
