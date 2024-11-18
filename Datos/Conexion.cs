@@ -9,20 +9,20 @@ using System.Windows.Forms;
 
 
 /**
-         * Encriptamos la contraseña con una algoritmo SHA256 ya es considerado muy mala práctica guardar
-         * contraseñas planas en la base de datos.
-         * Sin embargo, a los fines de facilitar el acceso a la aplicación con el objeto de probar su 
-         * funcionamiento se adjuntan los datos de logeo.
-         * 
-         * USUARIO ROL ADMINISTRADOR:
-         * 
-         * Username: prueba
-         * Password: 123
-         * 
-         * USUARIO ROL EMPLEADO:
-         * Username: fabi
-         * Password: 12345
-         * **/
+    * Encriptamos la contraseña con una algoritmo SHA256 ya es considerado muy mala práctica guardar
+    * contraseñas planas en la base de datos.
+    * Sin embargo, a los fines de facilitar el acceso a la aplicación con el objeto de probar su 
+    * funcionamiento se adjuntan los datos de logeo.
+    * 
+    * USUARIO ROL ADMINISTRADOR:
+    * 
+    * Username: prueba
+    * Password: 123
+    * 
+    * USUARIO ROL EMPLEADO:
+    * Username: fabi
+    * Password: 12345
+* **/
 
 namespace proyecto_final_club_deportivo.Datos
 {
