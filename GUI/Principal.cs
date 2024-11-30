@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,7 @@ namespace proyecto_final_club_deportivo
         public Principal()
         {
             InitializeComponent();
+            this.FormClosing += MainForm_FormClosing;
         }
 
         private void Principal_Load(object sender, EventArgs e)
@@ -182,6 +184,23 @@ namespace proyecto_final_club_deportivo
         private void btnGestionUsuarios_MouseLeave(object sender, EventArgs e)
         {
             btnGestionUsuarios.BackColor = Color.FromArgb(192, 192, 255);
+        }
+
+        // Eliminar el XML con la configuración de los datos de conexión 
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            string archivoConfiguracion = "configuracion.xml";
+            if (File.Exists(archivoConfiguracion))
+            {
+                try
+                {
+                    File.Delete(archivoConfiguracion);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"No se pudo eliminar el archivo de configuración: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
