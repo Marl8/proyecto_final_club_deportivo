@@ -1,4 +1,4 @@
-## <div align = "center"> Proyecto Final Desarrollo Orientado a Objetos - IFTS Nº 29 <div/>
+## <div align = "center"> Proyecto Final Desarrollo de Sistemas Orientado a Objetos - IFTS Nº 29 <div/>
 
 <br/>
 
