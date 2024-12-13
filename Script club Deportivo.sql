@@ -1,6 +1,4 @@
 /*
-NOTA: Encriptamos la contraseña con una algoritmo SHA256 ya es considerado muy mala práctica guardar
-contraseñas planas en la base de datos.
 A los fines de facilitar el acceso a la aplicación con el objeto de probar su funcionamiento se
 adjuntan los datos de logeo.
 Username: prueba
