@@ -97,18 +97,6 @@ insert into roles values
 (1,'Administrador'),
 (2, 'Empleado');
 
-/*
-NOTA: Encriptamos la contraseña con una algoritmo SHA256 ya es considerado muy mala práctica guardar
-contraseñas planas en la base de datos.
-A los fines de facilitar el acceso a la aplicación con el objeto de probar su funcionamiento se
-adjuntan los datos de logeo.
-Username: prueba
-Password: 123
-
-Username: fabi
-Password: 12345
-*/
-
 insert into usuarios values
 (1, 'Juan', 'Perez', 'prueba', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', '31526785', 'juanp@gmail.com', '11526789254', 1),
 (2, 'Fabiana', 'Altamirano', 'fabi', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '37506998', 'fabial@gmail.com', '1152589163', 2);
